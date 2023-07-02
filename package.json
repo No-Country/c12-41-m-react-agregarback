@@ -1,0 +1,17 @@
+{
+  "name": "c12-41-m-react-agregarback",
+  "version": "1.0.0",
+  "description": "---\r # Desarrolladores Frontend React\r ### Aron Resnicoff\r ### Emilio Rivas Ruiz\r ### Fabricio Reyna\r ### Gabriel Medina\r ### Gabriel Shimabuku\r ### Luisa Garcia\r ### Sergio Torres Guaymasi\r ---",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch ./src",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
