@@ -5,13 +5,16 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "node --watch ./src",
+    "dev": "node --watch ./src/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "jwt-simple": "^0.5.6",
+    "mysql2": "^3.4.3",
+    "sequelize": "^6.32.1"
   }
 }
