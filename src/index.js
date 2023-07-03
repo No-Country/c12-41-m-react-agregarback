@@ -1,32 +1,43 @@
 import express from "express";
-import db from "./db/connection.js";
+//configurar variables de entorno
+import dotenv from "dotenv";
+dotenv.config();
+
+import cors from "cors";
+import rateLimit from "express-rate-limit";
+import helmet from "helmet";
+import hpp from "hpp";
+//rutas
 import userRoutes from "./routes/userRoutes.js";
+import accountRoutes from "./routes/account.routes.js";
+import AppError from "./utils/AppError.js"
+import globalErrorHandler from "./controllers/error.controller.js";
+
+//manejo de errores
 
 const app = express();
-const PORT = process.env.PORT || 3000;
-
 //MIDDLEWARES
 app.use(express.json());
+app.use(cors());
+app.use(helmet());
+app.use(hpp());
+const limiter = rateLimit({
+  max: 1000,
+  windowMs: 60 * 60 * 1000,
+  message: "too many renders from this api",
+});
+app.use("/api/v1", limiter);
 
 //ROUTES
-app.use(userRoutes);
+app.use("/api/v1/users", userRoutes);
+app.use("/api/v1/account", accountRoutes);
 
-async function startServer() {
-    try {
-        // Conectar a la base de datos
-        await db.authenticate();
-        console.log('DB connection success');
+// cualquier ruta no declarada
+app.all("*", (req, res, next) => {
+  return next(
+    new AppError(`Cant find ${req.originalUrl} on this server!`, 404)
+  );
+});
+app.use(globalErrorHandler);
 
-
-        app.listen(PORT, () => {
-            console.log(`Server online on port ${PORT}.`);
-        });
-    } catch (error) {
-        console.error('Error while connecting to DB', error);
-        throw new Error(error);
-    }
-
-}
-
-startServer();
-
+export default app;

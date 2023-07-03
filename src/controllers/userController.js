@@ -1,13 +1,31 @@
-import User from "../models/user.js";
+import catchAsync from "../utils/catchAsync.js";
+import UserServices from "../services/user.services.js";
+const userServices = new UserServices();
 
-export const postUser = async (req, res) => {
-    const body = req.body;
-    console.log(body);
-    try {
-        const user = new User(body);
-        await user.save();
-        res.json(user);
-    } catch (error) {
-        throw new Error(error);
-    }
-}
+export const singUp = catchAsync(async (req, res, next) => {
+  const data = req.body;
+  const { newUser, token } = await userServices.createUser({ data, next });
+
+  return res.status(200).json({
+    message: "user created",
+    status: "succes",
+    token,
+    user: newUser,
+  });
+});
+
+export const login = catchAsync(async (req, res, next) => {
+  const { email, password } = req.body;
+  const { user, token } = await userServices.loginUser({
+    email,
+    password,
+    next,
+  });
+
+  return res.status(200).json({
+    message: "login succes",
+    status: "succes",
+    token,
+    user,
+  });
+});
