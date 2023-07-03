@@ -45,6 +45,10 @@ const User = db.define(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
   },
   {
     freezeTableName: true,
