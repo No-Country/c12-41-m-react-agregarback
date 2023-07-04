@@ -36,16 +36,18 @@ export const validSingUp = [
     .withMessage("phone_number is require")
     .isInt()
     .withMessage("must be a integer"),
+  body("username")
+    .notEmpty()
+    .withMessage("username is required"),
   validateFields,
 ];
 
 export const validLogin = [
-  body("email")
+  body("username")
     .notEmpty()
-    .withMessage("email is require")
-    .isEmail()
-    .withMessage("invalid email"),
+    .withMessage("username is required"),
   body("password").notEmpty().withMessage("password is require"),
+  body("dni").notEmpty().withMessage("dni is require"),
   validateFields,
 ];
 

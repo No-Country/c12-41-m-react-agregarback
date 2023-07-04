@@ -5,7 +5,7 @@ import bcrypt from "bcryptjs";
 
 class UserServices {
   async createUser({ data, next }) {
-    const { name, email, password, date_of_birth, dni, address, phone_number } =
+    const { name, email, password, date_of_birth, dni, address, phone_number, username } =
       data;
     try {
       const user = await UserModel.findOne({
@@ -24,11 +24,11 @@ class UserServices {
     }
   }
 
-  async loginUser({ email, password, next }) {
+  async loginUser({ username, password, next }) {
     try {
       const user = await UserModel.findOne({
         where: {
-          email,
+          username,
           status: "active",
         },
       });
