@@ -1,15 +1,15 @@
 import React from "react";
 import axios from "axios";
 import validation from "./validate";
-
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { resolveBaseUrl } from "vite";
 
 function Form() {
     const [loginData, setLoginData] = React.useState({
         dni: "",
         username: "",
-        clave: ""
+        password: ""
     });
 
     const [userRegister, setUserRegisterData] = React.useState({
@@ -60,6 +60,7 @@ function Form() {
             const response = await axios.post("http://localhost:3000/api/v1/users/login", loginData);
 
             console.log(response.data);
+            sessionStorage.setItem("token", response.data.token);
 
         } catch (error) {
             console.error(error);
@@ -111,17 +112,17 @@ function Form() {
                                 />
                                 <p className="error">{errors.usuario}</p>
                             </div>
-                            <div className="clave">
-                                <label>Clave</label>
+                            <div className="password">
+                                <label>Contraseña</label>
                                 <input
                                     className="input"
-                                    placeholder="Clave"
+                                    placeholder="Contraseña"
                                     type="password"
-                                    name="clave"
-                                    value={loginData.clave}
+                                    name="password"
+                                    value={loginData.password}
                                     onChange={handleInputChange}
                                 />
-                                <p className="error">{errors.clave}</p>
+                                <p className="error">{errors.password}</p>
                                 <button type="submit" onChange={handleSubmit}>Iniciar sesion</button>
                             </div>
                         </div>
