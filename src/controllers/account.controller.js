@@ -3,12 +3,13 @@ import AccountServices from "../services/account.services.js";
 const accounServices = new AccountServices();
 
 export const createAccount = catchAsync(async (req, res, next) => {
-  const { id: userId } = req.sessionUser;
+  const { id: userId, name } = req.sessionUser;
   const { currency } = req.body;
   const account = await accounServices.createAccount({
     currency,
     next,
     userId,
+    name
   });
   return res.status(200).json({
     status: "succes",

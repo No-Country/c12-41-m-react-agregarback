@@ -68,3 +68,39 @@ export const validDeleteAccount = [
     .withMessage("account number has to have 9 numbers"),
   validateFields,
 ];
+
+const atLeastOneField = (value, { req }) => {
+  const { cbu, cvu, alias } = req.body;
+  const attirbute = cbu || cvu || alias;
+  return !!attirbute;
+};
+
+// Middleware de validación
+export const validTransferOptional = [
+  body("cbu").optional(),
+  body("cvu").optional(),
+  body("alias").optional(),
+  body()
+    .custom(atLeastOneField)
+    .withMessage("At least one of cbu, cvu, alias field is required"),
+  validateFields,
+];
+
+export const validTransferRequire = [
+  body("senderAccount")
+    .notEmpty()
+    .withMessage("sender account is require")
+    .isLength({ min: 9, max: 9 })
+    .withMessage("account number has to have 9 numbers"),
+  body("recieverAccount")
+    .notEmpty()
+    .withMessage("reciever account is require")
+    .isLength({ min: 9, max: 9 })
+    .withMessage("account number has to have 9 numbers"),
+  body("amount")
+    .notEmpty()
+    .withMessage("amoun is require")
+    .isFloat()
+    .withMessage("amoun has to be a number"),
+  validateFields,
+];

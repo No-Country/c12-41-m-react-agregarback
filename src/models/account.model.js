@@ -17,6 +17,21 @@ const AccountModel = db.define("account", {
     unique: true,
     allowNull: false,
   },
+  cbu: {
+    type: DataTypes.STRING,
+    unique: true,
+    allowNull: false,
+  },
+  cvu: {
+    type: DataTypes.STRING,
+    unique: true,
+    allowNull: false,
+  },
+  alias: {
+    type: DataTypes.STRING,
+    unique: true,
+    allowNull: false,
+  },
   status: {
     type: DataTypes.ENUM("active", "disable"),
     allowNull: false,
@@ -32,5 +47,7 @@ const AccountModel = db.define("account", {
     allowNull: false,
   },
 });
+
+// await AccountModel.sync({ force: true });
 
 export default AccountModel;

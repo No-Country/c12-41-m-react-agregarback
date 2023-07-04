@@ -3,6 +3,7 @@ import jwt from "jsonwebtoken";
 import UserModel from "../models/user.js";
 import catchAsync from "../utils/catchAsync.js";
 import AppError from "../utils/AppError.js";
+import UserServices from "../services/user.services.js";
 
 export const protect = catchAsync(async (req, res, next) => {
   let token;
@@ -39,3 +40,15 @@ export const protect = catchAsync(async (req, res, next) => {
   req.sessionUser = user;
   next();
 });
+
+// export const protectAccountOwner = catchAsync(async (req, res, next) => {
+//   const { userId } = req.params;
+//   const user = new UserServices().findUserById();
+//   const { sessionUser } = req;
+
+//   if (user.id !== sessionUser.id) {
+//     return next(new AppError("You do not own this account.", 401));
+//   }
+
+//   next();
+// });
