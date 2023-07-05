@@ -14,12 +14,10 @@ const TransferModel = db.define("transfers", {
   },
   senderAccount: {
     type: DataTypes.INTEGER,
-    unique: true,
     allowNull: false,
   },
   receiverAccount: {
     type: DataTypes.STRING,
-    unique: true,
     allowNull: false,
   },
   accountId: {

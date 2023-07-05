@@ -3,7 +3,7 @@ import db from "../db/connection.js";
 import bcrypt from "bcryptjs";
 
 const User = db.define(
-  "User",
+  "users",
   {
     id: {
       primaryKey: true,
@@ -24,9 +24,9 @@ const User = db.define(
       allowNull: false,
     },
     status: {
-      type: DataTypes.ENUM("active", "disable"),
+      type: DataTypes.BOOLEAN,
       allowNull: false,
-      defaultValue: "active",
+      defaultValue: true,
     },
     date_of_birth: {
       type: DataTypes.DATE,
@@ -51,7 +51,6 @@ const User = db.define(
     }
   },
   {
-    freezeTableName: true,
     timestamps: false,
     hooks: {
       beforeCreate: async (user) => {

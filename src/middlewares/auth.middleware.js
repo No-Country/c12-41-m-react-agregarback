@@ -1,6 +1,6 @@
 import { promisify } from "util";
 import jwt from "jsonwebtoken";
-import UserModel from "../models/user.js";
+import UserModel from "../models/user.model.js";
 import catchAsync from "../utils/catchAsync.js";
 import AppError from "../utils/AppError.js";
 import UserServices from "../services/user.services.js";
@@ -28,7 +28,7 @@ export const protect = catchAsync(async (req, res, next) => {
   const user = await UserModel.findOne({
     where: {
       id: decoded.id,
-      status: true,
+      status: "active",
     },
   });
 
