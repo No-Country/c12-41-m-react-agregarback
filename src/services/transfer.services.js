@@ -11,6 +11,7 @@ class TransferServices {
         AccountAttributes,
         next,
       });
+
       const recieverUserAccount = await this.accountServices.findOneAccount({
         AccountAttributes: { accountNumber: recieverAccount },
         next,
@@ -28,6 +29,15 @@ class TransferServices {
         amount: recieverUserAccount.amount + amount,
         next,
       });
+
+      const data = {
+        amount,
+        senderAccount: senderUserAccount.accountNumber,
+        receiverAccount: recieverUserAccount.accountNumber,
+        accountId: senderUserAccount.id
+      }
+      await TransferModel.create(data);
+
     } catch (error) {
       throw new Error(error);
     }

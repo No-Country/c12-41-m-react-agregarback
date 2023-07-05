@@ -28,7 +28,7 @@ export const protect = catchAsync(async (req, res, next) => {
   const user = await UserModel.findOne({
     where: {
       id: decoded.id,
-      status: true,
+      status: "active",
     },
   });
 

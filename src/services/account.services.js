@@ -7,6 +7,7 @@ import {
   generateAlias,
 } from "../utils/generateParamsAccount.js";
 import { Op } from "sequelize";
+import TransferModel from "../models/transfer.model.js";
 
 class AccountServices {
   userServices = new UserServices();
@@ -60,6 +61,20 @@ class AccountServices {
     try {
       const account = await AccountModel.findOne({
         where: AccountAttributes,
+      });
+      if (!account) {
+        throw next(new AppError("account not exist"), 404);
+      }
+      return account;
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+  async getAccountTransfersByUserIdAndCurrency({ AccountAttributes, next }) {
+    try {
+      const account = await AccountModel.findOne({
+        where: AccountAttributes,
+        include: TransferModel
       });
       if (!account) {
         throw next(new AppError("account not exist"), 404);

@@ -24,9 +24,9 @@ const User = db.define(
       allowNull: false,
     },
     status: {
-      type: DataTypes.ENUM("active", "disable"),
+      type: DataTypes.BOOLEAN,
       allowNull: false,
-      defaultValue: "active",
+      defaultValue: true,
     },
     date_of_birth: {
       type: DataTypes.DATE,
