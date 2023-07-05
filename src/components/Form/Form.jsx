@@ -3,7 +3,7 @@ import axios from "axios";
 import validation from "./validate";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { resolveBaseUrl } from "vite";
+// import { resolveBaseUrl } from "vite";
 
 function Form() {
     const [loginData, setLoginData] = React.useState({
