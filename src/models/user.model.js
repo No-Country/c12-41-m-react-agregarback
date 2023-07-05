@@ -3,7 +3,7 @@ import db from "../db/connection.js";
 import bcrypt from "bcryptjs";
 
 const User = db.define(
-  "User",
+  "users",
   {
     id: {
       primaryKey: true,
@@ -51,7 +51,6 @@ const User = db.define(
     }
   },
   {
-    freezeTableName: true,
     timestamps: false,
     hooks: {
       beforeCreate: async (user) => {

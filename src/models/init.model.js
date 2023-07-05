@@ -1,6 +1,6 @@
 import AccountModel from "./account.model.js";
 import TransferModel from "./transfer.model.js";
-import UserModel from "./user.js";
+import UserModel from "./user.model.js";
 
 const initModel = () => {
   UserModel.hasMany(AccountModel, { foreignKey: "userId" });
