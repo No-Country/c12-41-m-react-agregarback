@@ -8,8 +8,8 @@ const db = new Sequelize({
     username: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_DATABASE,
-    port: 3306,
-    logging:false
+    port: process.env.DB_PORT,
+    logging: false
 });
 
 export default db;
