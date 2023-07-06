@@ -72,7 +72,7 @@ function Form() {
 
         try {
 
-            const response = await axios.post("http://localhost:3000/api/v1/users/signup", userRegister);
+            const response = await axios.post("https://nocountrybackend.onrender.com/api/v1/users/signup", userRegister);
 
 
             console.log(response.data);
