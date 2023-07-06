@@ -11,6 +11,7 @@ function App() {
     <>
       <Sidenav />
       <Form />
+      <Home />
       <Footer />
     </>
 
