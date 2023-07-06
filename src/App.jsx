@@ -52,7 +52,7 @@ function App() {
       });
   }
 
-  function PrivateRoute ({ element: Element, ...rest }) {
+  function PrivateRoute({ element: Element, ...rest }) {
     const navigate = useNavigate()
     const token = sessionStorage.getItem('token');
 
