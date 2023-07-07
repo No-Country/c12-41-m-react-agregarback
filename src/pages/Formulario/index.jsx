@@ -1,11 +1,11 @@
-import React from "react";
-import Form from "../../components/Form/Form";
+// import React from "react";
+// import Form from "../../components/Form/Form";
 
-const Formulario = () =>{
-    return(
-        <>
-        <Form/>
-        </>
-    )
-}
-export default Formulario
+// const Formulario = () =>{
+//     return(
+        
+//         <Form/>
+        
+//     )
+// }
+// export default Formulario
