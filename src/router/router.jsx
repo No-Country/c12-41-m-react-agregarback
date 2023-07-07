@@ -1,13 +1,11 @@
 import { useState } from 'react'
-import './App.css'
-import Home from './components/HomePage/Home'
-import Footer from './components/Footer/Footer'
-import Sidenav from './components/Sidenav/Sidenav'
-import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
-import Login from './components/Form/Login/Login'
-import SignUp from './components/Form/SignUp/SignUp'
-function App() {
-  const navigate = useNavigate();
+import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
+import { HomeC } from "../pages/home";
+import NotFound from "../pages/Error";
+import Formulario from "../pages/Formulario";
+import Sidenav from '../components/Sidenav/Sidenav';
+export function Routers() {
+    const navigate = useNavigate();
   const location = useLocation();
   const [token, setToken] = useState(sessionStorage.getItem('token'));
 
@@ -53,30 +51,21 @@ function App() {
       });
   }
 
-
   function PrivateRoute({ element: Element, ...rest }) {
     const navigate = useNavigate()
-    const token = sessionStorage.getItem('token');  
-  if (!token) {
+    const token = sessionStorage.getItem('token');
+
+    if (!token) {
       navigate('/', { replace: true }); // Redirige a la ruta de inicio ("/") si no hay un token válido
       return null; // No renderizar nada mientras se redirige
     }
     return <Route {...rest} element={<Element />} />;
   }
-
- 
-
-
-
-  return (
-    <div className='App'>
-         <Routes>
-        <Route exact path='/' element={<Home />} />
-        <Route path='/signup' element={<SignUp register={register} />} />
-        <Route path='/login' element={<Login login={login} />} />
-      </Routes>
-    </div>
-  )
+    return (
+        <Routes>
+            <Route exact path="/" element={ <HomeC/> }/>
+            <Route path="/*" element={<NotFound/>}/>
+            <Route path="/formulario" element={<Formulario login={login}/>}/>
+        </Routes>
+    )
 }
-
-export default App;
