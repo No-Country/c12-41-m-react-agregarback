@@ -34,7 +34,7 @@ const Home = () => {
 
 
             <div className="flex items-center">
-              <NavLink to="/form">
+              <NavLink to="/formulario">
 
                 <a
                   href="/"
@@ -43,7 +43,7 @@ const Home = () => {
                   Crear cuenta
                 </a>
               </NavLink>
-              <NavLink to="/form">
+              <NavLink to="/formulario">
 
                 <a
                   href="/"
