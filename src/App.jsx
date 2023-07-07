@@ -1,10 +1,9 @@
 import { useState } from 'react'
 import './App.css'
-import Form from './components/Form/Form'
 import Home from './components/HomePage/Home'
-import Footer from './components/Footer/Footer'
-import Sidenav from './components/Sidenav/Sidenav'
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
+import Login from './components/Form/Login/Login'
+import SignUp from './components/Form/SignUp/SignUp'
 function App() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -67,7 +66,8 @@ function App() {
     <div className='App'>
       <Routes>
         <Route exact path='/' element={<Home />} />
-        <Route path='/form' element={<Form login={login} />} />
+        <Route path='/signup' element={<SignUp register={register} />} />
+        <Route path='/login' element={<Login login={login} />} />
       </Routes>
     </div>
   )

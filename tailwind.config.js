@@ -1,11 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./src/**/*.{js,jsx,ts,tsx}", 
+    "./src/**/*.{js,jsx,ts,tsx}",
     "./public/index.html"
   ],
   theme: {
-    colors:{
+    colors: {
       'transparent': 'transparent',
       'dark': '#1A1A1A',
       'white': '#ffff',
@@ -13,7 +13,11 @@ module.exports = {
       'orange': '#FBB23F',
       'yellow': '#F9EA32'
     },
-    extend: {},
+    extend: {
+      height: {
+        '70vh': '70vh',
+      },
+    },
   },
   plugins: [],
 }
