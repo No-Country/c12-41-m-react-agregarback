@@ -10,7 +10,8 @@ import hpp from "hpp";
 //rutas
 import userRoutes from "./routes/userRoutes.js";
 import accountRoutes from "./routes/account.routes.js";
-import AppError from "./utils/AppError.js"
+import cardRoutes from "./routes/card.routes.js";
+import AppError from "./utils/AppError.js";
 import globalErrorHandler from "./controllers/error.controller.js";
 
 //manejo de errores
@@ -31,6 +32,7 @@ app.use("/api/v1", limiter);
 //ROUTES
 app.use("/api/v1/users", userRoutes);
 app.use("/api/v1/account", accountRoutes);
+app.use("/api/v1/card", cardRoutes);
 
 // cualquier ruta no declarada
 app.all("*", (req, res, next) => {

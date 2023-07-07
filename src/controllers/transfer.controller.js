@@ -1,10 +1,7 @@
-import catchAsync from "../utils/catchAsync.js";
-import TransferServices from "../services/transfer.services.js";
 import AccountServices from "../services/account.services.js";
-import AccountModel from "../models/account.model.js";
+import TransferServices from "../services/transfer.services.js";
+import catchAsync from "../utils/catchAsync.js";
 const transferServices = new TransferServices();
-import TransferModel from "../models/transfer.model.js";
-
 
 export const CreateTransfer = catchAsync(async (req, res, next) => {
   const { userId, currency } = req.params;
@@ -18,17 +15,21 @@ export const CreateTransfer = catchAsync(async (req, res, next) => {
     next,
   });
 
-
-
   return res.status(200).json({
     message: "transfer completed",
     status: "succes",
+    trasnfer,
   });
 });
 
 export const GetTransfers = catchAsync(async (req, res, next) => {
-  const { userid, currency } = req.params;
-  const account = await new AccountServices().getAccountTransfersByUserIdAndCurrency({ userId: userid, currency })
+  const { userId, currency } = req.params;
+
+  const account =
+    await new AccountServices().getAccountTransfersByUserIdAndCurrency({
+      AccountAttributes: { userId, currency },
+      next,
+    });
 
   return res.status(200).json(account.transfers);
 });

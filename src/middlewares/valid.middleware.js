@@ -34,18 +34,18 @@ export const validSingUp = [
   body("phone_number")
     .notEmpty()
     .withMessage("phone_number is require")
-    .isInt()
-    .withMessage("must be a integer"),
-  body("username")
-    .notEmpty()
-    .withMessage("username is required"),
+    .isLength({ min: 6, max: 15 })
+    .withMessage(
+      "The phone number must be between 6 and 15 characters in length"
+    )
+    .isNumeric()
+    .withMessage("invalid format"),
+  body("username").notEmpty().withMessage("username is required"),
   validateFields,
 ];
 
 export const validLogin = [
-  body("username")
-    .notEmpty()
-    .withMessage("username is required"),
+  body("username").notEmpty().withMessage("username is required"),
   body("password").notEmpty().withMessage("password is require"),
   body("dni").notEmpty().withMessage("dni is require"),
   validateFields,

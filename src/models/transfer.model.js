@@ -17,7 +17,7 @@ const TransferModel = db.define("transfers", {
     allowNull: false,
   },
   receiverAccount: {
-    type: DataTypes.STRING,
+    type: DataTypes.INTEGER,
     allowNull: false,
   },
   accountId: {
@@ -26,6 +26,6 @@ const TransferModel = db.define("transfers", {
   },
 });
 
-// await AccountModel.sync({ force: true });
+// await TransferModel.sync({ force: true });
 
 export default TransferModel;

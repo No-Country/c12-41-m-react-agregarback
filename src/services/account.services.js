@@ -1,13 +1,12 @@
 import AccountModel from "../models/account.model.js";
-import AppError from "../utils/AppError.js";
-import UserServices from "./user.services.js";
-import generarNumeroCuenta from "../utils/genertaeAccount.js";
-import {
-  generateCBUAndCVU,
-  generateAlias,
-} from "../utils/generateParamsAccount.js";
-import { Op } from "sequelize";
 import TransferModel from "../models/transfer.model.js";
+import AppError from "../utils/AppError.js";
+import {
+  generateAlias,
+  generateCBUAndCVU,
+} from "../utils/generateParamsAccount.js";
+import generarNumeroCuenta from "../utils/genertaeAccount.js";
+import UserServices from "./user.services.js";
 
 class AccountServices {
   userServices = new UserServices();
@@ -74,8 +73,9 @@ class AccountServices {
     try {
       const account = await AccountModel.findOne({
         where: AccountAttributes,
-        include: TransferModel
+        include: TransferModel,
       });
+
       if (!account) {
         throw next(new AppError("account not exist"), 404);
       }

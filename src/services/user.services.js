@@ -5,8 +5,16 @@ import bcrypt from "bcryptjs";
 
 class UserServices {
   async createUser({ data, next }) {
-    const { name, email, password, date_of_birth, dni, address, phone_number, username } =
-      data;
+    const {
+      name,
+      email,
+      password,
+      date_of_birth,
+      dni,
+      address,
+      phone_number,
+      username,
+    } = data;
     try {
       const user = await UserModel.findOne({
         where: {
@@ -36,6 +44,7 @@ class UserServices {
         throw next(new AppError("user not found", 404));
       }
       if (!(await bcrypt.compare(password, user.password))) {
+        throw next(new AppError("invalid credentials", 401));
       }
       const token = await generateJWT(user.id);
 
@@ -47,7 +56,7 @@ class UserServices {
 
   async findUserById({ id, next }) {
     try {
-      const user = UserModel.findOne({
+      const user = await UserModel.findOne({
         where: { id },
       });
       if (!user) {
