@@ -1,9 +1,7 @@
 import { useState } from 'react'
 import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
-import { HomeC } from "../pages/home";
-import NotFound from "../pages/Error";
-import Formulario from "../pages/Formulario";
 import Sidenav from '../components/Sidenav/Sidenav';
+import { SignUpPage, NotFound, HomeC, LoginC } from '../pages/index.js';
 export function Routers() {
     const navigate = useNavigate();
   const location = useLocation();
@@ -65,7 +63,8 @@ export function Routers() {
         <Routes>
             <Route exact path="/" element={ <HomeC/> }/>
             <Route path="/*" element={<NotFound/>}/>
-            <Route path="/formulario" element={<Formulario login={login}/>}/>
+            <Route path="/login" element={<LoginC/>}/>
+            <Route path="/signup" element={<SignUpPage/>}/>
         </Routes>
     )
 }

@@ -15,7 +15,7 @@ export const CompoError = () =>{
             alt="AccessBank Logo"
           />
           <div className="flex flex-col justify-center items-center h-full">
-        <h1 className="text-yellow text-8xl uppercas">Error 404</h1>
+        <h1 className="text-yellow text-7xl uppercas md:text-8xl">Error 404</h1>
         <p className="text-orange w-15 h-10 m-10">Pagina No Encontrada o En Contruccion - Vuelve mas tarde o Contactanos</p>
         <div className="flex justify-evenly	 items-center w-full">
             <div className="bg-yellow w-20 h-20 rounded-full flex justify-center items-center hover:transition md:cursor-pointer ">
