@@ -34,10 +34,10 @@ class TransferServices {
         amount,
         senderAccount: senderUserAccount.accountNumber,
         receiverAccount: recieverUserAccount.accountNumber,
-        accountId: senderUserAccount.id
-      }
-      await TransferModel.create(data);
-
+        accountId: senderUserAccount.id,
+      };
+      const transfer = await TransferModel.create(data);
+      return transfer;
     } catch (error) {
       throw new Error(error);
     }

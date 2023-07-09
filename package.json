@@ -5,8 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node src/server.js",
-    "dev": "node --watch ./src/",
+    "dev": "node --watch ./src/server.js",
     "start:dev": "nodemon src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -24,6 +23,11 @@
     "hpp": "^0.2.3",
     "jsonwebtoken": "^9.0.0",
     "mysql2": "^3.4.3",
-    "sequelize": "^6.32.1"
+    "sequelize": "^6.32.1",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
   }
 }

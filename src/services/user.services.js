@@ -57,7 +57,7 @@ class UserServices {
 
   async findUserById({ id, next }) {
     try {
-      const user = UserModel.findOne({
+      const user = await UserModel.findOne({
         where: { id },
       });
       if (!user) {
