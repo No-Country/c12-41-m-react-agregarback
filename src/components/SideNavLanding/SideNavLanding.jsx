@@ -12,10 +12,10 @@ const SideNavLanding = () => {
     };
 
     return (
-        
+
         <div>
-            <nav className="bg-dark border-gray-200 dark:bg-gray-900">
-                <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <nav className="bg-dark ">
+                <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 md:p-2">
                     <a href="/home" className="flex items-center">
                         <img
                             src="https://res.cloudinary.com/academia/image/upload/v1688654002/logo-accessBank_pg8pec.png"
@@ -48,13 +48,13 @@ const SideNavLanding = () => {
                             />
                         </svg>
                     </button>
-                    <div 
+                    <div
                         className={`${navLanding ? "block" : "hidden"
                             } w-full md:block md:w-auto`}
                         id="navbar-default"
-                    
+
                     >
-                        <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-dark dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                        <ul className="font-medium flex flex-col  items-center md:p-0 mt-4 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-dark ">
                             <li>
                                 <a
                                     href="/home"
@@ -88,7 +88,12 @@ const SideNavLanding = () => {
                                     Contactanos
                                 </a>
                             </li>
+                            <div class="flex flex-nowrap gap-2 pt-6">
+                            <a class=" px-4 py-2 mb-4  text-xs text-center font-bold  bg-transparent border border-yellow text-yellow hover:bg-white hover:text-gray rounded-xl" href="#">Ingresar</a>
+                            <a class=" px-4 py-2 mb-4  text-xs text-center text-white font-bold bg-orange hover:bg-yellow  rounded-xl" href="#">Registrarse</a>
+                        </div>
                         </ul>
+                        
                     </div>
                 </div>
             </nav>
