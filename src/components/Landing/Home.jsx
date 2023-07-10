@@ -1,13 +1,10 @@
 import React from 'react'
-import Footer from '../Footer/Footer'
-import SideNavLanding from '../SideNavLanding/SideNavLanding'
-import Feature from './Feature'
 import { NavLink } from 'react-router-dom'
 
 const Home = () => {
   return (
     <div>
-      <SideNavLanding />
+
       <div className="relative flex flex-col-reverse py-16 lg:pt-0 lg:flex-col lg:pb-0 bg-dark">
         <div className="inset-y-0 top-0 right-0 z-0 w-full max-w-xl px-4 mx-auto md:px-0 lg:pr-0 lg:mb-0 lg:mx-0 lg:w-7/12 lg:max-w-full lg:absolute xl:px-0">
           <svg
@@ -53,13 +50,11 @@ const Home = () => {
                   Iniciar sesión
                 </a>
               </NavLink>
-
             </div>
           </div>
         </div>
       </div>
-      <Feature />
-      <Footer />
+
     </div>
   )
 }

@@ -2,8 +2,6 @@ import React from "react";
 import axios from "axios";
 import validationlogin from "./validatelogin";
 import { NavLink } from "react-router-dom"
-import SideNavLanding from "../../SideNavLanding/SideNavLanding";
-import Footer from "../../Footer/Footer";
 
 function Login() {
     const [loginData, setLoginData] = React.useState({
@@ -46,7 +44,6 @@ function Login() {
 
     return (
         <div>
-            <SideNavLanding />
             <div className="signup flex justify-center items-center h-70vh bg-dark">
                 <form onSubmit={handleSubmit}>
                     <div>
@@ -98,7 +95,7 @@ function Login() {
 
                 </form>
             </div>
-            <Footer />
+         
 
         </div>
     )

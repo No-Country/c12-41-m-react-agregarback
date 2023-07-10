@@ -4,7 +4,7 @@ import Sidenav from '../components/Sidenav/Sidenav';
 import { SignUpPage, NotFound, HomeC, LoginC } from '../pages/index.js';
 import Transfer from '../pages/Transfer';
 export function Routers() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   const location = useLocation();
   const [token, setToken] = useState(sessionStorage.getItem('token'));
 
@@ -50,23 +50,13 @@ export function Routers() {
       });
   }
 
-  function PrivateRoute({ element: Element, ...rest }) {
-    const navigate = useNavigate()
-    const token = sessionStorage.getItem('token');
-
-    if (!token) {
-      navigate('/', { replace: true }); // Redirige a la ruta de inicio ("/") si no hay un token válido
-      return null; // No renderizar nada mientras se redirige
-    }
-    return <Route {...rest} element={<Element />} />;
-  }
-    return (
-        <Routes>
-            <Route exact path="/" element={ <HomeC/> }/>
-            <Route path="/*" element={<NotFound/>}/>
-            <Route path="/login" element={<LoginC/>}/>
-            <Route path="/signup" element={<SignUpPage/>}/>
-            <Route path="/transfers" element={<Transfer/>}/>
-        </Routes>
-    )
+  return (
+    <Routes>
+      <Route exact path="/" element={<HomeC />} />
+      <Route path="/*" element={<NotFound />} />
+      <Route path="/login" element={<LoginC />} />
+      <Route path="/signup" element={<SignUpPage />} />
+      <Route path="/transfers" element={<Transfer/>}/>
+    </Routes>
+  )
 }

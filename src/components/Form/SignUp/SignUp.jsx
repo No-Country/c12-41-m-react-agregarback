@@ -3,8 +3,7 @@ import axios from "axios";
 import validationsignup from "./validatesignup";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css"
-import SideNavLanding from "../../SideNavLanding/SideNavLanding";
-import Footer from "../../Footer/Footer";
+
 
 //import { BsSignDeadEndFill } from "react-icons/bs";
 
@@ -54,7 +53,6 @@ function SignUp() {
 
     return (
         <div>
-            <SideNavLanding />
 
             <div className="signup flex justify-center items-center h-70vh bg-dark">
 
@@ -154,7 +152,7 @@ function SignUp() {
                         <p className="error">{errors.phone_number}</p>
                     </div>
                     <div
-                        className="flex flex justify-center items-center bg-dark">
+                        className="flex justify-center items-center bg-dark">
                         <button onChange={handleRegisterSubmit}
                             className="bg-gradient-to-r from-orange to-yellow hover:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                             type="submit">Registrar</button>
@@ -162,7 +160,7 @@ function SignUp() {
                 </form>
             </div>
 
-            <Footer />
+ 
         </div>
 
     );
