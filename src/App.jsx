@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import Home from './components/HomePage/Home'
+import Home from './components/Landing/Home'
 import Footer from './components/Footer/Footer'
 import Sidenav from './components/Sidenav/Sidenav'
 import { Routes, Route, useLocation, useNavigate, Router } from "react-router-dom";
