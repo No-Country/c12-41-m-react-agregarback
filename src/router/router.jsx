@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
 import Sidenav from '../components/Sidenav/Sidenav';
 import { SignUpPage, NotFound, HomeC, LoginC } from '../pages/index.js';
+import Transfer from '../pages/Transfer';
 export function Routers() {
     const navigate = useNavigate();
   const location = useLocation();
@@ -65,6 +66,7 @@ export function Routers() {
             <Route path="/*" element={<NotFound/>}/>
             <Route path="/login" element={<LoginC/>}/>
             <Route path="/signup" element={<SignUpPage/>}/>
+            <Route path="/transfers" element={<Transfer/>}/>
         </Routes>
     )
 }
