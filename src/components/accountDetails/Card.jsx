@@ -7,7 +7,10 @@ const Card = ({ type, name, accountNumber, date, img }) => {
             <img
               className="w-[40px] object-contain"
               src={img}
-              alt="card type"
+              onError={(event) => {
+                event.target.src = "/logoab.svg";
+              }}
+              alt="card"
               download="lazy"
             />
           </div>
