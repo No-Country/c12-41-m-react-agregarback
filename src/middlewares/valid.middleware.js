@@ -112,14 +112,30 @@ export const validCreateContact = [
     .notEmpty()
     .withMessage("validation is require")
     .isIn(["accountNumber", "cbu", "cvu", "alias"])
-    .withMessage("validation has to be one of accountNumber, cbu, cvu or alias"),
-  body("validationValue")
-    .notEmpty()
-    .withMessage("validationValue is require"),
+    .withMessage(
+      "validation has to be one of accountNumber, cbu, cvu or alias"
+    ),
+  body("validationValue").notEmpty().withMessage("validationValue is require"),
   body("contactId")
     .notEmpty()
     .withMessage("contactId is require")
     .isInt()
     .withMessage("contactId has to be a number"),
+  validateFields,
+];
+
+export const validCreateCard = [
+  body("type")
+    .notEmpty()
+    .withMessage("type is require")
+    .isIn(["visa", "masterCard", "americanExpress"])
+    .withMessage(
+      "validation has to be one of visa, masterCard, americanExpress"
+    ),
+  body("category")
+    .notEmpty()
+    .withMessage("category is require")
+    .isIn(["credito", "debito"])
+    .withMessage("validation has to be one of credito debito"),
   validateFields,
 ];

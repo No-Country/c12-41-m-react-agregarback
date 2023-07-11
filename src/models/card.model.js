@@ -13,10 +13,17 @@ const CardModel = db.define("cards", {
     unique: true,
     allowNull: false,
   },
+  cvv: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+  creditLine: {
+    type: DataTypes.INTEGER,
+    allowNull: true,
+  },
   type: {
     type: DataTypes.ENUM("visa", "masterCard", "americanExpress"),
     allowNull: false,
-    defaultValue: "visa",
   },
   category: {
     type: DataTypes.ENUM("debito", "credito"),
@@ -29,6 +36,10 @@ const CardModel = db.define("cards", {
     defaultValue: "active",
   },
   accountId: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+  userId: {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
