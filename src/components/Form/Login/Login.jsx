@@ -1,9 +1,22 @@
 import React from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import validationlogin from "./validatelogin";
-import { NavLink } from "react-router-dom"
+import { Navigate, NavLink, useNavigate } from "react-router-dom"
+import { FaCommentsDollar } from "react-icons/fa6";
+
 
 function Login() {
+    const navigate = useNavigate();
+    const [token, setToken] = useState(null);
+    useEffect(() => {
+        if (token !== null) {
+         navigate(`/accounts`);
+        }
+    }, [token]);
+
+
+
     const [loginData, setLoginData] = React.useState({
         dni: "",
         username: "",
@@ -28,17 +41,19 @@ function Login() {
 
 
 
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
             const response = await axios.post("https://nocountrybackend.onrender.com/api/v1/users/login", loginData);
-
             console.log(response.data);
             sessionStorage.setItem("token", response.data.token);
+            setToken(response.data.token)
 
+            //    return  <Navigate to={'/accounts'} />
         } catch (error) {
-            console.error(error.response.data);
+
         }
     };
     return (
@@ -94,7 +109,7 @@ function Login() {
                                         </div>
                                         </div>
                                         <div className="flex justify-center items-center gap-2">
-                                            <button type="submit" onChange={handleSubmit}
+                                            <button type="submit" onClick={handleSubmit}
                                                 className="mt-6 font-bold py-2 px-4 rounded-xl marker:rounded focus:outline-none focus:shadow-outline bg-transparent text-yellow  hover:text-dark shadow hover:shadow-lg  border border-yellow  hover:bg-white ">Iniciar sesion</button>
                                             <NavLink to="/signup">
                                                 <button type="submit"
@@ -108,6 +123,8 @@ function Login() {
                     </div>
                 </div>
             </div>
+         
+
         </div>
     )
 }

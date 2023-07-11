@@ -11,6 +11,8 @@ module.exports = {
       'white': '#ffff',
       'gray': '#333333',
       'orange': '#FBB23F',
+      'orange-navmenu': '#FEC00F',
+      'orange-navmenu-active': '#FED04B',
       'yellow': '#F9EA32'
     },
     extend: {
