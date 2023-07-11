@@ -1,10 +1,10 @@
 
 const Accounts = () => {
-return(
-    <>
-    <p>HOLA</p>
-    </>
-)
+    return (
+        <>
+            <p>This is accounts</p>
+        </>
+    )
 
 }
 export default Accounts
