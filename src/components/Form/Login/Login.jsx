@@ -57,60 +57,72 @@ function Login() {
         }
     };
     return (
-        <div>
-            <div className="signup flex justify-center items-center h-70vh bg-dark">
-                <form onSubmit={handleSubmit}>
-                    <div>
-                        <div className="w-full max-w-xs p-10">
-                            <label>Numero de documento</label>
-                            <input
-                                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outlinev bg-dark"
-                                placeholder="Numero de documento"
-                                type="number"
-                                name="dni"
-                                value={loginData.dni}
-                                onChange={handleInputChange}
-                            />
-                            <p className="error">{errors.dni}</p>
-                        </div>
-                        <div className="w-full max-w-xs p-10">
-                            <label>Usuario</label>
-                            <input
-                                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outlinev bg-dark"
-                                placeholder="Usuario"
-                                type="username"
-                                name="username"
-                                value={loginData.username}
-                                onChange={handleInputChange}
-                            />
-                            <p className="error">{errors.usuario}</p>
-                        </div>
-                        <div className="w-full max-w-xs p-10">
-                            <label>Contraseña</label>
-                            <input
-                                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outlinev bg-dark"
-                                placeholder="Contraseña"
-                                type="password"
-                                name="password"
-                                value={loginData.password}
-                                onChange={handleInputChange}
-                            />
-                            <p className="error">{errors.password}</p>
-                            <div className="flex justify-center items-center">
-                                <button type="submit" onClick={handleSubmit}
-                                    className="bg-gradient-to-r from-orange to-yellow hover:text-dark font-bold py-2 px-6 rounded focus:outline-none focus:shadow-outline m-5">Iniciar sesion</button>
-                                <NavLink to="/signup">
-                                    <button type="submit"
-                                        className="bg-gradient-to-r from-orange to-yellow hover:text-dark font-bold py-2 px-6 rounded focus:outline-none focus:shadow-outline m-5">Registrarse</button>
-                                </NavLink>
-                            </div>
+        <div className="bg-dark py-6 flex flex-col justify-center sm:py-12">
+
+            <div className=" bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
+                <div className="relative py-3 max-w-4xl sm:max-w-xl sm:mx-auto">
+                    <div
+                        className="absolute inset-0 bg-gradient-to-r from-orange to-yellow shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl">
+                    </div>
+                    <div className="relative px-4 py-10 bg-gray shadow-lg  sm:rounded-3xl sm:p-20">
+                        <div className="max-w-lg mx-auto">
+                            <form onSubmit={handleSubmit}>
+                                <div>
+                                    <div className="max-w-lg p-10">
+                                        <div className="relative">
+                                            <input autocomplete="off" className="peer placeholder-transparent h-10 w-full border-b-2 border-yellow  bg-gray text-white focus:outline-none focus:border-yellow" placeholder="Numero de documento"
+                                                type="number"
+                                                name="dni"
+                                                value={loginData.dni}
+                                                onChange={handleInputChange} />
+                                            <p className="error text-yellow font-bold">{errors.dni}</p>
+                                            <label for="email" className="absolute left-0 -top-3.5 font-bold text-white  text-xl peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Numero de documento</label>
+                                        </div>
+                                    </div>
+                                    <div className="w-full max-w-lg p-10">
+                                        <div className="relative">
+                                        <input
+                                            className="peer placeholder-transparent h-10 w-full border-b-2 border-yellow  bg-gray text-white focus:outline-none focus:border-yellow"
+                                            placeholder="Usuario"
+                                            type="username"
+                                            name="username"
+                                            value={loginData.username}
+                                            onChange={handleInputChange}
+                                        />
+                                        <p className="error text-yellow font-bold">{errors.usuario}</p>
+                                        <label className="absolute left-0 -top-3.5 font-bold text-white  text-xl peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Usuario</label>
+                                        </div>
+                                    </div>
+                                    <div className="w-full max-w-lg p-10">
+                                        <div className="relative" >
+                                        <input
+                                            className="peer placeholder-transparent h-10 w-full border-b-2 border-yellow  bg-gray text-white focus:outline-none focus:border-yellow"
+                                            placeholder="Contraseña"
+                                            type="password"
+                                            name="password"
+                                            value={loginData.password}
+                                            onChange={handleInputChange}
+                                        />
+                                        <p className="error text-yellow font-bold">{errors.password}</p>
+                                        <label className="absolute left-0 -top-3.5 font-bold text-white  text-xl peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Contraseña</label>
+                                        
+                                        </div>
+                                        </div>
+                                        <div className="flex justify-center items-center gap-2">
+                                            <button type="submit" onChange={handleSubmit}
+                                                className="mt-6 font-bold py-2 px-4 rounded-xl marker:rounded focus:outline-none focus:shadow-outline bg-transparent text-yellow  hover:text-dark shadow hover:shadow-lg  border border-yellow  hover:bg-white ">Iniciar sesion</button>
+                                            <NavLink to="/signup">
+                                                <button type="submit"
+                                                    className=" mt-6 bg-gradient-to-r from-orange to-yellow hover:text-dark font-bold px-4 py-2 rounded-xl  focus:outline-none focus:shadow-outline">Registrarse</button>
+                                            </NavLink>
+                                        </div>
+                                </div>
+
+                            </form>
                         </div>
                     </div>
-
-                </form>
+                </div>
             </div>
-
-
         </div>
     )
 }
