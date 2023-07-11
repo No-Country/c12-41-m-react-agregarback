@@ -9,11 +9,7 @@ export const CompoError = () =>{
     return(
         <main className="bg-gray h-screen " >
 
-            <img
-            src="https://res.cloudinary.com/academia/image/upload/v1688654002/logo-accessBank_pg8pec.png"
-            className="h-10 mr-3"
-            alt="AccessBank Logo"
-          />
+        
           <div className="flex flex-col justify-center items-center h-full">
         <h1 className="text-yellow text-7xl uppercas md:text-8xl">Error 404</h1>
         <p className="text-orange w-15 h-10 m-10">Pagina No Encontrada o En Contruccion - Vuelve mas tarde o Contactanos</p>

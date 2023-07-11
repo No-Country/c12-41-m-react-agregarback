@@ -17,13 +17,13 @@ const SideNavLanding = () => {
         <div>
             <nav className="bg-dark ">
                 <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 md:p-2">
-                    <a href="/home" className="flex items-center">
+                    <NavLink to="/" className="flex items-center">
                         <img
                             src="https://res.cloudinary.com/academia/image/upload/v1688654002/logo-accessBank_pg8pec.png"
                             className="h-12 mr-3"
                             alt="AccessBank Logo"
                         />
-                    </a>
+                    </NavLink>
                     <button
                         onClick={handleNavLanding}
                         data-collapse-toggle="navbar-default"
@@ -67,7 +67,7 @@ const SideNavLanding = () => {
                             </li>
                             <li>
                                 <NavLink
-                                    to='/us'
+                                    to='/*'
                                     className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                                 >
                                     Nosotros
@@ -75,7 +75,7 @@ const SideNavLanding = () => {
                             </li>
                             <li>
                                 <NavLink
-                                    to='/services'
+                                    to='/*'
                                     className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                                 >
                                     Servicios

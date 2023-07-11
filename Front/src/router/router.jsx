@@ -1,11 +1,12 @@
 import { Suspense, lazy } from "react";
 import { Router, Route, Routes, useNavigate, useLocation } from "react-router-dom";
-import { SignUpPage, NotFound, HomeC, LoginC } from '../pages/index.js';
+import { SignUpPage, NotFound, HomeC, LoginC, Contacto } from '../pages/index.js';
 import { GridLoader } from "react-spinners";
+import NoProtectedLayout from "../components/Layout/NoProtected/index.jsx";
 const Transfer = lazy(() => import('../pages/Transfer'));
 const Accounts = lazy(() => import('../pages/Accounts/index.jsx'));
 const Proteccion = lazy(() => import('../components/Proteccion/Proteccion.jsx'));
-const ProtectedLayout = lazy(() => import('../components/ProtectedLayout'));
+const ProtectedLayout = lazy(() => import('../components/Layout/Protected/index.jsx'));
 // import Accounts from "../pages/Accounts/index.jsx";
 // import Proteccion from "../components/Proteccion/Proteccion.jsx";
 // import ProtectedLayout from '../components/ProtectedLayout';
@@ -34,11 +35,13 @@ export function Routers() {
         {/* <PrivateRoute exact path="/accounts"
         element={<Accounts/>}
         isAuthenticated={isAuthenticated} /> */}
+        <Route element = {<NoProtectedLayout/>}>
         <Route exact path="/" element={<HomeC />} />
         <Route path="/*" element={<NotFound />} />
         <Route path="/login" element={<LoginC />} />
         <Route path="/signup" element={<SignUpPage />} />
-
+        <Route path="/contact" element={<Contacto />} />
+        </Route>
       </Routes >
     </Suspense >
   )
