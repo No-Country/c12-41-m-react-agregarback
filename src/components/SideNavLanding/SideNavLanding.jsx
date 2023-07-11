@@ -20,7 +20,7 @@ const SideNavLanding = () => {
                     <a href="/home" className="flex items-center">
                         <img
                             src="https://res.cloudinary.com/academia/image/upload/v1688654002/logo-accessBank_pg8pec.png"
-                            className="h-12 mr-3"
+                            className="h-16 mr-3"
                             alt="AccessBank Logo"
                         />
                     </a>
@@ -82,19 +82,36 @@ const SideNavLanding = () => {
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink 
+                                <NavLink
                                     to={ErrorDisplay}
                                     className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                                 >
                                     Contactanos
                                 </NavLink>
                             </li>
-                            <div class="flex flex-nowrap gap-2 pt-6">
-                            <a class=" px-4 py-2 mb-4  text-xs text-center font-bold  bg-transparent border border-yellow text-yellow hover:bg-white hover:text-gray rounded-xl" href="#">Ingresar</a>
-                            <a class=" px-4 py-2 mb-4  text-xs text-center text-white font-bold bg-orange hover:bg-yellow  rounded-xl" href="#">Registrarse</a>
-                        </div>
+                            <div className="flex items-center">
+                                <NavLink to="/signup">
+
+                                    <a
+                                        href="./signup"
+                                        className="inline-flex items-center justify-center h-10 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-orange hover:bg-yellow hover:text-dark focus:shadow-outline focus:outline-none"
+                                    >
+                                        Crear cuenta
+                                    </a>
+                                </NavLink>
+                                <NavLink to="/login">
+
+                                    <a
+                                        href="/"
+                                        aria-label=""
+                                        className="bg-transparent inline-flex justify-center font-medium text-yellow  hover:bg-white hover:text-dark hover: rounded shadow hover:shadow-lg  h-10 items-center  px-6 border border-yellow hover:border-white"
+                                    >
+                                        Iniciar sesión
+                                    </a>
+                                </NavLink>
+                            </div>
                         </ul>
-                        
+
                     </div>
                 </div>
             </nav>
