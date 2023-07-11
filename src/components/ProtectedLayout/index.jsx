@@ -7,11 +7,11 @@ const ProtectedLayout = () => {
     return (
         <div className='min-h-screen'>
             <Sidenav />
-            <div className='flex bg-dark p-3 h-full gap-4'>
+            <div className='grid grid-cols-[auto,_1fr] bg-dark p-3 h-full gap-4 relative'>
                 <NavMenu />
                 <Outlet />
             </div>
-            {/* <Footer /> */}
+            <Footer />
         </div>
     )
 }
