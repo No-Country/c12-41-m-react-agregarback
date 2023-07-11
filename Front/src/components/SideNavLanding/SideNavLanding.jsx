@@ -67,7 +67,7 @@ const SideNavLanding = () => {
                             </li>
                             <li>
                                 <NavLink
-                                    to={ErrorDisplay}
+                                    to='/us'
                                     className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                                 >
                                     Nosotros
@@ -75,26 +75,26 @@ const SideNavLanding = () => {
                             </li>
                             <li>
                                 <NavLink
-                                    to={ErrorDisplay}
+                                    to='/services'
                                     className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                                 >
                                     Servicios
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink 
-                                    to={ErrorDisplay}
+                                <NavLink
+                                    to='/contact'
                                     className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                                 >
                                     Contactanos
                                 </NavLink>
                             </li>
-                            <div class="flex flex-nowrap gap-2 pt-6">
-                            <a class=" px-4 py-2 mb-4  text-xs text-center font-bold  bg-transparent border border-yellow text-yellow hover:bg-white hover:text-gray rounded-xl" href="#">Ingresar</a>
-                            <a class=" px-4 py-2 mb-4  text-xs text-center text-white font-bold bg-orange hover:bg-yellow  rounded-xl" href="#">Registrarse</a>
-                        </div>
+                            <div className="flex flex-nowrap gap-2 pt-6">
+                                <NavLink to='/login' className='px-4 py-2 mb-4  text-xs text-center font-bold  bg-transparent border border-yellow text-yellow hover:bg-white hover:text-gray rounded-xl'>Ingresar</NavLink>
+                                <NavLink to='/signup' className="px-4 py-2 mb-4  text-xs text-center text-white font-bold bg-orange hover:bg-yellow rounded-xl">Registrarse</NavLink>
+                            </div>
                         </ul>
-                        
+
                     </div>
                 </div>
             </nav>

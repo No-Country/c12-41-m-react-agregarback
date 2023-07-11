@@ -3,10 +3,10 @@ import axios from "axios";
 import validationsignup from "./validatesignup";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css"
-
+import AWN from "awesome-notifications"
 
 //import { BsSignDeadEndFill } from "react-icons/bs";
-
+const notifier = new AWN();
 
 function SignUp() {
 
@@ -37,18 +37,22 @@ function SignUp() {
     };
     const handleRegisterSubmit = async (e) => {
         e.preventDefault();
+        notifier.asyncBlock(
+            axios.post('https://nocountrybackend.onrender.com/api/v1/users/signup', userRegister),
+            res => { console.log(res); notifier.success('Registrado exitosamente!') },
+            err => { console.log(err); notifier.alert('No se ha podido concretar el registro') },
+            'Validando datos'
+        );
+        // try {
+        //     const response = await axios.post(
+        //         "https://nocountrybackend.onrender.com/api/v1/users/signup",
+        //         userRegister
+        //     );
 
-
-        try {
-            const response = await axios.post(
-                "https://nocountrybackend.onrender.com/api/v1/users/signup",
-                userRegister
-            );
-
-            console.log(response.data);
-        } catch (error) {
-            console.error(error.response.data);
-        }
+        //     console.log(response.data);
+        // } catch (error) {
+        //     console.error(error.response.data);
+        // }
     };
 
     return (
@@ -96,24 +100,24 @@ function SignUp() {
                     </div>
                     <div className="w-full max-w-xs p-10">
                         <label>Fecha de Nacimiento</label>
-            <input
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outlinev bg-dark"
-                type="date"
-                name="date_of_birth"
-                value={userRegister.date_of_birth}
-                onChange={handleRegisterInputChange}
-            />
-                        
+                        <input
+                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outlinev bg-dark"
+                            type="date"
+                            name="date_of_birth"
+                            value={userRegister.date_of_birth}
+                            onChange={handleRegisterInputChange}
+                        />
+
                     </div>
                     <div className="w-full max-w-xs p-10">
                         <label>Número de Documento</label>
                         <input
-                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outlinev bg-dark"
-                                placeholder="Numero de documento"
-                                type="number"
-                                name="dni"
-                                value={userRegister.dni}
-                                onChange={handleRegisterInputChange}
+                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outlinev bg-dark"
+                            placeholder="Numero de documento"
+                            type="number"
+                            name="dni"
+                            value={userRegister.dni}
+                            onChange={handleRegisterInputChange}
                         />
                     </div>
                     <div className="w-full max-w-xs p-10">
@@ -160,7 +164,7 @@ function SignUp() {
                 </form>
             </div>
 
- 
+
         </div>
 
     );
