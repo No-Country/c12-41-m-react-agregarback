@@ -89,7 +89,7 @@ const Footer = () => {
                 </a>
               </li>
               <li className="mt-3">
-                <a className="text-gray-500 cursor-pointer hover:text-gray-900">
+                <a href="https://www.argentina.gob.ar/economia/comercio/defensadelconsumidor" className="text-gray-500 cursor-pointer hover:text-gray-900">
                   Defensa al Consumidor
                 </a>
               </li>
