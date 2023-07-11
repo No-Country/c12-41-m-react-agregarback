@@ -109,7 +109,7 @@ function Login() {
                                         </div>
                                         </div>
                                         <div className="flex justify-center items-center gap-2">
-                                            <button type="submit" onClick={handleSubmit}
+                                            <button type="submit" onChange={handleSubmit}
                                                 className="mt-6 font-bold py-2 px-4 rounded-xl marker:rounded focus:outline-none focus:shadow-outline bg-transparent text-yellow  hover:text-dark shadow hover:shadow-lg  border border-yellow  hover:bg-white ">Iniciar sesion</button>
                                             <NavLink to="/signup">
                                                 <button type="submit"
@@ -123,8 +123,6 @@ function Login() {
                     </div>
                 </div>
             </div>
-         
-
         </div>
     )
 }
