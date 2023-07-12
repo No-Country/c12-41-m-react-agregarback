@@ -6,60 +6,6 @@ import CarruselCard from "./CarruselCard";
 
 const CardInfo = () => {
   const [listOfCards, setListOfCards] = useState([]);
-  //   {
-  //     id: 1,
-  //     cardNumber: "8219544817579717",
-  //     cvv: 406,
-  //     creditLine: 1000,
-  //     type: "masterCard",
-  //     category: "credito",
-  //     status: "active",
-  //     accountId: 1,
-  //     userId: 1,
-  //     createdAt: "2023-07-11T01:40:41.000Z",
-  //     updatedAt: "2023-07-11T01:40:41.000Z",
-  //   },
-  //   {
-  //     id: 2,
-  //     cardNumber: "2541208289745521",
-  //     cvv: 740,
-  //     creditLine: null,
-  //     type: "masterCard",
-  //     category: "debito",
-  //     status: "active",
-  //     accountId: 2,
-  //     userId: 1,
-  //     createdAt: "2023-07-11T01:40:56.000Z",
-  //     updatedAt: "2023-07-11T01:40:56.000Z",
-  //   },
-  //   {
-  //     id: 3,
-  //     cardNumber: "8578514226283121",
-  //     cvv: 527,
-  //     creditLine: null,
-  //     type: "visa",
-  //     category: "debito",
-  //     status: "active",
-  //     accountId: 2,
-  //     userId: 1,
-  //     createdAt: "2023-07-11T01:41:05.000Z",
-  //     updatedAt: "2023-07-11T01:41:05.000Z",
-  //   },
-  //   {
-  //     id: 4,
-  //     cardNumber: "6076220195236161",
-  //     cvv: 791,
-  //     creditLine: 1000,
-  //     type: "americanExpress",
-  //     category: "credito",
-  //     status: "active",
-  //     accountId: 2,
-  //     userId: 1,
-  //     createdAt: "2023-07-11T01:41:33.000Z",
-  //     updatedAt: "2023-07-11T01:41:33.000Z",
-  //   },
-  // ];
-
   const accounts = [
     {
       id: 1,
@@ -152,7 +98,7 @@ const CardInfo = () => {
 
   return (
     <section className="pt-10">
-      <article className="flex flex-col gap-6 justify-center items-center relative p-10">
+      <article className="flex flex-col gap-6 justify-center items-center relative py-10">
         <div className="flex gap-5 absolute z-20 left-[50%] translate-x-[-100%] top-[0]">
           <span>Accounts</span>
           <select
@@ -170,7 +116,7 @@ const CardInfo = () => {
           <div className="absolute right-[-20%] top-[-40%]">
             <img src="/accounts/Ellipse 10.png" alt="elipse" loading="lazy" />
           </div>
-          <div className="absolute left-[-15%] bottom-[-30%]">
+          <div className="absolute left-[-15%] bottom-[-10%]">
             <img src="/accounts/Ellipse 20.png" alt="elipse" loading="lazy" />
           </div>
           <CarruselCard listOfCards={listOfCards} />

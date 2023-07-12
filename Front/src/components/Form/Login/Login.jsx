@@ -53,7 +53,7 @@ function Login() {
 
             //    return  <Navigate to={'/accounts'} />
         } catch (error) {
-
+            console.log(error)
         }
     };
     return (
