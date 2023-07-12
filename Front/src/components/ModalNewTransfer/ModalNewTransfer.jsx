@@ -1,6 +1,6 @@
 const Transfer = () => {
   return (
-    <div className="bg-dark h-screen p-3">
+    <div className="">
       <div className="rounded-lg bg-gray h-full p-10">
         <div className="bg-dark mx-auto max-w-sm shadow-lg rounded-lg overflow-hidden">
           <div className="sm:flex sm:items-center px-2 py-4">
