@@ -9,8 +9,6 @@ import SignUp from './components/Form/SignUp/SignUp'
 import { Routers } from './router/router'
 import SideNavLanding from './components/SideNavLanding/SideNavLanding'
 function App() {
- 
-
 
   return (
     <div className='App'>

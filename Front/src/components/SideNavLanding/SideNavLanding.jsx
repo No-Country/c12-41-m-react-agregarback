@@ -20,7 +20,7 @@ const SideNavLanding = () => {
                     <NavLink to="/" className="flex items-center">
                         <img
                             src="https://res.cloudinary.com/academia/image/upload/v1688654002/logo-accessBank_pg8pec.png"
-                            className="h-12 mr-3"
+                            className="h-[70px] mr-3"
                             alt="AccessBank Logo"
                         />
                     </NavLink>
@@ -29,6 +29,7 @@ const SideNavLanding = () => {
                         data-collapse-toggle="navbar-default"
                         type="button"
                         className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+
                         aria-controls="navbar-default"
                         aria-expanded="false"
                     >
@@ -50,8 +51,8 @@ const SideNavLanding = () => {
                         </svg>
                     </button>
                     <div
-                        className={`${navLanding ? "block" : "hidden"
-                            } w-full md:block md:w-auto`}
+                        className={`${navLanding ? "right-0" : "right-[-100%]"
+                            } w-full absolute md:w-auto top-[90px] z-50 bg-dark sm:block sm:top-0 sm:right-0`}
                         id="navbar-default"
 
                     >
@@ -89,9 +90,26 @@ const SideNavLanding = () => {
                                     Contactanos
                                 </NavLink>
                             </li>
-                            <div className="flex flex-nowrap gap-2 pt-6">
-                                <NavLink to='/login' className='px-4 py-2 mb-4  text-xs text-center font-bold  bg-transparent border border-yellow text-yellow hover:bg-white hover:text-gray rounded-xl'>Ingresar</NavLink>
-                                <NavLink to='/signup' className="px-4 py-2 mb-4  text-xs text-center text-white font-bold bg-orange hover:bg-yellow rounded-xl">Registrarse</NavLink>
+                            <div className="flex items-center">
+                                <NavLink to="/signup">
+
+                                    <a
+                                        href="./signup"
+                                        className="inline-flex items-center justify-center h-10 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-orange hover:bg-yellow hover:text-dark focus:shadow-outline focus:outline-none"
+                                    >
+                                        Crear cuenta
+                                    </a>
+                                </NavLink>
+                                <NavLink to="/login">
+
+                                    <a
+                                        href="/"
+                                        aria-label=""
+                                        className="bg-transparent inline-flex justify-center font-medium text-yellow  hover:bg-white hover:text-dark hover: rounded shadow hover:shadow-lg  h-10 items-center  px-6 border border-yellow hover:border-white"
+                                    >
+                                        Iniciar sesión
+                                    </a>
+                                </NavLink>
                             </div>
                         </ul>
 
