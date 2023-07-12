@@ -4,6 +4,7 @@ import validationsignup from "./validatesignup";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css"
 import AWN from "awesome-notifications"
+import { useNavigate } from "react-router-dom";
 
 //import { BsSignDeadEndFill } from "react-icons/bs";
 const notifier = new AWN();
@@ -21,6 +22,7 @@ function SignUp() {
         phone_number: ""
     });
     const [errors, setErrors] = React.useState({});
+    const navigate = useNavigate();
 
     const handleRegisterInputChange = (e) => {
         const { name, value } = e.target;
@@ -39,7 +41,8 @@ function SignUp() {
         e.preventDefault();
         notifier.asyncBlock(
             axios.post('https://nocountrybackend.onrender.com/api/v1/users/signup', userRegister),
-            res => { console.log(res); notifier.success('Registrado exitosamente!') },
+            res => { console.log(res); notifier.success('Registrado exitosamente!'); navigate('/accounts'); },
+
             err => { console.log(err); notifier.alert('No se ha podido concretar el registro') },
             'Validando datos'
         );
