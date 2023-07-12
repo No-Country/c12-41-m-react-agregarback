@@ -29,7 +29,7 @@ const CarruselCard = ({ listOfCards }) => {
           ))}
         </div>
       </section>
-      <div className="grid grid-cols-3 gap-4 relative justify-items-center">
+      <div className="grid grid-cols-3 gap-4 relative justify-items-center h-[45px]">
         {listOfCards.map((item, i) => (
           <button
             key={item.id}

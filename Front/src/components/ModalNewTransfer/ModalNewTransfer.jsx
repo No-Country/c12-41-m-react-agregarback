@@ -14,7 +14,7 @@ const Transfer = () => {
               <input
                 type="text"
                 placeholder="Buscar en la agenda"
-                className="my-2 w-full text-sm bg-grey-light text-grey-darkest rounded h-10 p-3 focus:outline-none"
+                className="my-2 w-full text-sm bg-grey-light text-gray rounded h-10 p-3 focus:outline-none"
               />
               <div className="w-full">
                 <div className="flex cursor-pointer my-1 hover:bg-blue-lightest rounded">

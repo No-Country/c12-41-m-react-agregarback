@@ -16,7 +16,7 @@ const ListContactTransfer = () => {
               <input
                 type="text"
                 placeholder="Buscar en la agenda"
-                className="my-2 w-full text-sm bg-grey-light text-grey-darkest rounded h-10 p-3 focus:outline-none"
+                className="my-2 w-full text-sm bg-grey-light text-gray rounded h-10 p-3 focus:outline-none"
               />
               <ContactCard />
             </div>
