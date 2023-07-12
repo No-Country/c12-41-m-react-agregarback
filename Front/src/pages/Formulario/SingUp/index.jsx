@@ -5,9 +5,7 @@ import Footer from "../../../components/Footer/Footer"
 const SignUpPage = () => {
     return (
         <>
-            <SideNavLanding />
             <SignUp />
-            <Footer />
         </>
     )
 }

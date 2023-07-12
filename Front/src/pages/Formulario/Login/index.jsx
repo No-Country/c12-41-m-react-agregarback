@@ -4,9 +4,7 @@ import Footer from "../../../components/Footer/Footer";
 const LoginC = () => {
     return (
         <>
-            <SideNavLanding />
             <Login />
-            <Footer />
         </>
     )
 }

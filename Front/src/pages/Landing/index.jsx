@@ -6,10 +6,8 @@ import SideNavLanding from "../../components/SideNavLanding/SideNavLanding"
 const HomeC = () => {
     return (
         <>
-            <SideNavLanding />
             <Home />
             <Feature />
-            <Footer />
         </>
     )
 }

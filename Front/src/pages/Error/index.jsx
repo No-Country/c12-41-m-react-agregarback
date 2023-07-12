@@ -7,9 +7,7 @@ import SideNavLanding from "../../components/SideNavLanding/SideNavLanding.jsx";
 const NotFound = () => {
     return (
         <>
-            <SideNavLanding />
             <CompoError />
-            <Footer />
 
         </>
     )
