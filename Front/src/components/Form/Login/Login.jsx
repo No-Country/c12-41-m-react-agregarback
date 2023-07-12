@@ -65,23 +65,25 @@ function Login() {
                         className="absolute inset-0 bg-gradient-to-r from-orange to-yellow shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl">
                     </div>
                     <div className="relative px-4 py-10 bg-gray shadow-lg  sm:rounded-3xl sm:p-20">
-                        <div className="max-w-lg mx-auto">
+                        <div className="w-96 mx-auto">
                             <form onSubmit={handleSubmit}>
                                 <div>
                                     <div className="max-w-lg p-10">
                                         <div className="relative">
-                                            <input autocomplete="off" className="peer placeholder-transparent h-10 w-full border-b-2 border-yellow  bg-gray text-white focus:outline-none focus:border-yellow" placeholder="Numero de documento"
+                                            <input id="dni" autoComplete="off" className="peer placeholder-transparent h-10 w-full border-b-2 border-yellow  bg-gray text-white focus:outline-none focus:border-yellow" placeholder="Numero de documento"
                                                 type="number"
                                                 name="dni"
                                                 value={loginData.dni}
-                                                onChange={handleInputChange} />
-                                            <p className="error text-yellow font-bold">{errors.dni}</p>
-                                            <label for="email" className="absolute left-0 -top-3.5 font-bold text-white  text-xl peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Numero de documento</label>
+                                                onChange={handleInputChange}
+                                            />
+                                            <p className="error text-yellow font-bold h-12">{errors.dni}</p>
+                                            <label htmlFor="dni" className="absolute left-0 -top-3.5 font-bold text-white  text-xl peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Numero de documento</label>
                                         </div>
                                     </div>
                                     <div className="w-full max-w-lg p-10">
                                         <div className="relative">
                                             <input
+                                                id="username"
                                                 className="peer placeholder-transparent h-10 w-full border-b-2 border-yellow  bg-gray text-white focus:outline-none focus:border-yellow"
                                                 placeholder="Usuario"
                                                 type="username"
@@ -89,13 +91,14 @@ function Login() {
                                                 value={loginData.username}
                                                 onChange={handleInputChange}
                                             />
-                                            <p className="error text-yellow font-bold">{errors.usuario}</p>
-                                            <label className="absolute left-0 -top-3.5 font-bold text-white  text-xl peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Usuario</label>
+                                            <p className="error text-yellow font-bold h-12">{errors.usuario}</p>
+                                            <label htmlFor="username" className="absolute left-0 -top-3.5 font-bold text-white  text-xl peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Usuario</label>
                                         </div>
                                     </div>
                                     <div className="w-full max-w-lg p-10">
                                         <div className="relative" >
                                             <input
+                                                id="password"
                                                 className="peer placeholder-transparent h-10 w-full border-b-2 border-yellow  bg-gray text-white focus:outline-none focus:border-yellow"
                                                 placeholder="Contraseña"
                                                 type="password"
@@ -103,8 +106,8 @@ function Login() {
                                                 value={loginData.password}
                                                 onChange={handleInputChange}
                                             />
-                                            <p className="error text-yellow font-bold">{errors.password}</p>
-                                            <label className="absolute left-0 -top-3.5 font-bold text-white  text-xl peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Contraseña</label>
+                                            <p className="error text-yellow font-bold h-12">{errors.password}</p>
+                                            <label htmlFor="password" className="absolute left-0 -top-3.5 font-bold text-white  text-xl peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Contraseña</label>
 
                                         </div>
                                     </div>
