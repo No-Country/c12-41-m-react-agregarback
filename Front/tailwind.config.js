@@ -19,6 +19,9 @@ module.exports = {
       height: {
         '70vh': '70vh',
       },
+      backgroundImage: {
+        "contact-bg": "url('https://images.pexels.com/photos/3093033/pexels-photo-3093033.jpeg')"
+      }
     },
   },
   plugins: [],

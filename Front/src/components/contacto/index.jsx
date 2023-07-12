@@ -1,7 +1,10 @@
+import Boxcontact from "./Box/boxcontact"
+
 const CompoContact = () =>{
     return(
-        <div className="bg-dark h-screen">
-        <h1>Hola</h1>
+        <div className="flex justify-center items-center bg-contact-bg bg-cover h-screen w-full" >
+            <Boxcontact/>
+        
         </div>
     )
 }
