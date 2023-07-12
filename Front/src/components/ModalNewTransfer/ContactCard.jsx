@@ -37,7 +37,7 @@ const ContactCard = () => {
     return (
       <div>
         {Contacts.map((contact) => (
-          <div key={contact.id}className="flex cursor-pointer my-1 hover:bg-blue-lightest rounded">
+          <div key={contact.id} className="flex cursor-pointer my-1 hover:bg-blue-lightest rounded">
             <div className="w-8 h-10 text-center py-1">
               <p className="text-3xl p-0 text-green-dark">&bull;</p>
             </div>
