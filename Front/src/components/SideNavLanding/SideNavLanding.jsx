@@ -7,14 +7,20 @@ import {
 } from "react-icons/ai";
 import { BsPerson } from "react-icons/bs";
 import { GrProjects } from "react-icons/gr";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { ErrorDisplay } from "../404error";
 
 const SideNavLanding = () => {
   const [navLanding, setNavLanding] = useState(false);
+  const navigate = useNavigate();
 
   const handleNavLanding = () => {
     setNavLanding(!navLanding);
+  };
+
+  const handleLogout = () => {
+    sessionStorage.removeItem('token');
+    navigate('/');
   };
 
   return (
@@ -54,9 +60,8 @@ const SideNavLanding = () => {
             </svg>
           </button>
           <div
-            className={`${
-              navLanding ? "top-[100%]" : "top-[-220%]"
-            } w-full absolute left-0 z-50 bg-dark duration-500 md:w-auto md:top-0  md:relative`}
+            className={`${navLanding ? "top-[100%]" : "top-[-220%]"
+              } w-full absolute left-0 z-50 bg-dark duration-500 md:w-auto md:top-0  md:relative p-3`}
             id="navbar-default"
           >
             <ul className="font-medium flex flex-col items-center md:p-0 py-4 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-dark ">
@@ -93,7 +98,15 @@ const SideNavLanding = () => {
                   Contactanos
                 </NavLink>
               </li>
-              <div className="flex items-center">
+              {sessionStorage.getItem('token') ? <NavLink to="/" onClick={handleLogout}>
+                <span
+                  href="/"
+                  aria-label=""
+                  className="bg-transparent inline-flex justify-center font-medium text-yellow  hover:bg-white hover:text-dark hover: rounded shadow hover:shadow-lg  h-10 items-center  px-6 border border-yellow hover:border-white"
+                >
+                  Cerrar sesión
+                </span>
+              </NavLink> : <div className="flex items-center">
                 <NavLink to="/signup">
                   <span
                     href="./signup"
@@ -111,7 +124,8 @@ const SideNavLanding = () => {
                     Iniciar sesión
                   </span>
                 </NavLink>
-              </div>
+              </div>}
+
             </ul>
           </div>
         </div>
