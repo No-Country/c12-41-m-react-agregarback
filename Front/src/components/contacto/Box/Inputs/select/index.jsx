@@ -1,51 +1,77 @@
-import BoxInputClass from "../classGeneral"
+import { useState } from "react";
+import BoxInputClass, { boxDivInputs, boxInputs } from "../classGeneral";
 
-const SelectComp = () =>{
-    return(
+const SelectComp = () => {
+  const [selectedOption, setselectedOption] = useState("");
+  const [inputValue, setinputValue] = useState("");
+
+  const handleSelectChange = (event) => {
+    const selectedValue = (event.target.value);
+    setselectedOption(selectedValue)
+  
+
+ if(selectedValue === "dni" ){
+     setinputValue("XXXXXXXXX")
+ } else if (selectedValue ==="pass"){
+   setinputValue("Elegiste " + selectedValue )
+ } else if (selectedValue === "CUIL"){
+   setinputValue(selectedValue)
+ } else if( selectedValue === "CUIT"){
+   setinputValue(selectedValue)
+ }
+};
+
+const handleInputChange = (event) => {
+   setinputValue(event.target.value)
+}
+
+
+  return (
     <>
-    <div className="" id="type-of-document">
+      <div className={boxInputs} id="type-of-document">
         <label for="type" className="text-left text-orange">
           Tipo de documento<b>*</b>
         </label>
-        <div className="w-96.06 h-16.56">
+        <div className={boxDivInputs}>
           <select
             name=""
-            className="w-full h-7 bg-white flex items-center px-2 text-gray rounded-md"
+            className="md:w-full w-full  h-7 bg-white md:flex md:items-center md:px-2 text-gray rounded-md"
             id="type"
+            value={selectedOption}
+            onChange={handleSelectChange}
           >
-            <option value="seleccion" className="text-dark">
-              Seleccion
-            </option>
+            <option value="seleccion">Seleccion</option>
             <option value="dni" className="text-dark">
-              dni
+              DNI
             </option>
-            <option value="seleccion" className="text-dark">
-              Seleccion
+            <option value="pass" className="text-dark">
+              PAS
             </option>
-            <option value="seleccion" className="text-dark">
-              Seleccion
+            <option value="CUIL" className="text-dark">
+              CUIL
             </option>
-            <option value="seleccion" className="text-dark">
-              Seleccion
+            <option value="CUIT" className="text-dark">
+              CUIT
             </option>
           </select>
         </div>
       </div>
-      <div className="w-full" id="Documento">
+      <div className={boxInputs} id="Documento">
         <label for="documento" className="">
           Documento<b>*</b>
         </label>
         <div className="w-96.06 h-16.56">
           <input
             type="text"
-            placeholder="Documento"
             id="documento"
+            placeholder="XXXXXXX"
             className={BoxInputClass}
+            onChange={handleInputChange}
           />
         </div>
       </div>
-      </>
-    )
-}
+    </>
+  );
+};
 
-export default SelectComp
+export default SelectComp;

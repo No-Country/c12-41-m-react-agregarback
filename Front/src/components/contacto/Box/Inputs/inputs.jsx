@@ -1,18 +1,17 @@
-import BoxInputClass from "./classGeneral";
+import BoxInputClass, { boxDivInputs, boxInputs } from "./classGeneral";
 import SelectComp from "./select";
 
 const InputsContact = () => {
-   
 
   return (
-    <div className="h-fit grid grid-cols-2 grid-rows-3 gap-12 text-orange text-left">
+    <div className="h-fit md:w-fit w-full flex flex-col justify-center items-center md:grid   md:grid-cols-2 md:grid-rows-3 md:gap-12 gap-3 text-orange text-left">
       <SelectComp/>
       
-      <div className="w-full" id="Documento">
+      <div className={boxInputs} id="user">
         <label for="Name" className="capitalize">
           nombre<b>*</b>
         </label>
-        <div className="w-96.06 h-16.56">
+        <div className={boxDivInputs}>
           <input
             type="text"
            required
@@ -21,11 +20,11 @@ const InputsContact = () => {
           />
         </div>
       </div>
-      <div className="w-full" id="Documento">
+      <div className={boxInputs} id="apellido">
         <label for="ape" className="capitalize">
           apellido<b>*</b>
         </label>
-        <div className="w-96.06 h-16.56">
+        <div className={boxDivInputs}>
           <input
             type="text"
             required
@@ -35,12 +34,12 @@ const InputsContact = () => {
         </div>
       </div>
       
-      <div className="grid grid-cols-2 grid-rows-0 gap-2" id="Numero">
+      <div className="grid md:grid-cols-2 md:grid-rows-0 md:gap-2" id="Numero">
         <div>
         <label for="nArea" className="capitalize">
           n*area<b>*</b>
         </label>
-        <div className="w-96.06 h-16.56">
+        <div className={boxDivInputs}>
           <input
             type="tel"
            
@@ -53,7 +52,7 @@ const InputsContact = () => {
         <label for="num" className="capitalize">
           tel/cel<b>*</b>
         </label>
-        <div className="w-96.06 h-16.56">
+        <div className={boxDivInputs}>
           <input
             type="tel"
             required
@@ -64,11 +63,11 @@ const InputsContact = () => {
         </div>
         
       </div>
-      <div className="w-full" id="Documento">
+      <div className={boxInputs} id="email">
         <label for="email" className="capitalize">
           correo electronico<b>*</b>
         </label>
-        <div className="w-96.06 h-16.56">
+        <div className={boxDivInputs}>
           <input
             type="email"
             required
