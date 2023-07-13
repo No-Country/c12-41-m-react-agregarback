@@ -66,7 +66,7 @@ function SignUp() {
                     
                         <div className="relative px-4 py-10 bg-gray shadow-lg  sm:rounded-3xl sm:p-20">
                             <form onSubmit={handleRegisterSubmit}
-                                className="grid grid-cols-2 gap-1">
+                                className="grid grid-cols-2   gap-1">
                                 <div className="w-full max-w-xs p-10">
                                 <div className="relative">
                                     <input
@@ -76,9 +76,10 @@ function SignUp() {
                                         name="name"
                                         value={userRegister.name}
                                         onChange={handleRegisterInputChange}
+                                        id="nameUser"
                                     />
                                     <p className="error  text-yellow font-bold h-12">{errors.name}</p>
-                                    <label className="absolute mb-2 left-0 -top-3.5 font-bold text-white  text-xl peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Nombre Completo</label>
+                                    <label for="nameUser" className="absolute mb-2 left-0 -top-3.5 font-bold text-white  text-xl peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Nombre Completo</label>
                                 </div>
                                 </div>
                                 <div className="w-full max-w-xs p-10">
@@ -90,9 +91,10 @@ function SignUp() {
                                         name="email"
                                         value={userRegister.email}
                                         onChange={handleRegisterInputChange}
+                                        id="correo"
                                     />
                                     <p className="error  text-yellow font-bold h-12">{errors.email}</p>
-                                    <label className="absolute mb-2 left-0 -top-3.5 font-bold text-white  text-xl peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Email</label>
+                                    <label for="correo" className="absolute mb-2 left-0 -top-3.5 font-bold text-white  text-xl peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Email</label>
                                 </div>
                                 </div>
                                 <div className="w-full max-w-xs p-10">
@@ -105,9 +107,10 @@ function SignUp() {
                                         name="password"
                                         value={userRegister.password}
                                         onChange={handleRegisterInputChange}
+                                        id="pass"
                                     />
                                     <p className="error  text-yellow font-bold h-12">{errors.password}</p>
-                                    <label className="absolute mb-2 left-0 -top-3.5 font-bold text-white peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Contraseña</label>
+                                    <label for="pass" className="absolute mb-2 left-0 -top-3.5 font-bold text-white peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Contraseña</label>
                                 </div>
                                 </div>
                                 <div className="w-full max-w-xs p-10">
@@ -132,8 +135,9 @@ function SignUp() {
                                         name="dni"
                                         value={userRegister.dni}
                                         onChange={handleRegisterInputChange}
+                                        id="dniUser"
                                     />
-                                    <label className="absolute mb-2 left-0 -top-3.5 font-bold text-white  text-xl peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Número de Documento</label>
+                                    <label for="dniUser" className="absolute mb-2 left-0 -top-3.5 font-bold text-white  text-xl peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Número de Documento</label>
                                 </div>
                                 </div>
                                 <div className="w-full max-w-xs p-10">
@@ -146,22 +150,24 @@ function SignUp() {
                                         name="address"
                                         value={userRegister.address}
                                         onChange={handleRegisterInputChange}
+                                        id="addressUser"
                                     />
-                                    <label className="absolute mb-2 left-0 -top-3.5 font-bold text-white  text-xl peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Dirección</label>
+                                    <label for="addressUser" className="absolute mb-2 left-0 -top-3.5 font-bold text-white  text-xl peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Dirección</label>
                                     </div>
                                 </div>
                                 <div className="w-full max-w-xs p-10">
                                     <div className="relative">
                                     <input
-                                        className="peer placeholder-transparent placeholder:h-10 w-full border-b-2 border-yellow  bg-gray text-white focus:outline-none focus:border-yellow"
+                                        className="peer placeholder-transparent h-10 w-full border-b-2 border-yellow  bg-gray text-white focus:outline-none focus:border-yellow"
                                         placeholder="Nombre de Usuario"
                                         type="text"
                                         name="username"
                                         value={userRegister.username}
                                         onChange={handleRegisterInputChange}
+                                        id="user"
                                     />
                                     <p className="error  text-yellow font-bold h-12">{errors.username}</p>
-                                    <label className="absolute left-0 -top-3.5 font-bold text-white peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Nombre de Usuario</label>
+                                    <label for="user" className="absolute left-0 -top-3.5 font-bold text-white  peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Nombre de Usuario</label>
                                 </div>
                                 </div>
                                 <div className="w-full max-w-xs p-10">
@@ -174,9 +180,10 @@ function SignUp() {
                                         name="phone_number"
                                         value={userRegister.phone_number}
                                         onChange={handleRegisterInputChange}
+                                        id="cel"
                                     />
                                     <p className="error  text-yellow font-bold h-12">{errors.phone_number}</p>
-                                    <label className="absolute left-0 -top-3.5 font-bold text-white  text-xl peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Número de Teléfono</label>
+                                    <label for="cel" className="absolute left-0 -top-3.5 font-bold text-white  text-xl peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Número de Teléfono</label>
                                 </div>
                                 </div>
                                 <div
