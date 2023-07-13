@@ -78,7 +78,7 @@ function SignUp() {
                                         onChange={handleRegisterInputChange}
                                     />
                                     <p className="error  text-yellow font-bold h-12">{errors.name}</p>
-                                    <label className="absolute mb-2 left-0 -top-3.5 font-bold text-white  text-xl peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Nombre Completo</label>
+                                    <label className="absolute mb-2 left-0 -top-3.5 font-bold text-white peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Nombre Completo</label>
                                 </div>
                                 </div>
                                 <div className="w-full max-w-xs p-10">
@@ -92,7 +92,7 @@ function SignUp() {
                                         onChange={handleRegisterInputChange}
                                     />
                                     <p className="error  text-yellow font-bold h-12">{errors.email}</p>
-                                    <label className="absolute mb-2 left-0 -top-3.5 font-bold text-white  text-xl peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Email</label>
+                                    <label className="absolute mb-2 left-0 -top-3.5 font-bold text-white peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Email</label>
                                 </div>
                                 </div>
                                 <div className="w-full max-w-xs p-10">
@@ -133,7 +133,7 @@ function SignUp() {
                                         value={userRegister.dni}
                                         onChange={handleRegisterInputChange}
                                     />
-                                    <label className="absolute mb-2 left-0 -top-3.5 font-bold text-white  text-xl peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Número de Documento</label>
+                                    <label className="absolute mb-2 left-0 -top-3.5 font-bold text-white  peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Número de Documento</label>
                                 </div>
                                 </div>
                                 <div className="w-full max-w-xs p-10">
@@ -147,13 +147,13 @@ function SignUp() {
                                         value={userRegister.address}
                                         onChange={handleRegisterInputChange}
                                     />
-                                    <label className="absolute mb-2 left-0 -top-3.5 font-bold text-white  text-xl peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Dirección</label>
+                                    <label className="absolute mb-2 left-0 -top-3.5 font-bold text-white peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Dirección</label>
                                     </div>
                                 </div>
                                 <div className="w-full max-w-xs p-10">
                                     <div className="relative">
                                     <input
-                                        className="peer placeholder-transparent placeholder:h-10 w-full border-b-2 border-yellow  bg-gray text-white focus:outline-none focus:border-yellow"
+                                        className="peer placeholder-transparent h-10 w-full border-b-2 border-yellow  bg-gray text-white focus:outline-none focus:border-yellow"
                                         placeholder="Nombre de Usuario"
                                         type="text"
                                         name="username"
@@ -176,7 +176,7 @@ function SignUp() {
                                         onChange={handleRegisterInputChange}
                                     />
                                     <p className="error  text-yellow font-bold h-12">{errors.phone_number}</p>
-                                    <label className="absolute left-0 -top-3.5 font-bold text-white  text-xl peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Número de Teléfono</label>
+                                    <label className="absolute left-0 -top-3.5 font-bold text-white  peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Número de Teléfono</label>
                                 </div>
                                 </div>
                                 <div
