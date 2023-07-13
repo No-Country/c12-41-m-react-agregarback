@@ -31,3 +31,14 @@ export const deleteAccount = catchAsync(async (req, res, next) => {
     message: `account ${accountNumber} deleted`,
   });
 });
+
+export const getAllAccountsByUser = catchAsync(async (req, res, next) => {
+  const { userId } = req.params;
+  const accounts = await accounServices.getAllAcountsById({ userId, next });
+
+  return res.status(200).json({
+    status: "succes",
+    message: `accounts found`,
+    accounts,
+  });
+});

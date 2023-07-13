@@ -71,32 +71,31 @@ export const validDeleteAccount = [
   validateFields,
 ];
 
-const atLeastOneField = (value, { req }) => {
-  const { cbu, cvu, alias } = req.body;
-  const attirbute = cbu || cvu || alias;
-  return !!attirbute;
-};
+// const atLeastOneField = (value, { req }) => {
+//   const { cbu, cvu, alias } = req.body;
+//   const attirbute = cbu || cvu || alias;
+//   return !!attirbute;
+// };
 
-// Middleware de validación
-export const validTransferOptional = [
-  body("cbu").optional(),
-  body("cvu").optional(),
-  body("alias").optional(),
-  body()
-    .custom(atLeastOneField)
-    .withMessage("At least one of cbu, cvu, alias field is required"),
-  validateFields,
-];
+// // Middleware de validación
+// export const validTransferOptional = [
+//   body("cbu").optional(),
+//   body("cvu").optional(),
+//   body("alias").optional(),
+//   body()
+//     .custom(atLeastOneField)
+//     .withMessage("At least one of cbu, cvu, alias field is required"),
+//   validateFields,
+// ];
 
 export const validTransferRequire = [
+  body("accountId")
+    .notEmpty()
+    .isInt()
+    .withMessage("accountId es obligatior y debe ser un entero"),
   body("senderAccount")
     .notEmpty()
     .withMessage("sender account is require")
-    .isLength({ min: 9, max: 9 })
-    .withMessage("account number has to have 9 numbers"),
-  body("recieverAccount")
-    .notEmpty()
-    .withMessage("reciever account is require")
     .isLength({ min: 9, max: 9 })
     .withMessage("account number has to have 9 numbers"),
   body("amount")
@@ -104,6 +103,15 @@ export const validTransferRequire = [
     .withMessage("amoun is require")
     .isFloat()
     .withMessage("amoun has to be a number"),
+  body("validation")
+    .notEmpty()
+    .withMessage("validation is require")
+    .isIn(["accountNumber", "cbu", "cvu", "alias"]),
+  body("validationValue").notEmpty().withMessage("validation value is require"),
+  body("contactId")
+    .notEmpty()
+    .isInt()
+    .withMessage("contactId is requeri and must be an integer"),
   validateFields,
 ];
 

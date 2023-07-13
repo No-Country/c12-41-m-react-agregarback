@@ -21,7 +21,7 @@ const ContacsModel = db.define("contacs", {
     allowNull: false,
   },
   contactName: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.STRING,
     allowNull: false,
   },
   userId: {

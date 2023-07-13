@@ -3,7 +3,7 @@ import { singUp, login } from "../controllers/userController.js";
 import {
   validSingUp,
   validLogin,
-  validTransferOptional,
+  // validTransferOptional,
   validTransferRequire,
 } from "../middlewares/valid.middleware.js";
 import {
@@ -86,8 +86,8 @@ const router = express.Router();
  *                   type: string
  *                   example: OK
  *                 data:
- *                   type: array 
- *                   items: 
+ *                   type: array
+ *                   items:
  *                     $ref: "#/components/schemas/User"
  *       5XX:
  *         description: FAILED
@@ -96,14 +96,14 @@ const router = express.Router();
  *             schema:
  *               type: object
  *               properties:
- *                 status: 
+ *                 status:
  *                   type: string
  *                   example: FAILED
  *                 data:
  *                   type: object
  *                   properties:
  *                     error:
- *                       type: string 
+ *                       type: string
  *                       example: "Some error message"
  */
 router.post("/signup", validSingUp, singUp);
@@ -116,11 +116,9 @@ router.use("/:userId", protectAccountOwner);
 router.get("/:userId/:currency/", GetTransfers);
 router.post(
   "/:userId/:currency/",
-  validTransferOptional,
+  // validTransferOptional,
   validTransferRequire,
   CreateTransfer
 );
-
-
 
 export default router;

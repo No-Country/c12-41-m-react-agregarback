@@ -5,7 +5,14 @@ import AccountServices from "./account.services.js";
 class TransferServices {
   accountServices = new AccountServices();
 
-  async newTransfer({ AccountAttributes, recieverAccount, amount, next }) {
+  async newTransfer({
+    AccountAttributes,
+    recieverAccountAttributes,
+    validation,
+    validationValue,
+    amount,
+    next,
+  }) {
     try {
       const senderUserAccount = await this.accountServices.findOneAccount({
         AccountAttributes,
@@ -13,9 +20,16 @@ class TransferServices {
       });
 
       const recieverUserAccount = await this.accountServices.findOneAccount({
-        AccountAttributes: { accountNumber: recieverAccount },
+        AccountAttributes: recieverAccountAttributes,
         next,
       });
+      //validar si cvu cbu alias o numero de cuenta es correcto
+      console.log(recieverUserAccount[validation], validationValue);
+      if (recieverUserAccount[validation] != validationValue) {
+        throw next(
+          new AppError("validacion de la cuenta que recibe fallida", 400)
+        );
+      }
       if (senderUserAccount.amount < amount) {
         throw next(new AppError("not enough money", 400));
       }
@@ -31,10 +45,13 @@ class TransferServices {
       });
 
       const data = {
-        amount,
-        senderAccount: senderUserAccount.accountNumber,
-        receiverAccount: recieverUserAccount.accountNumber,
+        userId: senderUserAccount.userId,
         accountId: senderUserAccount.id,
+        senderAccount: senderUserAccount.accountNumber,
+        amount,
+        validation,
+        validationValue,
+        contactId: recieverUserAccount.userId,
       };
       const transfer = await TransferModel.create(data);
       return transfer;
