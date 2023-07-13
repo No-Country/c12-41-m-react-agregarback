@@ -59,116 +59,139 @@ function SignUp() {
     };
 
     return (
-        <div>
-
-            <div className="signup flex justify-center items-center h-70vh bg-dark">
-
-                <form onSubmit={handleRegisterSubmit}
-                    className="grid grid-cols-2 gap-1">
-                    <div className="w-full max-w-xs p-10">
-                        <label>Nombre Completo</label>
-                        <input
-                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outlinev bg-dark"
-                            placeholder="Nombre Completo"
-                            type="text"
-                            name="name"
-                            value={userRegister.name}
-                            onChange={handleRegisterInputChange}
-                        />
-                        <p className="error">{errors.name}</p>
+        <div className="bg-dark py-6 flex flex-col justify-center sm:py-12">
+            <div className="bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
+                <div className="relative py-3 max-w-4xl  sm:mx-auto">
+                    <div className="absolute inset-0 bg-gradient-to-r from-orange to-yellow shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"></div>
+                    
+                        <div className="relative px-4 py-10 bg-gray shadow-lg  sm:rounded-3xl sm:p-20">
+                            <form onSubmit={handleRegisterSubmit}
+                                className="grid grid-cols-2 gap-1">
+                                <div className="w-full max-w-xs p-10">
+                                <div className="relative">
+                                    <input
+                                        className="peer placeholder-transparent h-10 w-full border-b-2 border-yellow  bg-gray text-white focus:outline-none focus:border-yellow"
+                                        placeholder="Nombre Completo"
+                                        type="text"
+                                        name="name"
+                                        value={userRegister.name}
+                                        onChange={handleRegisterInputChange}
+                                    />
+                                    <p className="error  text-yellow font-bold h-12">{errors.name}</p>
+                                    <label className="absolute mb-2 left-0 -top-3.5 font-bold text-white  text-xl peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Nombre Completo</label>
+                                </div>
+                                </div>
+                                <div className="w-full max-w-xs p-10">
+                                <div className="relative">
+                                    <input
+                                        className="peer placeholder-transparent h-10 w-full border-b-2 border-yellow  bg-gray text-white focus:outline-none focus:border-yellow"
+                                        placeholder="Email"
+                                        type="email"
+                                        name="email"
+                                        value={userRegister.email}
+                                        onChange={handleRegisterInputChange}
+                                    />
+                                    <p className="error  text-yellow font-bold h-12">{errors.email}</p>
+                                    <label className="absolute mb-2 left-0 -top-3.5 font-bold text-white  text-xl peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Email</label>
+                                </div>
+                                </div>
+                                <div className="w-full max-w-xs p-10">
+                                    <div className="relative">
+                                    
+                                    <input
+                                        className="peer placeholder-transparent h-10 w-full border-b-2 border-yellow  bg-gray text-white focus:outline-none focus:border-yellow"
+                                        placeholder="Contraseña"
+                                        type="password"
+                                        name="password"
+                                        value={userRegister.password}
+                                        onChange={handleRegisterInputChange}
+                                    />
+                                    <p className="error  text-yellow font-bold h-12">{errors.password}</p>
+                                    <label className="absolute mb-2 left-0 -top-3.5 font-bold text-white peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Contraseña</label>
+                                </div>
+                                </div>
+                                <div className="w-full max-w-xs p-10">
+                                    <div className="relative">
+                                    <input
+                                        className="peer placeholder-transparent h-10 w-full border-b-2 border-yellow  bg-gray text-white focus:outline-none focus:border-yellow"
+                                        type="date"
+                                        name="date_of_birth"
+                                        value={userRegister.date_of_birth}
+                                        onChange={handleRegisterInputChange}
+                                    />
+                                <label className="absolute mb-2 left-0 -top-3.5 font-bold text-white  text-base peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Fecha de Nacimiento</label>
+                                </div>
+                                </div>
+                                <div className="w-full max-w-xs p-10">
+                                    <div className="relative">
+                                    
+                                    <input
+                                        className="peer placeholder-transparent h-10 w-full border-b-2 border-yellow  bg-gray text-white focus:outline-none focus:border-yellow"
+                                        placeholder="Numero de documento"
+                                        type="number"
+                                        name="dni"
+                                        value={userRegister.dni}
+                                        onChange={handleRegisterInputChange}
+                                    />
+                                    <label className="absolute mb-2 left-0 -top-3.5 font-bold text-white  text-xl peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Número de Documento</label>
+                                </div>
+                                </div>
+                                <div className="w-full max-w-xs p-10">
+                                    <div className="relative">
+                                    
+                                    <input
+                                        className="peer placeholder-transparent h-10 w-full border-b-2 border-yellow  bg-gray text-white focus:outline-none focus:border-yellow"
+                                        placeholder="Dirección"
+                                        type="text"
+                                        name="address"
+                                        value={userRegister.address}
+                                        onChange={handleRegisterInputChange}
+                                    />
+                                    <label className="absolute mb-2 left-0 -top-3.5 font-bold text-white  text-xl peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Dirección</label>
+                                    </div>
+                                </div>
+                                <div className="w-full max-w-xs p-10">
+                                    <div className="relative">
+                                    <input
+                                        className="peer placeholder-transparent placeholder:h-10 w-full border-b-2 border-yellow  bg-gray text-white focus:outline-none focus:border-yellow"
+                                        placeholder="Nombre de Usuario"
+                                        type="text"
+                                        name="username"
+                                        value={userRegister.username}
+                                        onChange={handleRegisterInputChange}
+                                    />
+                                    <p className="error  text-yellow font-bold h-12">{errors.username}</p>
+                                    <label className="absolute left-0 -top-3.5 font-bold text-white peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Nombre de Usuario</label>
+                                </div>
+                                </div>
+                                <div className="w-full max-w-xs p-10">
+                                    <div className="relative">
+                                    
+                                    <input
+                                        className="peer placeholder-transparent h-10 w-full border-b-2 border-yellow  bg-gray text-white focus:outline-none focus:border-yellow"
+                                        placeholder="Número de Teléfono"
+                                        type="text"
+                                        name="phone_number"
+                                        value={userRegister.phone_number}
+                                        onChange={handleRegisterInputChange}
+                                    />
+                                    <p className="error  text-yellow font-bold h-12">{errors.phone_number}</p>
+                                    <label className="absolute left-0 -top-3.5 font-bold text-white  text-xl peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Número de Teléfono</label>
+                                </div>
+                                </div>
+                                <div
+                                    className="flex justify-center items-center">
+                                    <button onChange={handleRegisterSubmit}
+                                        className="bg-gradient-to-r from-orange to-yellow hover:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                                        type="submit">Registrar</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                    <div className="w-full max-w-xs p-10">
-                        <label>Email</label>
-                        <input
-                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outlinev bg-dark"
-                            placeholder="Email"
-                            type="email"
-                            name="email"
-                            value={userRegister.email}
-                            onChange={handleRegisterInputChange}
-                        />
-                        <p className="error">{errors.email}</p>
-                    </div>
-                    <div className="w-full max-w-xs p-10">
-                        <label>Contraseña</label>
-                        <input
-                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outlinev bg-dark"
-                            placeholder="Contraseña"
-                            type="password"
-                            name="password"
-                            value={userRegister.password}
-                            onChange={handleRegisterInputChange}
-                        />
-                        <p className="error">{errors.password}</p>
-                    </div>
-                    <div className="w-full max-w-xs p-10">
-                        <label>Fecha de Nacimiento</label>
-                        <input
-                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outlinev bg-dark"
-                            type="date"
-                            name="date_of_birth"
-                            value={userRegister.date_of_birth}
-                            onChange={handleRegisterInputChange}
-                        />
-
-                    </div>
-                    <div className="w-full max-w-xs p-10">
-                        <label>Número de Documento</label>
-                        <input
-                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outlinev bg-dark"
-                            placeholder="Numero de documento"
-                            type="number"
-                            name="dni"
-                            value={userRegister.dni}
-                            onChange={handleRegisterInputChange}
-                        />
-                    </div>
-                    <div className="w-full max-w-xs p-10">
-                        <label>Dirección</label>
-                        <input
-                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outlinev bg-dark"
-                            placeholder="Dirección"
-                            type="text"
-                            name="address"
-                            value={userRegister.address}
-                            onChange={handleRegisterInputChange}
-                        />
-                    </div>
-                    <div className="w-full max-w-xs p-10">
-                        <label>Nombre de Usuario</label>
-                        <input
-                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outlinev bg-dark"
-                            placeholder="Nombre de Usuario"
-                            type="text"
-                            name="username"
-                            value={userRegister.username}
-                            onChange={handleRegisterInputChange}
-                        />
-                        <p className="error">{errors.username}</p>
-                    </div>
-                    <div className="w-full max-w-xs p-10">
-                        <label>Número de Teléfono</label>
-                        <input
-                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outlinev bg-dark"
-                            placeholder="Número de Teléfono"
-                            type="text"
-                            name="phone_number"
-                            value={userRegister.phone_number}
-                            onChange={handleRegisterInputChange}
-                        />
-                        <p className="error">{errors.phone_number}</p>
-                    </div>
-                    <div
-                        className="flex justify-center items-center bg-dark">
-                        <button onChange={handleRegisterSubmit}
-                            className="bg-gradient-to-r from-orange to-yellow hover:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                            type="submit">Registrar</button>
-                    </div>
-                </form>
-            </div>
-
-
-        </div>
+                </div>
+                </div>
+            
+        
 
     );
 }

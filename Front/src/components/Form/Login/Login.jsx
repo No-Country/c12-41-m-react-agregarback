@@ -67,7 +67,6 @@ function Login() {
                     <div className="relative px-4 py-10 bg-gray shadow-lg  sm:rounded-3xl sm:p-20">
                         <div className="w-96 mx-auto">
                             <form onSubmit={handleSubmit}>
-                                <div>
                                     <div className="max-w-lg p-10">
                                         <div className="relative">
                                             <input id="dni" autoComplete="off" className="peer placeholder-transparent h-10 w-full border-b-2 border-yellow  bg-gray text-white focus:outline-none focus:border-yellow" placeholder="Numero de documento"
@@ -119,7 +118,7 @@ function Login() {
                                                 className=" mt-6 bg-gradient-to-r from-orange to-yellow hover:text-dark font-bold px-4 py-2 rounded-xl  focus:outline-none focus:shadow-outline">Registrarse</button>
                                         </NavLink>
                                     </div>
-                                </div>
+                                
 
                             </form>
                         </div>
