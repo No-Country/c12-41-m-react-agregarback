@@ -1,37 +1,41 @@
-import BoxInputClass from "../classGeneral"
+import BoxInputClass, { boxDivInputs, boxInputs } from "../classGeneral"
 
 const SelectComp = () =>{
     return(
     <>
-    <div className="" id="type-of-document">
+    <div className={boxInputs} id="type-of-document">
         <label for="type" className="text-left text-orange">
           Tipo de documento<b>*</b>
         </label>
-        <div className="w-96.06 h-16.56">
+        <div className={boxDivInputs}>
           <select
             name=""
-            className="w-full h-7 bg-white flex items-center px-2 text-gray rounded-md"
+            className="md:w-full w-full  h-7 bg-white md:flex md:items-center md:px-2 text-gray rounded-md"
             id="type"
           >
-            <option value="seleccion" className="text-dark">
+            <option value="seleccion" >
               Seleccion
             </option>
             <option value="dni" className="text-dark">
-              dni
+              DNI
             </option>
             <option value="seleccion" className="text-dark">
-              Seleccion
+              LE
             </option>
             <option value="seleccion" className="text-dark">
-              Seleccion
+              LC
             </option>
-            <option value="seleccion" className="text-dark">
-              Seleccion
+            <option value="CI" className="text-dark">
+              CI
             </option>
+            <option value="CI" className="text-dark">
+              CI
+            </option>
+
           </select>
         </div>
       </div>
-      <div className="w-full" id="Documento">
+      <div className={boxInputs} id="Documento">
         <label for="documento" className="">
           Documento<b>*</b>
         </label>

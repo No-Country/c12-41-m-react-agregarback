@@ -1,12 +1,17 @@
-import { Outlet } from "react-router-dom"
-import { Navigate } from "react-router-dom"
+import { Outlet, useNavigate, useLocation } from "react-router-dom"
+import { useEffect } from "react"
 
 const Proteccion = () => {
-    const token = sessionStorage.getItem(`token`)
-    console.log(token)
+  const token = sessionStorage.getItem(`token`)
+  const location = useLocation();
+  const navigate = useNavigate();
+  useEffect(() => {
     if (token === null) {
-      return  <Navigate to={'/login'} />
+      navigate('/login');
     }
-    return <Outlet />
+  }, [location, navigate, token])
+
+
+  return <Outlet />
 }
 export default Proteccion

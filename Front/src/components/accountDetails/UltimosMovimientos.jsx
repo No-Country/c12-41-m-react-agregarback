@@ -48,7 +48,7 @@ const UltimosMovimientos = () => {
   ];
   return (
     <section className="z-20">
-      <section className="bg-white w-full h-full rounded-[20px] p-10 flex flex-col gap-10">
+      <section className="bg-orange-navmenu w-full h-full rounded-[20px] p-10 flex flex-col gap-10">
         <h3 className="text-dark font-semibold tracking-wide text-2xl text-left">
           Últimos Movimientos
         </h3>

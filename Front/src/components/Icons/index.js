@@ -1,0 +1,7 @@
+export { default as HomeIcon} from "./homeIcon"
+export { default as QuestionIcon} from "./QuestionContact"
+export { default as ReturnIcon} from "./Returnicon"
+export { default as TwiiterIcon} from "./Redes/TwitterIcon"
+export { default as FacebookIcon } from "./Redes/FacebookIcon"
+export { default as InstagramIcon } from "./Redes/InstagramIcon"
+export { default as LinkedinIcon } from "./Redes/LinkedinIcon"
