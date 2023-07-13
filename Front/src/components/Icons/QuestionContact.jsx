@@ -1,4 +1,4 @@
-export const QuestionIcon = ({
+ const QuestionIcon = ({
   fill = "none",
   height = "86",
   width = "92",
@@ -20,3 +20,4 @@ export const QuestionIcon = ({
     </svg>
   );
 };
+export default QuestionIcon

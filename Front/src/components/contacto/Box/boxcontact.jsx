@@ -6,10 +6,10 @@ const Boxcontact = () => {
     
   return (
     <form
-      className="w-4/4 h-fit bg-opacity-60 bg-dark mix-blend-normal border border-dark rounded-md p-2 m-3" 
+      className="md:w-4/4  md:h-fit md:bg-opacity-60 bg-opacity-70 bg-dark mix-blend-normal border border-dark rounded-md p-2 m m-auto md:m-3 md:transition-2" 
       for=""
     >
-      <h2 className="w-96.04 h-7.76 font-inter font-semibold text-3xl  flex items-center text-orange my-2 ">
+      <h2 className="w-96.04 h-7.76 font-inter font-semibold text-2xl md:text-3xl  flex items-center text-orange my-2 ">
         Completa tus datos
       </h2>
       <InputsContact />
@@ -17,7 +17,7 @@ const Boxcontact = () => {
         (*) campos de interaccion obligatorios
       </p>
       <CommentComp />
-      <div className="grid grid-cols-2 grid-rows-0 gap-2">
+      <div className="grid md:grid-cols-2 grid-rows-0 gap-2">
         <Verificado />
         <button
           type="submit"

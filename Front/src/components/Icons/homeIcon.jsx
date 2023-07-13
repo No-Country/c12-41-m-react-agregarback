@@ -1,6 +1,7 @@
-export const HomeIcon = ({ fill="none",height="96",width="102",...props}) => {
+ const HomeIcon = ({ fill="none",height="96",width="102",...props}) => {
   return (
     <svg
+     {...props}
       width={width}
       height={height}
       viewBox="0 0 102 96"
@@ -54,3 +55,5 @@ export const HomeIcon = ({ fill="none",height="96",width="102",...props}) => {
     </svg>
   );
 };
+
+export default HomeIcon
