@@ -12,6 +12,7 @@ class ContactService {
     validation,
     validationValue,
     contactId,
+    contactName,
     next,
   }) {
     try {
@@ -37,6 +38,7 @@ class ContactService {
         validationValue,
         contactId,
         userId,
+        contactName,
       });
       return newContact;
     } catch (error) {

@@ -112,10 +112,11 @@ export const validCreateContact = [
     .notEmpty()
     .withMessage("validation is require")
     .isIn(["accountNumber", "cbu", "cvu", "alias"])
-    .withMessage("validation has to be one of accountNumber, cbu, cvu or alias"),
-  body("validationValue")
-    .notEmpty()
-    .withMessage("validationValue is require"),
+    .withMessage(
+      "validation has to be one of accountNumber, cbu, cvu or alias"
+    ),
+  body("validationValue").notEmpty().withMessage("validationValue is require"),
+  body("contactName").notEmpty().withMessage("contact is require"),
   body("contactId")
     .notEmpty()
     .withMessage("contactId is require")

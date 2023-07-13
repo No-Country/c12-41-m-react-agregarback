@@ -1,7 +1,6 @@
 import { DataTypes } from "sequelize";
 import db from "../db/connection.js";
 
-
 const ContacsModel = db.define("contacs", {
   id: {
     primaryKey: true,
@@ -21,9 +20,16 @@ const ContacsModel = db.define("contacs", {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
+  contactName: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
   userId: {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
 });
+
+// await ContacsModel.sync({ force: true });
+
 export default ContacsModel;

@@ -4,13 +4,14 @@ import catchAsync from "../utils/catchAsync.js";
 const contactServices = new ContactService();
 
 export const newContact = catchAsync(async (req, res, next) => {
-  const { validation, validationValue, contactId } = req.body;
+  const { validation, validationValue, contactId, contactName } = req.body;
   const { userId } = req.params;
   const contact = await contactServices.createNewContact({
     userId,
     validation,
     validationValue,
     contactId,
+    contactName,
     next,
   });
 
