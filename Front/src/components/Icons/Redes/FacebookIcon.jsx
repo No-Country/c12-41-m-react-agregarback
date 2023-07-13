@@ -7,7 +7,7 @@ const FacebookIcon = ({fill="currentColor",className="w-5 h-5", ...props}) =>{
 
         fill={fill}
         strokeLinecap="round"
-        stroke-linejoin="round"
+        strokeLinejoin="round"
         strokeWidth="2"
         className={className}
         viewBox="0 0 24 24"
