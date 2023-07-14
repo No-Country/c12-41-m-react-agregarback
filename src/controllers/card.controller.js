@@ -12,7 +12,7 @@ export const cardsByAccount = catchAsync(async (req, res, next) => {
 
   return res.status(200).json({
     status: "success",
-    message: "all cards",
+    message: "all cards by account",
     cards,
   });
 });
@@ -21,10 +21,11 @@ export const CreateNewCard = catchAsync(async (req, res, next) => {
   const { userId, accountId } = req.params;
   const { type, category } = req.body;
   const card = await cardServices.createOneCard({
-    userId,
     accountId,
     type,
+    userId,
     category,
+    next,
   });
 
   return res.status(200).json({
@@ -35,5 +36,12 @@ export const CreateNewCard = catchAsync(async (req, res, next) => {
 });
 
 export const findAll = catchAsync(async (req, res, next) => {
-  return res.json(/* valor a retornar */);
+  const { userId } = req.params;
+  const cards = await cardServices.getAllCards({ userId, next });
+
+  return res.status(200).json({
+    status: "success",
+    message: "all cards",
+    cards,
+  });
 });

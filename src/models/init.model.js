@@ -2,6 +2,7 @@ import AccountModel from "./account.model.js";
 import CardModel from "./card.model.js";
 import TransferModel from "./transfer.model.js";
 import UserModel from "./user.model.js";
+import CardModel from "./card.model.js";
 
 const initModel = () => {
   UserModel.hasMany(AccountModel, { foreignKey: "userId" });
