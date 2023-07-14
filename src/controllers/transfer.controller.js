@@ -25,8 +25,8 @@ export const CreateTransfer = catchAsync(async (req, res, next) => {
   const trasnfer = await transferServices.newTransfer({
     AccountAttributes,
     recieverAccountAttributes,
-    validation,
     validationValue,
+    validation,
     amount,
     next,
   });
