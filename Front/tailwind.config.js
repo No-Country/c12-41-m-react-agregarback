@@ -13,14 +13,15 @@ module.exports = {
       'orange': '#FBB23F',
       'orange-navmenu': '#FEC00F',
       'orange-navmenu-active': '#FED04B',
-      'yellow': '#F9EA32'
+      'yellow': '#F9EA32',
+      'green': '#4fe868'
     },
     extend: {
       height: {
         '70vh': '70vh',
       },
       backgroundImage: {
-        "contact-bg": "url('https://images.pexels.com/photos/3093033/pexels-photo-3093033.jpeg')"
+        "contact-bg": "url('https://media.discordapp.net/attachments/784865210216742974/1129187162592653423/IMG_20230714_010620.jpg?width=720&height=431')"
       }
     },
   },
