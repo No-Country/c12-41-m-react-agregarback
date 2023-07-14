@@ -13,6 +13,11 @@ const NumberTel = ({ onInputChange }) => {
     if (!areaRegex.test(value)) {
       value = value.replace(/[^0-9]/g, "");
     }
+    e.target.value = value;
+
+    if (value.length > 0) {
+      value = "+" + value;
+    }
 
     setAreaNumber(value);
     onInputChange(value, phoneNumber);
@@ -23,13 +28,13 @@ const NumberTel = ({ onInputChange }) => {
     if (!phoneRegex.test(value)) {
       value = value.replace(/[^0-9]/g, "");
     }
+    e.target.value = value;
 
     setPhoneNumber(value);
     onInputChange(areaNumber, value);
   };
 
-  const isAreaNumberEmpty = areaNumber.trim() === "";
-  const isPhoneNumberEmpty = phoneNumber.trim() === "";
+  const isAreaNumberMin = areaNumber.length < 1;
 
   return (
     <div className="grid md:grid-cols-2 md:gap-2" id="Numero">
@@ -39,23 +44,22 @@ const NumberTel = ({ onInputChange }) => {
         </label>
         <div
           className={`${boxDivInputs} ${
-            isAreaNumberEmpty ? "opacity-50" : ""
+            isAreaNumberMin ? "border-red-600" : ""
           }`}
         >
           <input
             type="tel"
             id="nArea"
             className={`${BoxInputClass} ${
-              isAreaNumberEmpty ? "bg-gray-300 cursor-not-allowed" : ""
+              isAreaNumberMin ? "bg-red-100" : ""
             }`}
             value={areaNumber}
             onChange={handleAreaChange}
-            maxLength={4}
+            maxLength={5}
             placeholder="1234"
             title="Ingrese un número de área válido de 1 a 4 dígitos"
             minLength={1}
             autoComplete="off"
-            disabled={isAreaNumberEmpty}
           />
         </div>
       </div>
@@ -69,17 +73,14 @@ const NumberTel = ({ onInputChange }) => {
             type="tel"
             required
             id="num"
-            className={`${BoxInputClass} ${
-              isPhoneNumberEmpty ? "opacity-50" : ""
-            }`}
+            className={BoxInputClass}
             value={phoneNumber}
             onChange={handlePhoneChange}
             maxLength={10}
             placeholder="XXXXXXXXX"
             title="Ingrese un número de teléfono/celular válido de 1 a 10 dígitos"
             minLength={1}
-            autoComplete="off"
-            disabled={isPhoneNumberEmpty}
+            
           />
         </div>
       </div>

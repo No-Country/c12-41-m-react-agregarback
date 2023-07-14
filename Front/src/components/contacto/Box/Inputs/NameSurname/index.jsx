@@ -27,9 +27,6 @@ const NameAndSurname = ({ onFormSubmit, onInputChange }) => {
     }
   };
 
-  const isNameEmpty = name.trim() === "";
-  const isSurnameEmpty = surname.trim() === "";
-
   return (
     <>
       <div className={boxInputs} id="user">
@@ -41,7 +38,7 @@ const NameAndSurname = ({ onFormSubmit, onInputChange }) => {
             type="text"
             required
             id="Name"
-            className={`${BoxInputClass} ${isNameEmpty ? "opacity-50" : ""}`}
+            className={BoxInputClass}
             value={name}
             onChange={handleNameChange}
             title={isNameValid ? "" : "Ingrese solo letras en el nombre"}
@@ -60,9 +57,7 @@ const NameAndSurname = ({ onFormSubmit, onInputChange }) => {
             type="text"
             required
             id="ape"
-            className={`${BoxInputClass} ${
-              isSurnameEmpty ? "opacity-50" : ""
-            }`}
+            className={BoxInputClass}
             value={surname}
             onChange={handleSurnameChange}
             title={isSurnameValid ? "" : "Ingrese solo letras en el apellido"}

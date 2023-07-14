@@ -51,11 +51,6 @@ const CorreoInput = ({ onEmailChange }) => {
     return "Ingrese un correo electrónico válido";
   };
 
-  const isEmailEmpty = email.trim() === "";
-  const inputClasses = `${BoxInputClass} ${emailError ? "border-red-600" : ""} ${
-    isEmailEmpty ? "opacity-50" : ""
-  }`;
-
   return (
     <div className={boxInputs} id="email">
       <label htmlFor="email" className="capitalize">
@@ -66,7 +61,7 @@ const CorreoInput = ({ onEmailChange }) => {
           type="email"
           required
           id="email"
-          className={inputClasses}
+          className={`${BoxInputClass} ${emailError ? "border-red-600" : ""}`}
           value={email}
           onChange={handleEmailChange}
           title={getEmailTitle()}
