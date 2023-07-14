@@ -45,6 +45,19 @@ class ContactService {
       throw new Error(error);
     }
   }
+  async getAllContacts({ userId, next }) {
+    try {
+      const users = await this.userServices.findUserById({ id: userId, next });
+      const allContacts = await ContacsModel.findAll({
+        where:{
+          userId
+        }
+      })
+      return allContacts
+    } catch (error) {
+      throw Error(error)
+    }
+  }
 }
 
 export default ContactService;

@@ -15,7 +15,7 @@ const router = Router();
 router.use(protect);
 router.use("/:userId", protectAccountOwner);
 
-router.get("/:userId/:validador", findAll);
+router.get("/:userId", findAll);
 router.post("/:userId/:validador",validCreateContact,  newContact);
 
 export default router;

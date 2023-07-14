@@ -23,5 +23,11 @@ export const newContact = catchAsync(async (req, res, next) => {
 });
 
 export const findAll = catchAsync(async (req, res, next) => {
-  return res.json(/* valor a retornar */);
+  const { userId } = req.params;
+  const contacts = await contactServices.getAllContacts({ userId, next });
+  return res.status(200).json({
+    status: "success",
+    message: "all contact",
+    contacts
+  });
 });
