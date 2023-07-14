@@ -21,7 +21,7 @@ module.exports = {
         '70vh': '70vh',
       },
       backgroundImage: {
-        "contact-bg": "url('https://media.discordapp.net/attachments/784865210216742974/1129187162592653423/IMG_20230714_010620.jpg?width=720&height=431')"
+        "contact-bg": "url('https://images.pexels.com/photos/326576/pexels-photo-326576.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')"
       }
     },
   },

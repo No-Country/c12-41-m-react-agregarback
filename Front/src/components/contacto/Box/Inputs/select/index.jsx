@@ -94,9 +94,11 @@ const SelectComp = ({ onSelectedOptionChange, onIdentificationChange }) => {
     }
   })();
 
+  const isOptionSelected = selectedOption === "";
+
   return (
     <>
-      <div className={boxInputs} id="type-of-document">
+      <div className={`${boxInputs} ${isOptionSelected ? "opacity-50" : ""}`} id="type-of-document">
         <label htmlFor="type" className="text-left text-orange">
           Tipo de documento<b>*</b>
         </label>
@@ -134,7 +136,7 @@ const SelectComp = ({ onSelectedOptionChange, onIdentificationChange }) => {
             type="text"
             id="documento"
             placeholder={inputPlaceholder}
-            className={BoxInputClass}
+            className={`${BoxInputClass} ${isOptionSelected ? "bg-gray-500 opacity-50 cursor-not-allowed" : ""}`}
             value={identification}
             onChange={handleIdentificationChange}
             disabled={!selectedOption}
