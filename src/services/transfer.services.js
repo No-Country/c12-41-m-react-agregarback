@@ -24,7 +24,6 @@ class TransferServices {
         next,
       });
       //validar si cvu cbu alias o numero de cuenta es correcto
-      console.log(recieverUserAccount[validation], validationValue);
       if (recieverUserAccount[validation] != validationValue) {
         throw next(
           new AppError("validacion de la cuenta que recibe fallida", 400)

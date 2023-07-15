@@ -108,10 +108,10 @@ export const validTransferRequire = [
     .withMessage("validation is require")
     .isIn(["accountNumber", "cbu", "cvu", "alias"]),
   body("validationValue").notEmpty().withMessage("validation value is require"),
-  body("contactId")
-    .notEmpty()
-    .isInt()
-    .withMessage("contactId is requeri and must be an integer"),
+  // body("contactId")
+  //   .notEmpty()
+  //   .isInt()
+  //   .withMessage("contactId is requeri and must be an integer"),
   validateFields,
 ];
 

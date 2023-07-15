@@ -5,14 +5,8 @@ const transferServices = new TransferServices();
 
 export const CreateTransfer = catchAsync(async (req, res, next) => {
   const { userId, currency } = req.params;
-  const {
-    accountId,
-    senderAccount,
-    amount,
-    validation,
-    validationValue,
-    contactId,
-  } = req.body;
+  const { accountId, senderAccount, amount, validation, validationValue } =
+    req.body;
 
   let AccountAttributes = {
     userId,
@@ -20,7 +14,10 @@ export const CreateTransfer = catchAsync(async (req, res, next) => {
     accountNumber: senderAccount,
     id: accountId,
   };
-  const recieverAccountAttributes = { userId: contactId, currency };
+  const recieverAccountAttributes = {
+    currency,
+    [validation]: validationValue,
+  };
 
   const trasnfer = await transferServices.newTransfer({
     AccountAttributes,
