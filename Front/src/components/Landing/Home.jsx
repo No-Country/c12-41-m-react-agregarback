@@ -1,4 +1,3 @@
-import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 const Home = () => {
@@ -31,24 +30,11 @@ const Home = () => {
 
 
             <div className="flex items-center">
-              <NavLink to="/signup">
-
-                <a
-                  href="./signup"
-                  className="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-orange hover:bg-yellow hover:text-dark focus:shadow-outline focus:outline-none"
-                >
-                  Crear cuenta
-                </a>
+              <NavLink to="/signup" className="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-orange hover:bg-yellow hover:text-dark focus:shadow-outline focus:outline-none">
+                Crear cuenta
               </NavLink>
-              <NavLink to="/login">
-
-                <a
-                  href="/"
-                  aria-label=""
-                  className="bg-transparent inline-flex justify-center font-medium text-yellow  hover:bg-white hover:text-dark hover: rounded shadow hover:shadow-lg  h-12 items-center  px-6 border border-yellow hover:border-white"
-                >
-                  Iniciar sesión
-                </a>
+              <NavLink to="/login" className="bg-transparent inline-flex justify-center font-medium text-yellow  hover:bg-white hover:text-dark hover: rounded shadow hover:shadow-lg  h-12 items-center  px-6 border border-yellow hover:border-white">
+                Iniciar sesión
               </NavLink>
             </div>
           </div>

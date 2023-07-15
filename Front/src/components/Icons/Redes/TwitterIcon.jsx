@@ -7,10 +7,10 @@ const TwitterIcon = ({
 }) => {
   return (
     <svg
-    {...props}
+      {...props}
       fill={fill}
       strokeLinecap="round"
-      stroke-linejoin="round"
+      strokeLinejoin="round"
       strokeWidth="2"
       viewBox="0 0 24 24"
       className={className}
