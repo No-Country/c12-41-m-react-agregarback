@@ -1,14 +1,6 @@
-import React, { useState } from "react";
-import {
-  AiOutlineMenu,
-  AiOutlineHome,
-  AiOutlineProject,
-  AiOutlineMail,
-} from "react-icons/ai";
-import { BsPerson } from "react-icons/bs";
-import { GrProjects } from "react-icons/gr";
-import { Link, NavLink, useNavigate } from "react-router-dom";
-import { ErrorDisplay } from "../404error";
+import { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+// import { ErrorDisplay } from "../404error";
 
 const SideNavLanding = () => {
   const [navLanding, setNavLanding] = useState(false);
