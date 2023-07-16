@@ -5,12 +5,12 @@ const LinkedinIcon = ({
 }) => {
   return (
     <svg
-    {...props}
+      {...props}
       fill={fill}
       stroke="currentColor"
       strokeLinecap="round"
-      stroke-linejoin="round"
-      strokeWEidth="0"
+      strokeLinejoin="round"
+      strokeWidth="0"
       className={className}
       viewBox="0 0 24 24"
     >
