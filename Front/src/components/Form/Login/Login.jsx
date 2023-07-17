@@ -53,7 +53,7 @@ function Login() {
             res => {
                 console.log(res); notifier.success(`Inciado exitosamente!`);
                 sessionStorage.setItem("token", res.data.token);
-                sessionStorage.setItem("userId", response.data.user.id);
+                sessionStorage.setItem("userId", res.data.user.id);
                 navigate(`/accounts`);
                 setToken(res.data.token)
             },
