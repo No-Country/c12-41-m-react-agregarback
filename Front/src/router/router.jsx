@@ -12,6 +12,7 @@ const ProtectedLayout = lazy(() => import('../components/Layout/Protected/index.
 
 //Redux
 import CustomProvider from "../redux/customProvider.jsx";
+import Nosotros from "../components/Nosotros/Nosotros.jsx";
 
 
 export function Routers() {
@@ -46,6 +47,7 @@ export function Routers() {
           <Route path="/login" element={<LoginC />} />
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/contact" element={<Contacto />} />
+          <Route path="/nosotros" element={<Nosotros />}/>
           <Route path="/products" element={<Products />} />
           <Route path="*" element={<NotFound />} />
         </Route>
