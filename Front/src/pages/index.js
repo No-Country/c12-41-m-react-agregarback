@@ -1,6 +1,17 @@
-export { default as HomeC } from "./Landing";
-export { default as LoginC } from "./Formulario/Login";
-export { default as SignUpPage } from "./Formulario/SingUp";
-export { default as NotFound } from "./Error";
-export { default as Accounts } from "./Accounts"
-export { default as Contacto} from "./Contactos"
+import HomeC from "./Landing";
+import LoginC from "./Formulario/Login";
+import SignUpPage from "./Formulario/SingUp";
+import NotFound from "./Error";
+import Accounts from "./Accounts";
+import Contacto from "./Contactos";
+import QaPage from "./QaQuestions";
+
+export {
+  HomeC,
+  LoginC,
+  SignUpPage,
+  NotFound,
+  Accounts,
+  Contacto,
+  QaPage
+};

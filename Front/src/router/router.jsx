@@ -1,6 +1,6 @@
 import { Suspense, lazy } from "react";
 import { Route, Routes } from "react-router-dom";
-import { SignUpPage, NotFound, HomeC, LoginC, Contacto } from '../pages/index.js';
+import { SignUpPage, NotFound, HomeC, LoginC, Contacto, QaPage } from '../pages/index.js';
 import { GridLoader } from "react-spinners";
 import NoProtectedLayout from "../components/Layout/NoProtected/index.jsx";
 const Transfer = lazy(() => import('../pages/Transfer'));
@@ -45,6 +45,7 @@ export function Routers() {
           <Route path="/login" element={<LoginC />} />
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/contact" element={<Contacto />} />
+          <Route path="/preguntasfrecuentes" element={<QaPage/>}/>
         </Route>
       </Routes >
     </Suspense >
