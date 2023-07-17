@@ -9,7 +9,8 @@ import { BsPerson } from "react-icons/bs";
 import { GrProjects } from "react-icons/gr";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { ErrorDisplay } from "../404error";
-
+import { PiUserGearLight } from "react-icons/pi";
+import { IconContext } from "react-icons/lib";
 const SideNavLanding = () => {
   const [navLanding, setNavLanding] = useState(false);
   const navigate = useNavigate();
@@ -19,7 +20,7 @@ const SideNavLanding = () => {
   };
 
   const handleLogout = () => {
-    sessionStorage.removeItem('token');
+    sessionStorage.clear();
     navigate('/');
   };
 
@@ -98,33 +99,43 @@ const SideNavLanding = () => {
                   Contactanos
                 </NavLink>
               </li>
-              {sessionStorage.getItem('token') ? <NavLink to="/" onClick={handleLogout}>
-                <span
-                  href="/"
-                  aria-label=""
-                  className="bg-transparent inline-flex justify-center font-medium text-yellow  hover:bg-white hover:text-dark hover: rounded shadow hover:shadow-lg  h-10 items-center  px-6 border border-yellow hover:border-white"
-                >
-                  Cerrar sesión
-                </span>
-              </NavLink> : <div className="flex items-center">
-                <NavLink to="/signup">
-                  <span
-                    href="./signup"
-                    className="inline-flex items-center justify-center h-10 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-orange hover:bg-yellow hover:text-dark focus:shadow-outline focus:outline-none"
-                  >
-                    Crear cuenta
-                  </span>
-                </NavLink>
-                <NavLink to="/login">
-                  <span
-                    href="/"
-                    aria-label=""
-                    className="bg-transparent inline-flex justify-center font-medium text-yellow  hover:bg-white hover:text-dark hover: rounded shadow hover:shadow-lg  h-10 items-center  px-6 border border-yellow hover:border-white"
-                  >
-                    Iniciar sesión
-                  </span>
-                </NavLink>
-              </div>}
+              {sessionStorage.getItem('token') ?
+                <>
+                  <NavLink to="/" onClick={handleLogout}>
+                    <span
+                      href="/"
+                      aria-label=""
+                      className="bg-transparent inline-flex justify-center font-medium text-yellow  hover:bg-white hover:text-dark hover: rounded shadow hover:shadow-lg  h-10 items-center  px-6 border border-yellow hover:border-white"
+                    >
+                      Cerrar sesión
+                    </span>
+                  </NavLink>
+                  <NavLink to="/profile" className='ease-in duration-300 border-2 border-transparent hover:border-white hover:opacity-70 rounded-full p-1'>
+                    <IconContext.Provider value={{ style: { fontSize: '2rem' } }}>
+                      <PiUserGearLight />
+                    </IconContext.Provider>
+                  </NavLink>
+                </>
+                :
+                <div className="flex items-center">
+                  <NavLink to="/signup">
+                    <span
+                      href="./signup"
+                      className="inline-flex items-center justify-center h-10 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-orange hover:bg-yellow hover:text-dark focus:shadow-outline focus:outline-none"
+                    >
+                      Crear cuenta
+                    </span>
+                  </NavLink>
+                  <NavLink to="/login">
+                    <span
+                      href="/"
+                      aria-label=""
+                      className="bg-transparent inline-flex justify-center font-medium text-yellow  hover:bg-white hover:text-dark hover: rounded shadow hover:shadow-lg  h-10 items-center  px-6 border border-yellow hover:border-white"
+                    >
+                      Iniciar sesión
+                    </span>
+                  </NavLink>
+                </div>}
 
             </ul>
           </div>
