@@ -97,7 +97,14 @@ class AccountServices {
       await this.userServices.findUserById({ id: userId, next });
       const accounts = await AccountModel.findAll({
         where: { userId },
-        include: CardModel,
+        include: [
+          {
+            model: CardModel
+          },
+          {
+            model:TransferModel
+          }
+        ]
       });
       return accounts;
     } catch (error) {
