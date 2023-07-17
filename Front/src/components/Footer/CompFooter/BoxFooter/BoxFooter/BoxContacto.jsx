@@ -23,6 +23,11 @@ const BoxContactFooter = () => {
                   +123-456-7890
                 </Link>
               </li>
+              <li>
+              <Link className="text-gray-500 py-2 cursor-pointer hover:text-gray-900">
+                  Preguntas Frecuentes
+                </Link>
+              </li>
               </ul>
             </nav>
           </div>
