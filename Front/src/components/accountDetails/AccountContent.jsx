@@ -5,8 +5,8 @@ const AccountContent = () => {
 
   return (
     <section className="bg-gray grid lg:grid-cols-2 rounded-xl min-h-screen overflow-hidden p-3 pt-16 gap-4">
-        <CardInfo/>
-        <UltimosMovimientos/>
+      <CardInfo />
+      <UltimosMovimientos />
     </section>
   )
 }
