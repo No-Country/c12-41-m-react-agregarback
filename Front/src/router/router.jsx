@@ -11,6 +11,7 @@ const ProtectedLayout = lazy(() => import('../components/Layout/Protected/index.
 //Redux
 import { protectedStore } from "../redux/protectedStore.js";
 import { Provider } from "react-redux";
+import Products from "../pages/Products/index.jsx";
 
 export function Routers() {
 
@@ -45,6 +46,7 @@ export function Routers() {
           <Route path="/login" element={<LoginC />} />
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/contact" element={<Contacto />} />
+          <Route path="/products" element={<Products />} />
         </Route>
       </Routes >
     </Suspense >
