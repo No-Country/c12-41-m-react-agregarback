@@ -125,11 +125,6 @@ export const validCreateContact = [
     ),
   body("validationValue").notEmpty().withMessage("validationValue is require"),
   body("contactName").notEmpty().withMessage("contact is require"),
-  body("contactId")
-    .notEmpty()
-    .withMessage("contactId is require")
-    .isInt()
-    .withMessage("contactId has to be a number"),
   validateFields,
 ];
 
