@@ -60,7 +60,7 @@ const SideNavLanding = () => {
             </svg>
           </button>
           <div
-            className={`${navLanding ? "top-[100%]" : "top-[-220%]"
+            className={`${navLanding ? "top-[100%]" : "top-[-250%]"
               } w-full absolute left-0 z-50 bg-dark duration-500 md:w-auto md:top-0  md:relative p-3`}
             id="navbar-default"
           >

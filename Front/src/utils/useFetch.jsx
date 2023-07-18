@@ -10,7 +10,6 @@ const useFetch = ( path ) => {
     backEnd
       .get(`${path}`, Authorization())
       .then((res) => {
-        console.log(res.data)
         setData(res.data);
       })
       .catch((err) => {
