@@ -45,6 +45,7 @@ export function Routers() {
         <Route element={<NoProtectedLayout />}>
           <Route exact path="/" element={<HomeC />} />
           <Route path="/login" element={<LoginC />} />
+          <Route path="/nosotros" element={<Nosotros />}/>
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/contact" element={<Contacto />} />
           <Route path="/preguntasfrecuentes" element={<QaPage/>}/>
