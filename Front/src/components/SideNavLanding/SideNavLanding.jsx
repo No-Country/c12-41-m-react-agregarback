@@ -62,8 +62,8 @@ const SideNavLanding = () => {
             </svg>
           </button>
           <div
-            className={`${navLanding ? "top-[100%]" : "top-[-250%]"
-              } w-full absolute left-0 z-50 bg-dark duration-500 md:w-auto md:top-0  md:relative p-3`}
+            className={`${navLanding ? "translate-y-0 top-[100%]" : "translate-y-[-100%] top-0"
+              } w-full absolute left-0 mx-auto z-50 bg-dark duration-500 md:w-auto md:translate-y-0 md:relative p-3`}
             id="navbar-default"
           >
             <ul className="font-medium flex flex-col items-center md:p-0 py-4 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-dark ">
