@@ -43,12 +43,14 @@ export function Routers() {
         </Route>
 
         <Route element={<NoProtectedLayout />}>
+          <Route element={<CustomProvider />}>
+            <Route path="/login" element={<LoginC />} />
+          </Route>
           <Route exact path="/" element={<HomeC />} />
-          <Route path="/login" element={<LoginC />} />
-          <Route path="/nosotros" element={<Nosotros />}/>
+          <Route path="/nosotros" element={<Nosotros />} />
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/contact" element={<Contacto />} />
-          <Route path="/preguntasfrecuentes" element={<QaPage/>}/>
+          <Route path="/preguntasfrecuentes" element={<QaPage />} />
         </Route>
       </Routes>
     </Suspense >

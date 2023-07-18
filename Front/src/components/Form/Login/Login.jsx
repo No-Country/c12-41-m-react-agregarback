@@ -4,20 +4,22 @@ import axios from "axios";
 import validationlogin from "./validatelogin";
 import { Navigate, NavLink, useNavigate } from "react-router-dom"
 import { FaCommentsDollar } from "react-icons/fa6";
+import { getUserInfo } from "../../../redux/userSlice";
 import AWN from "awesome-notifications"
+import { useDispatch } from "react-redux";
 const notifier = new AWN();
 
 
 
 function Login() {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const [token, setToken] = useState(null);
     useEffect(() => {
         if (token !== null) {
             navigate(`/accounts`);
         }
     }, [token]);
-
 
 
     const [loginData, setLoginData] = React.useState({
@@ -47,15 +49,16 @@ function Login() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        notifier.asyncBlock(
+        await notifier.asyncBlock(
             axios.post("https://nocountrybackend.onrender.com/api/v1/users/login", loginData),
 
             res => {
-                console.log(res); notifier.success(`Inciado exitosamente!`);
+                notifier.success(`Inciado exitosamente!`);
                 sessionStorage.setItem("token", res.data.token);
                 sessionStorage.setItem("userId", res.data.user.id);
-                navigate(`/accounts`);
                 setToken(res.data.token)
+                dispatch(getUserInfo());
+                navigate(`/accounts`);
             },
             err => { console.log(err); notifier.alert(`No se ha podido iniciar sesion`) },
             `Validando datos`
