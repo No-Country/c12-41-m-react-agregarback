@@ -17,6 +17,7 @@ const CarruselCard = ({ listOfCards }) => {
           style={{ left: carruselPosition * -100 + "%" }}
           className={`flex w-[300%] absolute`}
         >
+
           {listOfCards.map((card) => (
             <Card
               key={card.id}

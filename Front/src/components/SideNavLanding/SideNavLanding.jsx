@@ -28,7 +28,7 @@ const SideNavLanding = () => {
   return (
     <div>
       <nav className="bg-dark ">
-        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 md:p-2 relative">
+        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-7 md:p-2 relative">
           <NavLink to="/" className="flex items-center">
             <img
               src="https://res.cloudinary.com/academia/image/upload/v1688654002/logo-accessBank_pg8pec.png"
@@ -98,6 +98,14 @@ const SideNavLanding = () => {
                   className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                 >
                   Contactanos
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/preguntasfrecuentes"
+                  className="block py-3 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 capitalize md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                >
+                  preguntas frecuentes
                 </NavLink>
               </li>
               {sessionStorage.getItem('token') ?
