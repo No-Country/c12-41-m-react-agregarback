@@ -11,7 +11,7 @@ const Proteccion = () => {
     }
   }, [location, navigate, token])
 
-
+  
   return <Outlet />
 }
 export default Proteccion
