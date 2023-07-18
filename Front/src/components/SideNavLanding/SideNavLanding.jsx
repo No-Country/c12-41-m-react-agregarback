@@ -1,16 +1,8 @@
 import { useState } from "react";
-import {
-  AiOutlineMenu,
-  AiOutlineHome,
-  AiOutlineProject,
-  AiOutlineMail,
-} from "react-icons/ai";
-import { BsPerson } from "react-icons/bs";
-import { GrProjects } from "react-icons/gr";
-import { Link, NavLink, useNavigate } from "react-router-dom";
-import { PiUserGearLight } from "react-icons/pi";
 import { IconContext } from "react-icons/lib";
-import { ErrorDisplay } from "../404error";
+import { PiUserGearLight } from "react-icons/pi";
+import { NavLink, useNavigate } from "react-router-dom";
+import SideNavLandingLink from "./SideNavLandingLink";
 
 const SideNavLanding = () => {
   const [navLanding, setNavLanding] = useState(false);
@@ -22,7 +14,7 @@ const SideNavLanding = () => {
 
   const handleLogout = () => {
     sessionStorage.clear();
-    navigate('/');
+    navigate("/");
   };
 
   return (
@@ -62,53 +54,29 @@ const SideNavLanding = () => {
             </svg>
           </button>
           <div
-            className={`${navLanding ? "translate-y-0 top-[100%]" : "translate-y-[-100%] top-0"
-              } w-full absolute left-0 mx-auto z-50 bg-dark duration-500 md:w-auto md:translate-y-0 md:relative p-3`}
+            className={`${
+              navLanding
+                ? "translate-y-0 top-[100%]"
+                : "translate-y-[-100%] top-0"
+            } w-full absolute left-0 mx-auto z-50 bg-dark duration-500 md:w-auto md:translate-y-0 md:relative p-3`}
             id="navbar-default"
           >
             <ul className="font-medium flex flex-col items-center md:p-0 py-4 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-dark ">
-              <li>
-                <NavLink
-                  to={"./"}
-                  className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
-                  aria-current="page"
-                >
-                  Home
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/nosotros"
-                  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                >
-                  Nosotros
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/products"
-                  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                >
-                  Productos
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/contact"
-                  className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                >
-                  Contactanos
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/preguntasfrecuentes"
-                  className="block py-3 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 capitalize md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-                >
-                  preguntas frecuentes
-                </NavLink>
-              </li>
-              {sessionStorage.getItem('token') ?
+              {sessionStorage.getItem("token") ? (
+                <SideNavLandingLink path={"/accounts"} title={"Mis Cuentas"} />
+              ) : (
+                <SideNavLandingLink path={"./"} title={"Home"} />
+              )}
+
+              <SideNavLandingLink path={"/nosotros"} title={"Nosotros"} />
+              <SideNavLandingLink path={"/products"} title={"Productos"} />
+              <SideNavLandingLink path={"/contact"} title={"Contactanos"} />
+              <SideNavLandingLink
+                path={"/preguntasfrecuentes"}
+                title={"preguntas frecuentes"}
+              />
+
+              {sessionStorage.getItem("token") ? (
                 <>
                   <NavLink to="/" onClick={handleLogout}>
                     <span
@@ -119,13 +87,18 @@ const SideNavLanding = () => {
                       Cerrar sesión
                     </span>
                   </NavLink>
-                  <NavLink to="/profile" className='ease-in duration-300 border-2 border-transparent hover:border-white hover:opacity-70 rounded-full p-1'>
-                    <IconContext.Provider value={{ style: { fontSize: '2rem' } }}>
+                  <NavLink
+                    to="/profile"
+                    className="ease-in duration-300 border-2 border-transparent hover:border-white hover:opacity-70 rounded-full p-1"
+                  >
+                    <IconContext.Provider
+                      value={{ style: { fontSize: "2rem" } }}
+                    >
                       <PiUserGearLight />
                     </IconContext.Provider>
                   </NavLink>
                 </>
-                :
+              ) : (
                 <div className="flex items-center">
                   <NavLink to="/signup">
                     <span
@@ -144,8 +117,8 @@ const SideNavLanding = () => {
                       Iniciar sesión
                     </span>
                   </NavLink>
-                </div>}
-
+                </div>
+              )}
             </ul>
           </div>
         </div>

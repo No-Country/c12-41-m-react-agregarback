@@ -19,11 +19,8 @@ const ModalForNewTransfer = ({
   const notifier = new AWN();
   //traer de redux
   const userId = 3;
-  const { data, loading, error } = useFetch(`account/${userId}`);
-  if (error) {
-    return <ThrowModalError error={error} />;
-  }
-
+  const { data, error } = useFetch(`account/${userId}`);
+  
   useEffect(() => {
     if (currentContact) {
       setInfoForTransfer((prev) => ({
@@ -34,6 +31,10 @@ const ModalForNewTransfer = ({
       setIsModalActive(true);
     }
   }, [currentContact]);
+
+  if (error) {
+    return <ThrowModalError error={error} />;
+  }
 
   const handleCloseModal = () => {
     setIsModalActive(false);
