@@ -4,6 +4,9 @@ import axios from "axios";
 import validationlogin from "./validatelogin";
 import { Navigate, NavLink, useNavigate } from "react-router-dom"
 import { FaCommentsDollar } from "react-icons/fa6";
+import AWN from "awesome-notifications"
+const notifier = new AWN();
+
 
 
 function Login() {
@@ -44,18 +47,19 @@ function Login() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        notifier.asyncBlock(
+            axios.post("https://nocountrybackend.onrender.com/api/v1/users/login", loginData),
 
-        try {
-            const response = await axios.post("https://nocountrybackend.onrender.com/api/v1/users/login", loginData);
-            console.log(response.data);
-            sessionStorage.setItem("token", response.data.token);
-            sessionStorage.setItem("userId", response.data.user.id);
-            setToken(response.data.token)
-
-            //    return  <Navigate to={'/accounts'} />
-        } catch (error) {
-            console.log(error)
-        }
+            res => {
+                console.log(res); notifier.success(`Inciado exitosamente!`);
+                sessionStorage.setItem("token", res.data.token);
+                sessionStorage.setItem("userId", res.data.user.id);
+                navigate(`/accounts`);
+                setToken(res.data.token)
+            },
+            err => { console.log(err); notifier.alert(`No se ha podido iniciar sesion`) },
+            `Validando datos`
+        )
     };
     return (
         <div className="bg-dark py-6 flex flex-col justify-center sm:py-12">

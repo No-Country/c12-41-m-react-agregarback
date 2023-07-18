@@ -105,6 +105,7 @@ const CardInfo = () => {
             onChange={(e) => hanldeSlectAccount(e)}
             className="outline-none text-sm text-white rounded-md bg-transparent py-1"
           >
+            <option className="bg-gray" value="">select</option>
             {accounts.map((account) => (
               <option key={account.id} className="bg-gray" value={account.id}>
                 {account.accountNumber}

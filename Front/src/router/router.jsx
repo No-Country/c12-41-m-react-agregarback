@@ -3,13 +3,17 @@ import { Route, Routes } from "react-router-dom";
 import { SignUpPage, NotFound, HomeC, LoginC, Contacto, QaPage } from '../pages/index.js';
 import { GridLoader } from "react-spinners";
 import NoProtectedLayout from "../components/Layout/NoProtected/index.jsx";
+import Products from "../pages/Products/index.jsx";
 const Transfer = lazy(() => import('../pages/Transfer'));
 const Accounts = lazy(() => import('../pages/Accounts'));
 const Profile = lazy(() => import('../pages/Profile'))
 const Proteccion = lazy(() => import('../components/Proteccion/Proteccion.jsx'));
-const ProtectedLayout = lazy(() => import('../components/Layout/Protected'));
-//Proveedor Redux
+const ProtectedLayout = lazy(() => import('../components/Layout/Protected/index.jsx'));
+
+//Redux
 import CustomProvider from "../redux/customProvider.jsx";
+import Nosotros from "../components/Nosotros/Nosotros.jsx";
+
 
 export function Routers() {
 
