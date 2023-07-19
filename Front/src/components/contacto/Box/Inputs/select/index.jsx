@@ -6,6 +6,13 @@ const SelectComp = ({ onSelectedOptionChange, onIdentificationChange }) => {
   const [identification, setIdentification] = useState("");
   const [validationResult, setValidationResult] = useState("");
 
+  const regexMap = {
+    DNI: /^\d{0,8}$/,
+    Pasaporte: /^[A-Za-z0-9]{0,20}$/,
+    CUIL: /^(20|23|24|27)\d{0,11}$/,
+    CUIT: /^(30|33|34)\d{0,11}$/
+  };
+
   const handleSelectedOptionChange = (e) => {
     const option = e.target.value;
     setSelectedOption(option);
@@ -16,12 +23,6 @@ const SelectComp = ({ onSelectedOptionChange, onIdentificationChange }) => {
 
   const handleIdentificationChange = (e) => {
     const value = e.target.value;
-    const regexMap = {
-      DNI: /^\d{0,8}$/,
-      Pasaporte: /^[A-Za-z0-9]{0,20}$/,
-      CUIL: /^(20|23|24|27)\d{0,11}$/,
-      CUIT: /^(30|33|34)\d{0,11}$/,
-    };
     const regex = regexMap[selectedOption] || /^.*$/;
     const sanitizedValue = value.replace(/[^a-zA-Z0-9]/g, "").slice(0, regex.test(value) ? regex.exec(value)[0].length : 0);
     setIdentification(sanitizedValue);
@@ -30,14 +31,7 @@ const SelectComp = ({ onSelectedOptionChange, onIdentificationChange }) => {
   };
 
   const handleValidation = (value) => {
-    const validations = {
-      DNI: /^\d{1,8}$/,
-      Pasaporte: /^[A-Za-z0-9]{1,20}$/,
-      CUIL: /^(20|23|24|27)\d{1,11}$/,
-      CUIT: /^(30|33|34)\d{1,11}$/,
-    };
-
-    const regex = validations[selectedOption];
+    const regex = regexMap[selectedOption];
 
     if (regex && value.length > 0) {
       if (!regex.test(value)) {
@@ -50,49 +44,32 @@ const SelectComp = ({ onSelectedOptionChange, onIdentificationChange }) => {
     }
   };
 
-  const inputTitle = (() => {
-    switch (selectedOption) {
-      case "DNI":
-        return "Ingrese un número de DNI válido (1 a 8 dígitos)";
-      case "Pasaporte":
-        return "Ingrese un número de pasaporte válido (hasta 20 caracteres alfanuméricos)";
-      case "CUIL":
-        return "Ingrese un número de CUIL válido (11 dígitos)";
-      case "CUIT":
-        return "Ingrese un número de CUIT válido (11 dígitos)";
-      default:
-        return "Elige un tipo de documento";
-    }
-  })();
+  const inputTitle = selectedOption
+    ? {
+        DNI: "Ingrese un número de DNI válido (1 a 8 dígitos)",
+        Pasaporte: "Ingrese un número de pasaporte válido (hasta 20 caracteres alfanuméricos)",
+        CUIL: "Ingrese un número de CUIL válido (11 dígitos)",
+        CUIT: "Ingrese un número de CUIT válido (11 dígitos)"
+      }[selectedOption]
+    : "Elige un tipo de documento";
 
-  const inputPlaceholder = (() => {
-    switch (selectedOption) {
-      case "DNI":
-        return "Ejemplo: 12345678";
-      case "Pasaporte":
-        return "Ejemplo: ABC123456";
-      case "CUIL":
-        return "Ejemplo: 20123456789";
-      case "CUIT":
-        return "Ejemplo: 30123456789";
-      default:
-        return "Elige un tipo de documento";
-    }
-  })();
+  const inputPlaceholder = selectedOption
+    ? {
+        DNI: "Ejemplo: 12345678",
+        Pasaporte: "Ejemplo: ABC123456",
+        CUIL: "Ejemplo: 20123456789",
+        CUIT: "Ejemplo: 30123456789"
+      }[selectedOption]
+    : "Elige un tipo de documento";
 
-  const maxCharacters = (() => {
-    switch (selectedOption) {
-      case "DNI":
-        return 8;
-      case "Pasaporte":
-        return 20;
-      case "CUIL":
-      case "CUIT":
-        return 11;
-      default:
-        return 0;
-    }
-  })();
+  const maxCharacters = selectedOption
+    ? {
+        DNI: 8,
+        Pasaporte: 20,
+        CUIL: 11,
+        CUIT: 11
+      }[selectedOption]
+    : 0;
 
   return (
     <>

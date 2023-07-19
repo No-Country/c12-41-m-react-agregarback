@@ -1,6 +1,6 @@
 import { Suspense, lazy } from "react";
 import { Route, Routes } from "react-router-dom";
-import { SignUpPage, NotFound, HomeC, LoginC, Contacto } from '../pages/index.js';
+import { SignUpPage, NotFound, HomeC, LoginC, Contacto, QaPage } from '../pages/index.js';
 import { GridLoader } from "react-spinners";
 import NoProtectedLayout from "../components/Layout/NoProtected/index.jsx";
 import Products from "../pages/Products/index.jsx";
@@ -43,13 +43,14 @@ export function Routers() {
         </Route>
 
         <Route element={<NoProtectedLayout />}>
+          <Route element={<CustomProvider />}>
+            <Route path="/login" element={<LoginC />} />
+          </Route>
           <Route exact path="/" element={<HomeC />} />
-          <Route path="/login" element={<LoginC />} />
+          <Route path="/nosotros" element={<Nosotros />} />
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/contact" element={<Contacto />} />
-          <Route path="/nosotros" element={<Nosotros />}/>
-          <Route path="/products" element={<Products />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="/preguntasfrecuentes" element={<QaPage />} />
         </Route>
       </Routes>
     </Suspense >

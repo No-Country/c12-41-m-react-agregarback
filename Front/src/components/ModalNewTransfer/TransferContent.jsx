@@ -1,14 +1,13 @@
-import ListContactTransfer from './ListContactTransfer'
-import ModalNewTransfer from './ModalNewTransfer'
+import ListContactTransfer from "./ListContactTransfer";
+import TransferSection from "./newTransferSection";
 
 const TransferContent = () => {
   return (
-    <section className="bg-gray grid lg:grid-cols-2 rounded-xl min-h-screen overflow-hidden p-3 pt-16 gap-4">
+    <section className="bg-gray grid lg:grid-cols-2 auto-rows-fr rounded-xl min-h-screen overflow-hidden p-3 pt-16 gap-4">
       <ListContactTransfer />
-      <ModalNewTransfer />
+      <TransferSection />
     </section>
-  )
-}
+  );
+};
 
-export default TransferContent
-
+export default TransferContent;

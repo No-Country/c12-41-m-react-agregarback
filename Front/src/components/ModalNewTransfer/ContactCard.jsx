@@ -1,65 +1,40 @@
+import { useState } from "react";
 import { useSelector } from "react-redux";
+import useFetch from "../../utils/useFetch";
+import { GridLoader } from "react-spinners";
 
+const ContactCard = ({ setCurrentContact }) => {
+  const user = useSelector((Storage) => Storage.user);
+  const userId = 3;
+  const { data, error } = useFetch(`users_contacs/${userId}`);
 
-const ContactCard = () => {
-    const contacts = useSelector((state)=>state.user.data.contacts.contacts)
-    console.log(contacts)
-    const Contacts = [
-      {
-        id: 1,
-        validation: "cbu",
-        validationValue: "4810394857104928573461",
-        contactId: 9,
-        userId: 4,
-        name: "Sergio",
-      },
-      {
-        id: 2,
-        validation: "alias",
-        validationValue: "ejemplo.alias09",
-        contactId: 14,
-        userId: 4,
-        name: "Aron",
-      },
-      {
-        id: 3,
-        validation: "cvu",
-        validationValue: "4810394857104928570915",
-        contactId: 20,
-        userId: 4,
-        name: "Luisa",
-      },
-      {
-        id: 4,
-        validation: "cbu",
-        validationValue: "1059385968374657385496",
-        contactId: 18,
-        userId: 4,
-        name: "Emilio",
-      },
-    ];
-  
-    return (
-      <div>
-        {contacts?.map((contact) => (
-          <div key={contact.id} className="flex cursor-pointer my-1 hover:bg-blue-lightest rounded">
-            <div className="w-8 h-10 text-center py-1">
-              <p className="text-3xl p-0 text-green-dark">&bull;</p>
-            </div>
-            <div className="w-4/5 h-10 py-3 px-1">
-              <p className="hover:text-blue-dark font-semibold text-left">
-                {contact.contactName}
-              </p>
-              <p className="text-sm text-grey-dark text-left uppercase">
-                {contact.validation}: {contact.validationValue}
-              </p>
-            </div>
+  if (error) {
+    return <div>{error}</div>;
+  }
+
+  return (
+    <div className="grid gap-5 py-5">
+      {data?.contacts?.map((contact) => (
+        <div
+          onClick={() => setCurrentContact(contact)}
+          key={contact.id}
+          className="flex cursor-pointer my-1 hover:bg-blue-lightest rounded min-h-[80px]"
+        >
+          <div className="w-8 text-center py-1">
+            <p className="text-3xl p-0 text-green-dark">&bull;</p>
           </div>
-        ))}
-      </div>
-    );
-  };
-  
-  export default ContactCard;
- 
-  
+          <div className="w-4/5 h-10 py-3 px-1">
+            <p className="hover:text-blue-dark font-semibold text-left">
+              {contact.contactName}
+            </p>
+            <p className="text-sm text-grey-dark text-left uppercase">
+              {contact.validation}: {contact.validationValue}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default ContactCard;
