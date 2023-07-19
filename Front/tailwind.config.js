@@ -21,7 +21,8 @@ module.exports = {
         '70vh': '70vh',
       },
       backgroundImage: {
-        "contact-bg": "url('https://images.pexels.com/photos/326576/pexels-photo-326576.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')"
+        "contact-bg": "url('https://images.pexels.com/photos/326576/pexels-photo-326576.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')",
+        "Qa-bg": "url(https://images.pexels.com/photos/3760809/pexels-photo-3760809.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)"
       }
     },
   },
