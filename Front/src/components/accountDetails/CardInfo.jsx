@@ -1,10 +1,6 @@
 import { useState } from "react";
-import { BsCreditCard2BackFill } from "react-icons/bs";
-import { FaHandHoldingDollar } from "react-icons/fa6";
-import { AiOutlineLineChart } from "react-icons/ai";
-import { RiQuestionnaireFill, RiShakeHandsFill } from "react-icons/ri";
 
-import Accesos from "./Accesos";
+
 import CarruselCard from "./CarruselCard";
 
 const CardInfo = ({ account }) => {
@@ -22,32 +18,6 @@ const CardInfo = ({ account }) => {
           </div>
           <CarruselCard listOfCards={cards} />
         </article>
-      </article>
-      <article className="grid grid-cols-[repeat(auto-fill,_minmax(100px,_1fr))] gap-3 auto-cols-fr py-10">
-        <Accesos text={"Inversiones"} icon={<AiOutlineLineChart />} />
-        <Accesos text={"prestamos"} icon={<FaHandHoldingDollar />} />
-        <Accesos text={"Centro de ayuda"} icon={<RiQuestionnaireFill />} />
-        <Accesos text={"Solicitar nueva tarjeta"} icon={<BsCreditCard2BackFill />} />
-        <Accesos text={"Solicitar nueva cuenta"} icon={<RiShakeHandsFill />} />
-      </article>
-      <article className="grid gap-10">
-        <h4 className="font-medium">Lorem ipsum, dolor sit amet consectetur</h4>
-        <div className="grid sm:grid-cols-2">
-          <p className="text-left">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima quos
-            ab dolorem eum dolore cum, non distinctio eligendi obcaecati ipsum
-            quas cupiditate aspernatur, eveniet quo consectetur iure officia
-            earum quisquam.
-          </p>
-          <div>
-            <img
-              className="w-[280px] mx-auto"
-              src="/accounts/logocurrency.svg"
-              alt="img bank"
-              loading="lazy"
-            />
-          </div>
-        </div>
       </article>
     </section>
   );
