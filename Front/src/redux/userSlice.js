@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-const BASE_URL = "https://nocountrybackend.onrender.com/api/v1/users"
+export const BASE_URL = "https://nocountrybackend.onrender.com/api/v1"
 
 const FAKE_USER = {
     id: 3,
@@ -41,9 +41,10 @@ const FAKE_USER = {
 
 }
 
-const headers = {
+ export const headers = {
     'Authorization': `Bearer ${sessionStorage.getItem("token")}`
 }
+export const userId = sessionStorage.getItem("userId")
 
 //Obtener datos de usuario, sus cuentas y tarjetas y transferencias asociadas a esa cuenta.
 const getUserInfo = createAsyncThunk(
@@ -58,7 +59,7 @@ const getUserInfo = createAsyncThunk(
 const getContacts = createAsyncThunk(
     'user/getContacts',
     async () => {
-        const userId = sessionStorage.getItem("userId")
+        
         // const response = await axios.get(`${BASE_URL}/${userId}/contacts`)
         const response =
             [
@@ -75,19 +76,30 @@ const getContacts = createAsyncThunk(
     }
 )
 
+export const getAllContact = createAsyncThunk(
+    'user/getAllContact',
+    async () => {
+      const response = await axios.get(`${BASE_URL}/users_contacs/${userId}`, {headers});
+      console.log(userId)
+      console.log(response.data)
+      return response.data;
+
+    },
+  );
+
 const initialState = {
     status: "idle",
     error: "",
     data: {
         id: 0,
-        name: "_",
-        email: "_",
-        password: "_",
-        status: "_",
-        date_of_birth: "_",
+        name: "",
+        email: "",
+        password: "",
+        status: "",
+        date_of_birth: "",
         dni: 0,
-        address: "_",
-        phone_number: "_",
+        address: "",
+        phone_number: "",
         username: "_",
         accounts: [],
         contacts: [],
@@ -125,9 +137,23 @@ export const userSlice = createSlice({
                 state.status = "failed"
                 state.error = action.error.message
             })
+            .addCase(getAllContact.pending, (state) => {
+                state.status = "loading"
+            })
+            .addCase(getAllContact.fulfilled, (state, action) => {
+                state.data = { ...state.data, contacts: action.payload }
+                state.status = "succeeded"
+            })
+            .addCase(getAllContact.rejected, (state, action) => {
+                state.status = "failed"
+                state.error = action.error.message
+            })
 
     }
 });
+export const AllUsers = (state) => state.user.users;
+export const getStatus = (state) => state.user.status;
+export const getError = (state) => state.user.error;
 
 export { getUserInfo, getContacts }
 export default userSlice.reducer
