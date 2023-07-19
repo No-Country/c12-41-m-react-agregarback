@@ -3,7 +3,6 @@ import { Authorization, backEnd } from "./axiosBackEnd";
 
 const useFetch = ( path ) => {
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
 
   useEffect(() => {
@@ -13,11 +12,10 @@ const useFetch = ( path ) => {
         setData(res.data);
       })
       .catch((err) => {
-        console.log(err)
+        // console.log(err)
         setError(err.response.data.message)})
-      .finally(setLoading(false));
   }, []);
 
-  return { data, loading, error };
+  return { data, error };
 };
 export default useFetch;
