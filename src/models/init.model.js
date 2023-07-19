@@ -12,6 +12,9 @@ const initModel = () => {
 
   AccountModel.hasMany(CardModel, { foreignKey: "accountId" });
   CardModel.belongsTo(AccountModel, { foreignKey: "accountId" });
+
+  UserModel.hasMany(TransferModel, { foreignKey: "userId" });
+  TransferModel.belongsTo(UserModel, { foreignKey: "userId" });
 };
 
 export default initModel

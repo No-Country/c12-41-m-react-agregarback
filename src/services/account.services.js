@@ -102,7 +102,7 @@ class AccountServices {
             model: CardModel
           },
           {
-            model:TransferModel
+            model: TransferModel,
           }
         ]
       });

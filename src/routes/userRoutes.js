@@ -1,5 +1,5 @@
 import express from "express";
-import { singUp, login } from "../controllers/userController.js";
+import { singUp, login, updateUserInfo } from "../controllers/userController.js";
 import {
   validSingUp,
   validLogin,
@@ -120,5 +120,7 @@ router.post(
   validTransferRequire,
   CreateTransfer
 );
+
+router.patch("/:userId/updateUser", updateUserInfo)
 
 export default router;
