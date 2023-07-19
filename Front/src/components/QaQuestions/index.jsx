@@ -77,7 +77,10 @@ const FAQPage = () => {
       <div className="absolute bg-gradient-to-t from-dark via-gray to-dark opacity-95 h-screen w-full"></div>
       <div className="z-10 h-screen w-1/2">
         <h2 className="text-4xl font-bold text-orange mt-5 text-left">
+          <span className="bg-gradient-to-r from-yellow to-orange text-transparent bg-clip-text">
           Preguntas Frecuentes
+
+          </span>
         </h2>
         <section className="bg-dark h-max-screen mt-10">
           {faqItems.map((item, index) => (

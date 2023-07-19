@@ -1,4 +1,17 @@
+const formatDate = (dateInput) => {
+  const date = new Date(dateInput);
+  const year = date.getFullYear().toString().slice(2, 4);
+  const month = String(date.getMonth() + 1).padStart(2, '0'); // Asegurar que tenga dos dígitos
+  const day = String(date.getDate()).padStart(2, '0'); // Asegurar que tenga dos dígitos
+
+  return `${month}/${year}`;
+}
+
+
 const Card = ({ type, name, accountNumber, date, img }) => {
+
+
+
   return (
     <div className="w-[280px] h-[190px] rounded-3xl border-t-[1px] border-r-[1px] border-[#A8A8A8] grid grid-rows-2 backdrop-blur-[8px] shadow-lg bg-gradient-to-r from-white/10 to-transparent ">
       <div className="grid grid-cols-2 gap-8">
@@ -23,15 +36,15 @@ const Card = ({ type, name, accountNumber, date, img }) => {
       <div className="grid grid-rows-2 pb-5 gap-2">
         <div className="pl-[30px] grid grid-rows-2 justify-start items-center">
           <h4 className="capitalize text-[10px] opacity-60 text-left">
-            {name}
+            {name.toUpperCase()}
           </h4>
-          <span>{accountNumber}</span>
+          <span>{accountNumber.replace(/(.{4})/g, "$1 ")}</span>
         </div>
         <div className="pl-[30px] grid grid-rows-2 justify-start">
           <span className="capitalize text-[10px] opacity-60 text-left items-center">
-            validade
+            VALIDO HASTA
           </span>
-          <span>{date}</span>
+          <span>{formatDate(date)}</span>
         </div>
       </div>
     </div>
