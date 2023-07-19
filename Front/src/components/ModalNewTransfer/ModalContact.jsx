@@ -25,17 +25,15 @@ const ModalContact = function ({ setOpen }) {
             selectedRef, account, contactName
         }
         dispatch(addContact(newContact))
-        /*
         .unwrap()
         .then(() => {
-          notifiersuccess('Se agrego correctamente', {durations: {success: 0}})
-          
+          notifier.success('Se agrego correctamente', {durations: {success: 0}}) 
         })
         .catch((error) => {
-          notifier.alert('Error server', {durations: {alert: 0}})
-        });*/
+          notifier.alert('Error server', {durations:  {alert: 0}})
+        })
         reset();
-        setOpen(false)
+      
     }
 
 

@@ -6,7 +6,7 @@ import { BASE_URL, headers, userId } from './userSlice';
 
 export const addContact = createAsyncThunk(
     'contacts/addContact',
-    async (newContact, thunkApi) => {
+    async (newContact) => {
         try {
           const{selectedRef, account, contactName} = newContact;
             const body ={
@@ -19,7 +19,7 @@ export const addContact = createAsyncThunk(
             return response.data;
         } catch (error) {
             console.log(error)
-            return thunkApi.rejectWithValue(error.response.data);
+            //return thunkApi.rejectWithValue(error.response.data);
         }
     }
 )

@@ -80,8 +80,6 @@ export const getAllContact = createAsyncThunk(
     'user/getAllContact',
     async () => {
       const response = await axios.get(`${BASE_URL}/users_contacs/${userId}`, {headers});
-      console.log(userId)
-      console.log(response.data)
       return response.data;
 
     },
