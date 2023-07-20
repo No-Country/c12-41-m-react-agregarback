@@ -46,7 +46,9 @@ export function Routers() {
           <Route element={<CustomProvider />}>
             <Route path="/login" element={<LoginC />} />
           </Route>
+          <Route path="*" element={<NotFound />} />
           <Route exact path="/" element={<HomeC />} />
+          <Route exact path="/asdasd" element={<Products />} />
           <Route path="/nosotros" element={<Nosotros />} />
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/contact" element={<Contacto />} />
