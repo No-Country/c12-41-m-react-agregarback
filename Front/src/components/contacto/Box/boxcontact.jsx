@@ -121,7 +121,7 @@ const Boxcontact = ({ submitEndpoint }) => {
 
   return (
     <div className="relative">
-      <form action="https://getform.io/f/e6941e6f-23f3-4d16-8555-4264b87c42b1" method="post"
+      <form action="https://getform.io/f/55d2b4a0-d498-45f3-a2b7-d6c5527dbaa3" method="post"
         ref={formRef}
         onSubmit={handleSubmit}
         className="md:w-4/4 md:h-fit md:bg-opacity-90 bg-opacity-90 bg-dark mix-blend-normal border border-dark rounded-md p-2 m m-auto md:m-3 md:transition-2"
