@@ -3,6 +3,14 @@ import { getUserInfo } from "../../redux/userSlice";
 import { useSelector, useDispatch } from "react-redux";
 import EditableField from "./EditableField";
 import { ClimbingBoxLoader } from "react-spinners";
+const formatDate = (dateInput) => {
+    const date = new Date(dateInput);
+    const year = date.getFullYear().toString().slice(2, 4);
+    const month = String(date.getMonth() + 1).padStart(2, '0'); // Asegurar que tenga dos dígitos
+    const day = String(date.getDate()).padStart(2, '0'); // Asegurar que tenga dos dígitos
+
+    return `${month}/${year}`;
+}
 const Profile = () => {
     const dispatch = useDispatch();
     const { status, data } = useSelector((state) => state.user);

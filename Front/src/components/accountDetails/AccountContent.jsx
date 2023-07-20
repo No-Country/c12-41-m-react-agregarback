@@ -11,8 +11,10 @@ import Accesos from "./Accesos";
 import ModalNewAccount from "./ModalNewAccount"
 import ModalNewCard from "./ModalNewCard"
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux"
 
 const AccountContent = () => {
+  const { status, data } = useSelector((state) => state.user);
   const headers = {
     Authorization: `Bearer ${sessionStorage.getItem('token')}`
   }
@@ -84,6 +86,7 @@ const AccountContent = () => {
                 <h4 className="font-medium">Lorem ipsum, dolor sit amet consectetur</h4>
                 <div className="grid sm:grid-cols-2">
                   <p className="text-left">
+                    {data.name}
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima quos
                     ab dolorem eum dolore cum, non distinctio eligendi obcaecati ipsum
                     quas cupiditate aspernatur, eveniet quo consectetur iure officia
