@@ -60,6 +60,7 @@ const CorreoInput = ({ onEmailChange }) => {
         <input
           type="email"
           required
+          name="email"
           id="email"
           className={`${BoxInputClass} ${emailError ? "border-red-600" : ""}`}
           value={email}

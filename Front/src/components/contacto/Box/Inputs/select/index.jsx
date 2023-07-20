@@ -9,8 +9,8 @@ const SelectComp = ({ onSelectedOptionChange, onIdentificationChange }) => {
   const regexMap = {
     DNI: /^\d{0,8}$/,
     Pasaporte: /^[A-Za-z0-9]{0,20}$/,
-    CUIL: /^(20|23|24|27)\d{0,11}$/,
-    CUIT: /^(30|33|34)\d{0,11}$/
+    CUIL: /^\d{0,2}-\d{0,8}-\d{0,1}$/, // Formato: 20-12345678-9
+    CUIT: /^\d{0,2}-\d{0,8}-\d{0,1}$/, // Formato: 30-12345678-9
   };
 
   const handleSelectedOptionChange = (e) => {
@@ -24,11 +24,28 @@ const SelectComp = ({ onSelectedOptionChange, onIdentificationChange }) => {
   const handleIdentificationChange = (e) => {
     const value = e.target.value;
     const regex = regexMap[selectedOption] || /^.*$/;
-    const sanitizedValue = value.replace(/[^a-zA-Z0-9]/g, "").slice(0, regex.test(value) ? regex.exec(value)[0].length : 0);
+
+    // Agregar automáticamente el prefijo "20-" para CUIL y "30-" para CUIT
+    let formattedValue = value;
+    if (selectedOption === "CUIL" && value.length < 3) {
+      formattedValue = `20-${value}`;
+    } else if (selectedOption === "CUIT" && value.length < 3) {
+      formattedValue = `30-${value}`;
+    }
+
+    // Agregar automáticamente el sufijo "-9" si el valor tiene el formato correcto
+    if (selectedOption === "CUIL" || selectedOption === "CUIT") {
+      if (formattedValue.match(/^\d{2}-\d{8}$/)) {
+        formattedValue += "-9";
+      }
+    }
+
+    const sanitizedValue = formattedValue.replace(/[^A-Za-z0-9-]/g, "");
     setIdentification(sanitizedValue);
     handleValidation(sanitizedValue);
     onIdentificationChange(sanitizedValue);
   };
+
 
   const handleValidation = (value) => {
     const regex = regexMap[selectedOption];
@@ -48,8 +65,8 @@ const SelectComp = ({ onSelectedOptionChange, onIdentificationChange }) => {
     ? {
         DNI: "Ingrese un número de DNI válido (1 a 8 dígitos)",
         Pasaporte: "Ingrese un número de pasaporte válido (hasta 20 caracteres alfanuméricos)",
-        CUIL: "Ingrese un número de CUIL válido (11 dígitos)",
-        CUIT: "Ingrese un número de CUIT válido (11 dígitos)"
+        CUIL: "Ingrese un número de CUIL válido (Formato: 20-12345678-9)",
+        CUIT: "Ingrese un número de CUIT válido (Formato: 30-12345678-9)",
       }[selectedOption]
     : "Elige un tipo de documento";
 
@@ -57,8 +74,8 @@ const SelectComp = ({ onSelectedOptionChange, onIdentificationChange }) => {
     ? {
         DNI: "Ejemplo: 12345678",
         Pasaporte: "Ejemplo: ABC123456",
-        CUIL: "Ejemplo: 20123456789",
-        CUIT: "Ejemplo: 30123456789"
+        CUIL: "Ejemplo: 20-12345678-9",
+        CUIT: "Ejemplo: 30-12345678-9",
       }[selectedOption]
     : "Elige un tipo de documento";
 
@@ -66,8 +83,8 @@ const SelectComp = ({ onSelectedOptionChange, onIdentificationChange }) => {
     ? {
         DNI: 8,
         Pasaporte: 20,
-        CUIL: 11,
-        CUIT: 11
+        CUIL: 13,
+        CUIT: 13,
       }[selectedOption]
     : 0;
 
@@ -79,7 +96,7 @@ const SelectComp = ({ onSelectedOptionChange, onIdentificationChange }) => {
         </label>
         <div className={boxDivInputs}>
           <select
-            name=""
+            name="TipoDeDocumento"
             className={`${boxDivInputs} w-full h-7 bg-white flex items-center px-2 text-gray rounded-md`}
             id="type"
             value={selectedOption}
@@ -109,6 +126,7 @@ const SelectComp = ({ onSelectedOptionChange, onIdentificationChange }) => {
         <div className="w-96.06 h-16.56 relative">
           <input
             type="text"
+            name="text"
             id="documento"
             placeholder={inputPlaceholder}
             className={BoxInputClass}
@@ -118,13 +136,10 @@ const SelectComp = ({ onSelectedOptionChange, onIdentificationChange }) => {
             maxLength={maxCharacters}
             required
             title={inputTitle}
+            autoComplete="off"
           />
 
-          {validationResult && selectedOption && identification !== "" && (
-            <div className="tooltip absolute bottom-full left-1/2 transform -translate-x-1/2 bg-red-600 text-red-100 text-xs rounded py-1 px-2 mt-1">
-              {validationResult}
-            </div>
-          )}
+
         </div>
       </div>
     </>
