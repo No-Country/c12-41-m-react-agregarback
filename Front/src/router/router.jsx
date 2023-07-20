@@ -7,13 +7,13 @@ import Products from "../pages/Products/index.jsx";
 const Transfer = lazy(() => import('../pages/Transfer'));
 const Accounts = lazy(() => import('../pages/Accounts'));
 const Profile = lazy(() => import('../pages/Profile'))
+const LoanPri = lazy(() => import('../pages/Prestamos'))
 const Proteccion = lazy(() => import('../components/Proteccion/Proteccion.jsx'));
 const ProtectedLayout = lazy(() => import('../components/Layout/Protected/index.jsx'));
 
 //Redux
 import CustomProvider from "../redux/customProvider.jsx";
 import Nosotros from "../components/Nosotros/Nosotros.jsx";
-
 
 export function Routers() {
 
@@ -34,7 +34,7 @@ export function Routers() {
               <Route path="/profile" element={<Profile />} />
               <Route path="/cards" element={<div>This is cards</div>} />
               <Route path="/investments" element={<div>This is investments</div>} />
-              <Route path="/loans" element={<div>This is loans</div>} />
+              <Route path="/loans" element={<div><LoanPri /></div>} />
               <Route path="/help" element={<div>This is help</div>} />
               <Route path="/logout" element={<div>This is logout</div>} />
               <Route path="/token" element={<div>This is token</div>} />
