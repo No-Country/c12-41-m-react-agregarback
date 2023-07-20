@@ -79,7 +79,7 @@ const AccountContent = () => {
               <Accesos text={"prestamos"} icon={<FaHandHoldingDollar />} />
               <NavLink to="/preguntasfrecuentes">
                 <Accesos
-                  text={"Centro de ayuda"}
+                  text={"Contactanos"}
                   icon={<RiQuestionnaireFill />}
                 />
               </NavLink>
