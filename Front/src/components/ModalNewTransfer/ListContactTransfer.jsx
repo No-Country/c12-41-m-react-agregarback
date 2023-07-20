@@ -1,17 +1,29 @@
 import { useState } from "react";
+import {useSelector, useDispatch} from 'react-redux'
 import ModalContact from "./ModalContact"
 import ContactCard from "./ContactCard";
+import { useEffect } from "react";
+import { getAllContact, getStatus} from "../../redux/userSlice";
 
 const ListContactTransfer = () => {
+  const dispatch = useDispatch();
+  const userStatus = useSelector(getStatus);
   const [open, setOpen]=useState(false)
+  
+  useEffect(() => {
+    if (userStatus === 'idle'){
+      dispatch(getAllContact());
+    }
+  }, [userStatus])
+  
   return (
     <div className="">
       <div className="rounded-lg bg-gray h-full p-10">
         <div className="bg-dark mx-auto max-w-sm shadow-lg rounded-lg overflow-hidden">
           <div className="sm:flex sm:items-center px-2 py-4">
             <div className="flex-grow">
-              <h2 className="font-bold px-2 py-3 leading-tight">
-                Transferencias
+              <h2 className="uppercase font-bold px-2 py-3 ">
+                Contactos
               </h2>
               <h3 className="font-normal px-1 py-3">
                 Transferí a un contacto de la agenda o a un nuevo destinatario

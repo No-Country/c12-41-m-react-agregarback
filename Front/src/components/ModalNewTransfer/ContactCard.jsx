@@ -1,20 +1,14 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import useFetch from "../../utils/useFetch";
 import { GridLoader } from "react-spinners";
 
 const ContactCard = ({ setCurrentContact }) => {
-  const user = useSelector((Storage) => Storage.user);
-  const userId = 3;
-  const { data, error } = useFetch(`users_contacs/${userId}`);
-
-  if (error) {
-    return <div>{error}</div>;
-  }
-
+  const contacts= useSelector((Storage) => Storage.user.data.contacts);
+  console.log (contacts)
+ 
   return (
     <div className="grid gap-5 py-5">
-      {data?.contacts?.map((contact) => (
+      {contacts?.map((contact) => (
         <div
           onClick={() => setCurrentContact(contact)}
           key={contact.id}

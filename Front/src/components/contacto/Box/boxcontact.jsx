@@ -124,15 +124,15 @@ const Boxcontact = ({ submitEndpoint }) => {
       <form action="https://getform.io/f/55d2b4a0-d498-45f3-a2b7-d6c5527dbaa3" method="post"
         ref={formRef}
         onSubmit={handleSubmit}
-        className="md:w-4/4 md:h-fit md:bg-opacity-90 bg-opacity-90 bg-dark mix-blend-normal border border-dark rounded-md p-2 m m-auto md:m-3 md:transition-2"
+        className="md:w-4/4 md:h-fit md:bg-opacity-90 bg-opacity-90 md:bg-dark bg-transparent mix-blend-normal md:border border-dark rounded-md p-2 m m-auto md:m-3 md:transition-2"
       >
         <h2 className="w-96.04 h-7.76 font-inter font-semibold text-2xl md:text-3xl flex items-center text-orange my-2">
           <span className="bg-gradient-to-r from-yellow to-orange text-transparent bg-clip-text">
           Completa tus datos
           </span>
      
-fanta432        </h2>
-        <div className="h-fit md:w-fit w-full flex flex-col justify-center items-center md:grid md:grid-cols-2 md:grid-rows-3 md:gap-4 gap-2 text-orange text-left">
+  </h2>
+        <div className="h-fit md:w-fit w-full flex flex-col justify-center items-center md:grid md:grid-cols-2 md:grid-rows-3 md:gap-4 gap-2 text-orange text-left ">
           <SelectComp
             onSelectedOptionChange={handleSelectedOptionChange}
             onIdentificationChange={handleIdentificationChange}
