@@ -9,7 +9,7 @@ function BackButton() {
 }
 
     return(
-        <main className="bg-gray h-screen " >
+        <main className="bg-gradient-to-t from-dark via-gray to-dark bg-no-repeat bg-cover absolute inset-0 animate-scroll-bg " >
 
         
           <div className="flex flex-col justify-center items-center h-full">
