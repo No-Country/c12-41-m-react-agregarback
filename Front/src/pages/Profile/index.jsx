@@ -5,11 +5,12 @@ import EditableField from "./EditableField";
 import { ClimbingBoxLoader } from "react-spinners";
 const formatDate = (dateInput) => {
     const date = new Date(dateInput);
-    const year = date.getFullYear().toString().slice(2, 4);
-    const month = String(date.getMonth() + 1).padStart(2, '0'); // Asegurar que tenga dos dígitos
-    const day = String(date.getDate()).padStart(2, '0'); // Asegurar que tenga dos dígitos
 
-    return `${month}/${year}`;
+    const day = date.getUTCDate();
+    const month = date.getUTCMonth() + 1;
+    const year = date.getUTCFullYear();
+
+    return `${day < 10 ? "0" : ""}${day}-${month < 10 ? "0" : ""}${month}-${year}`;
 }
 const Profile = () => {
     const dispatch = useDispatch();
@@ -18,7 +19,7 @@ const Profile = () => {
         name: data.name,
         email: data.email,
         password: data.password,
-        date_of_birth: data.date_of_birth,
+        date_of_birth: formatDate(data.date_of_birth),
         dni: data.dni,
         address: data.address,
         username: data.username,
