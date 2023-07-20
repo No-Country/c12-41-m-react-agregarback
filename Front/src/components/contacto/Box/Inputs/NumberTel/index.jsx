@@ -37,21 +37,22 @@ const NumberTel = ({ onInputChange }) => {
   const isAreaNumberMin = areaNumber.length < 1;
 
   return (
-    <div className="grid md:grid-cols-2 md:gap-2" id="Numero">
+    <div className='md:grid md:grid-cols-2 md:gap-2 flex flex-col jusify-center items-center'  id="Numero">
       <div>
         <label htmlFor="nArea" className="capitalize">
           Número de área<b>*</b>
         </label>
         <div
           className={`${boxDivInputs} ${
-            isAreaNumberMin ? "border-red-600" : ""
+            isAreaNumberMin ? "border-dark" : ""
           }`}
         >
           <input
             type="tel"
             id="nArea"
+            name="nArea"
             className={`${BoxInputClass} ${
-              isAreaNumberMin ? "bg-red-100" : ""
+              isAreaNumberMin ? "bg-dark" : ""
             }`}
             value={areaNumber}
             onChange={handleAreaChange}
@@ -72,6 +73,7 @@ const NumberTel = ({ onInputChange }) => {
           <input
             type="tel"
             required
+            name="tel"
             id="num"
             className={BoxInputClass}
             value={phoneNumber}
@@ -80,6 +82,7 @@ const NumberTel = ({ onInputChange }) => {
             placeholder="XXXXXXXXX"
             title="Ingrese un número de teléfono/celular válido de 1 a 10 dígitos"
             minLength={1}
+            autoComplete="off"
             
           />
         </div>

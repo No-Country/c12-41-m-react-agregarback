@@ -4,7 +4,7 @@ import axios from "axios";
 import validationlogin from "./validatelogin";
 import { Navigate, NavLink, useNavigate } from "react-router-dom"
 import { FaCommentsDollar } from "react-icons/fa6";
-import { getUserInfo } from "../../../redux/userSlice";
+import { getUserInfo, setUserData } from "../../../redux/userSlice";
 import AWN from "awesome-notifications"
 import { useDispatch } from "react-redux";
 const notifier = new AWN();
@@ -57,7 +57,8 @@ function Login() {
                 sessionStorage.setItem("token", res.data.token);
                 sessionStorage.setItem("userId", res.data.user.id);
                 setToken(res.data.token)
-                dispatch(getUserInfo());
+                console.log(res);
+                dispatch(setUserData(res.data.user));
                 navigate(`/accounts`);
             },
             err => { console.log(err); notifier.alert(`No se ha podido iniciar sesion`) },
@@ -82,6 +83,7 @@ function Login() {
                                             name="dni"
                                             value={loginData.dni}
                                             onChange={handleInputChange}
+                                            onWheel={(e) => e.target.blur()}
                                         />
                                         <p className="error text-yellow font-bold h-12">{errors.dni}</p>
                                         <label htmlFor="dni" className="absolute left-0 -top-3.5 font-bold text-white  text-xl peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Numero de documento</label>

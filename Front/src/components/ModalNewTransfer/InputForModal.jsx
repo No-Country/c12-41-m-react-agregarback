@@ -5,7 +5,7 @@ const InputForModal = ({label , type , name , handleChangeTransferInfo , infoFor
         {label}
       </label>
       <input
-        className="px-3 rounded-md bg-dark text-white uppercase"
+        className="px-3 bg-transparent outline-none border-b-2 border-yellow text-white uppercase"
         type={type}
         name={name}
         onChange={(e) => handleChangeTransferInfo(e.target.value, name)}

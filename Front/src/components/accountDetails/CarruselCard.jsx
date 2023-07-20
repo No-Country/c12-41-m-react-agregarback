@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import Card from "./Card";
+import { useSelector } from "react-redux";
 
 const CarruselCard = ({ listOfCards }) => {
+  const { data } = useSelector((state) => state.user);
   const [carruselPosition, setCarruselPosition] = useState(0);
   const handleChangeCurrentCard = (e) => {
     setCarruselPosition(e.target.value);
@@ -22,7 +24,7 @@ const CarruselCard = ({ listOfCards }) => {
             <Card
               key={card.id}
               accountNumber={card.cardNumber}
-              name={"Gabriel Shymabuku"}
+              name={data.name}
               type={card.type}
               date={card.createdAt}
               img={`/accounts/${card.type}.webp`}

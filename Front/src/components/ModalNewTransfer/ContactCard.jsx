@@ -1,20 +1,20 @@
-import { useState } from "react";
-import { useSelector } from "react-redux";
-import useFetch from "../../utils/useFetch";
 import { GridLoader } from "react-spinners";
+import useFetch from "../../utils/useFetch";
+import ThrowModalError from "./ThrowModalError";
 
-const ContactCard = ({ setCurrentContact }) => {
-  const user = useSelector((Storage) => Storage.user);
-  const userId = sessionStorage.userId;
-  const { data, error } = useFetch(`users_contacs/${userId}`);
+const ContactCard = ({ setCurrentContact, contacts, error }) => {
+
+  if (!contacts) {
+    return <GridLoader />;
+  }
 
   if (error) {
-    return <div>{error}</div>;
+    return <ThrowModalError>{error}</ThrowModalError>;
   }
 
   return (
     <div className="grid gap-5 py-5">
-      {data?.contacts?.map((contact) => (
+      {contacts?.map((contact) => (
         <div
           onClick={() => setCurrentContact(contact)}
           key={contact.id}

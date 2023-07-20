@@ -37,6 +37,7 @@ const NameAndSurname = ({ onFormSubmit, onInputChange }) => {
           <input
             type="text"
             required
+            name="name"
             id="Name"
             className={BoxInputClass}
             value={name}
@@ -56,6 +57,7 @@ const NameAndSurname = ({ onFormSubmit, onInputChange }) => {
           <input
             type="text"
             required
+            name="apellido"
             id="ape"
             className={BoxInputClass}
             value={surname}

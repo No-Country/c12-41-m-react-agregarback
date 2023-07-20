@@ -96,7 +96,7 @@ const ModalForNewTransfer = ({
       .then((res) => {
         console.log(res.data);
         handleCloseModal();
-        notifier.modal("transferencias exitosa");
+        notifier.modal("Transferencia exitosa");
       })
       .catch((err) => {
         notifier.modal(err.response.data.message);
@@ -116,7 +116,8 @@ const ModalForNewTransfer = ({
           className="grid gap-4 p-3"
         >
           <span className="text-left capitalize font-medium">
-            Contacto: {currentContact?.contactName || "transferencia a nuevo destino"}
+            Contacto:{" "}
+            {currentContact?.contactName || "transferencia a nuevo destino"}
           </span>
           <div className="text-left">
             <span>Saldo Disponible: </span>
@@ -159,7 +160,7 @@ const ModalForNewTransfer = ({
           />
           <InputForModal
             handleChangeTransferInfo={handleChangeTransferInfo}
-            label={"Metodo"}
+            label={"Tipo de Id"}
             name={"validation"}
             type={"text"}
             infoForTransfer={infoForTransfer}
@@ -167,7 +168,7 @@ const ModalForNewTransfer = ({
           />
           <InputForModal
             handleChangeTransferInfo={handleChangeTransferInfo}
-            label={"value"}
+            label={"Valor"}
             name={"validationValue"}
             type={"text"}
             infoForTransfer={infoForTransfer}
