@@ -15,7 +15,7 @@ import Accesos from "./Accesos";
 import ModalNewAccount from "./ModalNewAccount";
 import ModalNewCard from "./ModalNewCard";
 import { NavLink } from "react-router-dom";
-import { useSelector } from "react-redux"
+import { useSelector } from "react-redux";
 
 const AccountContent = () => {
   const { status, data } = useSelector((state) => state.user);
@@ -78,7 +78,10 @@ const AccountContent = () => {
               <Accesos text={"Inversiones"} icon={<AiOutlineLineChart />} />
               <Accesos text={"prestamos"} icon={<FaHandHoldingDollar />} />
               <NavLink to="/preguntasfrecuentes">
-                <Accesos text={"Contactanos"} icon={<RiQuestionnaireFill />} />
+                <Accesos
+                  text={"Centro de ayuda"}
+                  icon={<RiQuestionnaireFill />}
+                />
               </NavLink>
               <Accesos
                 text={"Solicitar nueva tarjeta"}
@@ -95,60 +98,40 @@ const AccountContent = () => {
                 />
               )}
 
-    isLoaded ?
-      <section className="grid lg:grid-cols-2 overflow-hidden p-3 pt-16 gap-4">
-        {accounts.length > 0 ?
-          <>
-            <div className="">
-              <span>Cuenta en:</span>
-              <select
-
-                onChange={(e) => handleSelectAccount(e)}
-                className="outline-none text-sm text-white rounded-md bg-transparent py-1"
-              >
-                {accounts.map((account, index) => (
-                  <option key={account.id} className="bg-gray" value={index}>
-                    {account.currency.charAt(0).toUpperCase() + account.currency.slice(1)}
-                  </option>
-                ))}
-              </select>
-              <div>
-                <h2 className="text-xl">Saldo: ${accounts[selectedIndex].amount}</h2>
-              </div>
-              <CardInfo account={accounts[selectedIndex]} />
-              <article className="grid grid-cols-[repeat(auto-fill,_minmax(100px,_1fr))] gap-3 auto-cols-fr py-10">
-                <Accesos text={"Inversiones"} icon={<AiOutlineLineChart />} />
-                <Accesos text={"prestamos"} icon={<FaHandHoldingDollar />} />
-                <NavLink to='/preguntasfrecuentes'>
-                  <Accesos text={"Centro de ayuda"} icon={<RiQuestionnaireFill />} />
-
-                </NavLink>
-                <Accesos text={"Solicitar nueva tarjeta"} icon={<BsCreditCard2BackFill onClick={() => setShowNewCardModal(true)} />} />
-                {showNewCardModal && <ModalNewCard setShowNewCardModal={setShowNewCardModal} accounts={accounts} />}
-
-                <Accesos text={"Solicitar nueva cuenta"} icon={<RiShakeHandsFill onClick={() => setShowNewAccountModal(true)} />} />
-                {showNewAccountModal && <ModalNewAccount setShowNewAccountModal={setShowNewAccountModal} accounts={accounts} />}
-
-              </article>
-              <article className="grid gap-10">
-                <h4 className="font-medium">Lorem ipsum, dolor sit amet consectetur</h4>
-                <div className="grid sm:grid-cols-2">
-                  <p className="text-left">
-                    {data.name}
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima quos
-                    ab dolorem eum dolore cum, non distinctio eligendi obcaecati ipsum
-                    quas cupiditate aspernatur, eveniet quo consectetur iure officia
-                    earum quisquam.
-                  </p>
-                  <div>
-                    <img
-                      className="w-[280px] mx-auto"
-                      src="/accounts/logocurrency.svg"
-                      alt="img bank"
-                      loading="lazy"
-                    />
-                  </div>
+              <Accesos
+                text={"Solicitar nueva cuenta"}
+                icon={
+                  <RiShakeHandsFill
+                    onClick={() => setShowNewAccountModal(true)}
+                  />
+                }
+              />
+              {showNewAccountModal && (
+                <ModalNewAccount
+                  setShowNewAccountModal={setShowNewAccountModal}
+                  accounts={accounts}
+                />
+              )}
+            </article>
+            <article className="grid gap-10">
+              <h4 className="font-medium">Bienvendio {data.name}!!</h4>
+              <div className="grid sm:grid-cols-2 items-center">
+                <p className="text-left">
+                  Bienvenido a nuestra plataforma bancaria segura y confiable,
+                  donde podrás acceder fácilmente a la información de tus
+                  cuentas financieras. Aquí, te brindamos una visión completa y
+                  transparente de tus activos y pasivos, poniendo a tu alcance
+                  un panorama claro de tus finanzas personales.
+                </p>
+                <div>
+                  <img
+                    className="w-[280px] mx-auto"
+                    src="/accounts/logocurrency.svg"
+                    alt="img bank"
+                    loading="lazy"
+                  />
                 </div>
+              </div>
             </article>
           </div>
           <UltimosMovimientos account={accounts[selectedIndex]} />
