@@ -1,5 +1,9 @@
 import express from "express";
-import { singUp, login, updateUserInfo } from "../controllers/userController.js";
+import {
+  singUp,
+  login,
+  updateUserInfo,
+} from "../controllers/userController.js";
 import {
   validSingUp,
   validLogin,
@@ -112,6 +116,9 @@ router.post("/login", validLogin, login);
 
 router.use(protect);
 router.use("/:userId", protectAccountOwner);
+
+router.patch("/:userId/updateUser", updateUserInfo);
+
 //accounnumber cbu || cvu || alias del destinatario amount por req
 router.get("/:userId/:currency/", GetTransfers);
 router.post(
@@ -120,7 +127,5 @@ router.post(
   validTransferRequire,
   CreateTransfer
 );
-
-router.patch("/:userId/updateUser", updateUserInfo)
 
 export default router;

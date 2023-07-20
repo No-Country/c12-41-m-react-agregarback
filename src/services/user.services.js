@@ -72,6 +72,17 @@ class UserServices {
       throw new Error(error);
     }
   }
+
+  async updateOneUser({ userNewData , next , sessionUser}){
+    try {
+      console.log(userNewData)
+      const updatedUser = await sessionUser.update(userNewData)
+      return updatedUser
+      
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
 }
 
 export default UserServices;
