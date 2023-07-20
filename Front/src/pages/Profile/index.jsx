@@ -52,7 +52,7 @@ const Profile = () => {
                             <EditableField name="username" label="Usuario" value={userData.username} regex={/^[a-zA-Z0-9_]{2,20}$/} errorMsg="Usuario inválido" onChangeHandler={handleInputChange} type="text" editable={true} />
                             <EditableField name="email" label="Correo electrónico" value={userData.email} regex={/^[^\s@]+@[^\s@]+\.[^\s@]+$/} errorMsg="Correo inválido" onChangeHandler={handleInputChange} type="text" editable={true} />
                             <EditableField name="phone_number" label="Teléfono" value={userData.phone_number} onChangeHandler={handleInputChange} type="number" editable={true} />
-                            <EditableField name="password" label="Contraseña" value={userData.password} regex={/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/} errorMsg="Contraseña inválida" onChangeHandler={handleInputChange} type="password" editable={true} />
+                            {/* <EditableField name="password" label="Contraseña" value={userData.password} regex={/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/} errorMsg="Contraseña inválida" onChangeHandler={handleInputChange} type="password" editable={true} /> */}
                         </div>
                         <button type="submit" className="justify-self-start h-10 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-orange hover:bg-yellow hover:text-dark focus:shadow-outline focus:outline-none">Actualizar datos</button>
                     </form>

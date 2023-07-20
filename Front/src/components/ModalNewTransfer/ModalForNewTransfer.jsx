@@ -18,9 +18,9 @@ const ModalForNewTransfer = ({
 
   const notifier = new AWN();
   //traer de redux
-  const userId = 3;
+  const userId = sessionStorage.getItem("userId");
   const { data, error } = useFetch(`account/${userId}`);
-  
+
   useEffect(() => {
     if (currentContact) {
       setInfoForTransfer((prev) => ({
@@ -46,6 +46,7 @@ const ModalForNewTransfer = ({
 
   const handleChangeCurrentAccount = (e) => {
     const CurrentAccountInfo = JSON.parse(e.target.value);
+    console.log('AAAAA', CurrentAccountInfo);
     const senderAccount = CurrentAccountInfo.accountNumber;
     const accountId = CurrentAccountInfo.id;
     const currency = CurrentAccountInfo.currency;
@@ -79,7 +80,7 @@ const ModalForNewTransfer = ({
       .then((res) => {
         console.log(res.data);
         handleCloseModal();
-        notifier.modal("transferencias exitosa");
+        notifier.modal("Transferencia exitosa");
       })
       .catch((err) => {
         notifier.modal(err.response.data.message);
@@ -136,7 +137,7 @@ const ModalForNewTransfer = ({
           />
           <InputForModal
             handleChangeTransferInfo={handleChangeTransferInfo}
-            label={"validation"}
+            label={"Tipo de Id"}
             name={"validation"}
             type={"text"}
             infoForTransfer={infoForTransfer}
@@ -144,7 +145,7 @@ const ModalForNewTransfer = ({
           />
           <InputForModal
             handleChangeTransferInfo={handleChangeTransferInfo}
-            label={"validationValue"}
+            label={"Valor"}
             name={"validationValue"}
             type={"text"}
             infoForTransfer={infoForTransfer}
