@@ -22,7 +22,7 @@ module.exports = {
       },
       backgroundImage: {
         "contact-bg": "url('https://images.pexels.com/photos/326576/pexels-photo-326576.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')",
-        "Qa-bg": "url(https://images.pexels.com/photos/3760809/pexels-photo-3760809.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)"
+        "Qa-bg": "url(https://img.freepik.com/vector-premium/patron-fisuras-pequenos-hexagonos-colores-negros_444390-12341.jpg)"
       }
     },
   },

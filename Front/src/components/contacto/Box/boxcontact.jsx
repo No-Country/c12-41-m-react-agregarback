@@ -131,7 +131,7 @@ const Boxcontact = ({ submitEndpoint }) => {
           Completa tus datos
           </span>
      
-        </h2>
+fanta432        </h2>
         <div className="h-fit md:w-fit w-full flex flex-col justify-center items-center md:grid md:grid-cols-2 md:grid-rows-3 md:gap-4 gap-2 text-orange text-left">
           <SelectComp
             onSelectedOptionChange={handleSelectedOptionChange}
