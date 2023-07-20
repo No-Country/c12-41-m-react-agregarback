@@ -365,8 +365,7 @@ Si sospechas que has sido víctima de una estafa o fraude, te recomendamos que t
   ];
 
   return (
-    <main className="flex flex-col  items-center min-h-screen bg-Qa-bg bg-auto   relative">
-    <div className="absolute bg-gradient-to-t from-dark from-55% via-gray via-10% to-dark to-35% opacity-95 h-full w-full"></div>
+    <main className="flex flex-col  items-center min-h-screen bg-gradient-to-t from-dark via-gray to-dark relative">
     <div className="z-10  md:w-3/5 w-full flex flex-col text-center">
       <h2 className="md:text-4xl  text-2xl font-bold text-orange mt-5 text-center">
         <span className="bg-gradient-to-r from-yellow to-orange text-transparent bg-clip-text">
