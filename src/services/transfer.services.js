@@ -37,9 +37,10 @@ class TransferServices {
         amount: senderUserAccount.amount - amount,
         next,
       });
+      const newAmountReciever = Number(recieverUserAccount.amount)+ Number(amount)
       await this.accountServices.updateAmountAccount({
         account: recieverUserAccount,
-        amount: eval(recieverUserAccount.amount + amount),
+        amount: newAmountReciever,
         next,
       });
 
