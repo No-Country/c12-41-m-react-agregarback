@@ -5,14 +5,14 @@ const InputForModal = ({label , type , name , handleChangeTransferInfo , infoFor
         {label}
       </label>
       <input
-        className="px-3 rounded-md bg-gray text-white uppercase"
+        className="px-3 bg-transparent outline-none border-b-2 border-yellow text-white uppercase"
         type={type}
         name={name}
         onChange={(e) => handleChangeTransferInfo(e.target.value, name)}
         id={name}
         value={infoForTransfer[name]}
       />
-      {<span className="h-4 text-[#FF0000] col-span-2">{errors}</span>}
+      {<span className="h-4  text-yellow text-[12px] col-span-2">{errors}</span>}
     </div>
   );
 };

@@ -1,11 +1,17 @@
-import { useState } from "react";
-import { useSelector } from "react-redux";
 import { GridLoader } from "react-spinners";
+import useFetch from "../../utils/useFetch";
+import ThrowModalError from "./ThrowModalError";
 
-const ContactCard = ({ setCurrentContact }) => {
-  const contacts= useSelector((Storage) => Storage.user.data.contacts);
-  console.log (contacts)
- 
+const ContactCard = ({ setCurrentContact, contacts, error }) => {
+
+  if (!contacts) {
+    return <GridLoader />;
+  }
+
+  if (error) {
+    return <ThrowModalError>{error}</ThrowModalError>;
+  }
+
   return (
     <div className="grid gap-5 py-5">
       {contacts?.map((contact) => (
