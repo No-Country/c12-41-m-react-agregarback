@@ -1,19 +1,20 @@
 import { RiCloseLine } from "react-icons/ri";
 import AWN from "awesome-notifications";
 import axios from "axios";
-import { useState } from "react";
 const notifier = new AWN();
+
+const getRemainingAccounts = (accounts) => {
+    let all = ["usd", "soles", "pesos"]
+    const remaining = all.filter(currency => !accounts.find(account => account.currency == currency))
+    return remaining;
+}
+
 const ModalNewAccount = ({ setShowNewAccountModal, accounts }) => {
-
-    const [selectedCurrency, setSelectedCurrency] = useState(null);
-    const handleSelectChange = (e) => {
-        setSelectedCurrency(e.target.value)
-    }
-
+    const remainingAccounts = getRemainingAccounts(accounts)
     const handleSubmit = async (e) => {
         e.preventDefault()
         const body = {
-            currency: selectedCurrency
+            currency: e.target.currencySelector.value
         }
         const headers = {
             Authorization: `Bearer ${sessionStorage.getItem('token')}`
@@ -39,33 +40,22 @@ const ModalNewAccount = ({ setShowNewAccountModal, accounts }) => {
                     <RiCloseLine className="self-end text-dark text-3xl" onClick={() => setShowNewAccountModal(false)} />
                     <h3 className="font-semibold">SOLICITUD DE APERTURA DE NUEVA CUENTA</h3>
                     <div className="pb-6">
-                        {accounts.length == 3 ? "Usted ya ha solicitado todos los tipos de cuenta disponibles (cuenta en soles, pesos y dólares)" :
+                        {remainingAccounts.length == 0 ? "Usted ya ha solicitado todos los tipos de cuenta disponibles (cuenta en soles, pesos y dólares)" :
                             <div>
                                 <form onSubmit={handleSubmit} className="flex flex-col gap-3">
                                     <div>
                                         <label htmlFor="accountCurrency"> Seleccione tipo de cuenta: </label>
                                         <select
-                                            onChange={handleSelectChange}
-
+                                            name="currencySelector"
+                                            defaultValue={remainingAccounts[0]}
                                             id="accountCurrency"
                                             className="bg-gray text-white rounded-md p-1"
                                         >
-                                            <option value="" selected disabled hidden>Seleccione</option>
-                                            {!accounts.find(account => account.currency == "soles") &&
-                                                <option className="px-3 rounded-md" key="soles" value="soles">
-                                                    Soles
+                                            {remainingAccounts.map(currency =>
+                                                <option className="px-3 rounded-md" key={currency} value={currency}>
+                                                    {currency.charAt(0).toUpperCase() + currency.slice(1)}
                                                 </option>
-                                            }
-                                            {!accounts.find(account => account.currency == "usd") &&
-                                                <option className="px-3 rounded-md" key="usd" value="usd">
-                                                    Dolares
-                                                </option>
-                                            }
-                                            {!accounts.find(account => account.currency == "pesos") &&
-                                                <option className="px-3 rounded-md" key="pesos" value="pesos">
-                                                    Pesos
-                                                </option>
-                                            }
+                                            )}
                                         </select>
                                     </div>
                                     <p className="p-3 opacity-50 text-sm">En ocasiones, la solicitud puede tardar varios días en ser aceptada.</p>
