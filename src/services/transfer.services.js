@@ -39,7 +39,7 @@ class TransferServices {
       });
       await this.accountServices.updateAmountAccount({
         account: recieverUserAccount,
-        amount: recieverUserAccount.amount + amount,
+        amount: eval(recieverUserAccount.amount + amount),
         next,
       });
 
