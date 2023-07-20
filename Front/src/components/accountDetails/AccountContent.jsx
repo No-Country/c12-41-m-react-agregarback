@@ -5,16 +5,18 @@ import axios from 'axios'
 import { GridLoader } from "react-spinners"
 import { BsCreditCard2BackFill } from "react-icons/bs";
 import { FaHandHoldingDollar } from "react-icons/fa6";
-import { AiOutlineLineChart } from "react-icons/ai";
+import { AiOutlineLineChart, AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import { RiQuestionnaireFill, RiShakeHandsFill } from "react-icons/ri";
 import Accesos from "./Accesos";
 import ModalNewAccount from "./ModalNewAccount"
 import ModalNewCard from "./ModalNewCard"
+import { NavLink } from "react-router-dom";
 
 const AccountContent = () => {
   const headers = {
     Authorization: `Bearer ${sessionStorage.getItem('token')}`
   }
+  const [showBalance, setShowBalance] = useState(false)
   const [accounts, setAccounts] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -36,10 +38,6 @@ const AccountContent = () => {
     getAccounts();
 
   }, [])
-
-  const handleOpenModal = () => {
-    setShowNewAccountModal(true);
-  }
 
   const handleSelectAccount = (e) => {
     setSelectedIndex(e.target.value)
@@ -64,11 +62,17 @@ const AccountContent = () => {
                   </option>
                 ))}
               </select>
+              <div>
+                <h2 className="text-xl">Saldo: ${accounts[selectedIndex].amount}</h2>
+              </div>
               <CardInfo account={accounts[selectedIndex]} />
               <article className="grid grid-cols-[repeat(auto-fill,_minmax(100px,_1fr))] gap-3 auto-cols-fr py-10">
                 <Accesos text={"Inversiones"} icon={<AiOutlineLineChart />} />
                 <Accesos text={"prestamos"} icon={<FaHandHoldingDollar />} />
-                <Accesos text={"Centro de ayuda"} icon={<RiQuestionnaireFill />} />
+                <NavLink to='/preguntasfrecuentes'>
+                  <Accesos text={"Centro de ayuda"} icon={<RiQuestionnaireFill />} />
+
+                </NavLink>
                 <Accesos text={"Solicitar nueva tarjeta"} icon={<BsCreditCard2BackFill onClick={() => setShowNewCardModal(true)} />} />
                 {showNewCardModal && <ModalNewCard setShowNewCardModal={setShowNewCardModal} accounts={accounts} />}
 
@@ -99,7 +103,14 @@ const AccountContent = () => {
             <UltimosMovimientos account={accounts[selectedIndex]} />
           </>
           :
-          <div>No se han encontrado cuentas</div>
+          <div className="col-span-2 flex flex-col gap-10 items-center">
+            <h2>No se han encontrado cuentas</h2>
+            <div className="w-[150px]">
+              <Accesos text={"Solicitar nueva cuenta"} icon={<RiShakeHandsFill onClick={() => setShowNewAccountModal(true)} />} />
+              {showNewAccountModal && <ModalNewAccount setShowNewAccountModal={setShowNewAccountModal} accounts={accounts} />}
+            </div>
+          </div>
+
         }
       </section>
       : <div className="flex flex-row justify-center items-center h-screen">

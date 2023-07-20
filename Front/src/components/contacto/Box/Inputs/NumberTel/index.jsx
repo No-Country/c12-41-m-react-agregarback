@@ -50,6 +50,7 @@ const NumberTel = ({ onInputChange }) => {
           <input
             type="tel"
             id="nArea"
+            name="nArea"
             className={`${BoxInputClass} ${
               isAreaNumberMin ? "bg-dark" : ""
             }`}
@@ -72,6 +73,7 @@ const NumberTel = ({ onInputChange }) => {
           <input
             type="tel"
             required
+            name="tel"
             id="num"
             className={BoxInputClass}
             value={phoneNumber}
@@ -80,6 +82,7 @@ const NumberTel = ({ onInputChange }) => {
             placeholder="XXXXXXXXX"
             title="Ingrese un número de teléfono/celular válido de 1 a 10 dígitos"
             minLength={1}
+            autoComplete="off"
             
           />
         </div>

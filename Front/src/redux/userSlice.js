@@ -41,7 +41,7 @@ const FAKE_USER = {
 
 }
 
- export const headers = {
+export const headers = {
     'Authorization': `Bearer ${sessionStorage.getItem("token")}`
 }
 export const userId = sessionStorage.getItem("userId")
@@ -50,8 +50,13 @@ export const userId = sessionStorage.getItem("userId")
 const getUserInfo = createAsyncThunk(
     'user/getUserInfo',
     async () => {
-        const response = await axios.get(`https://fakestoreapi.com/products/1`, headers);
-        return FAKE_USER;
+        const headers = {
+            'Authorization': `Bearer ${sessionStorage.getItem("token")}`
+        }
+        const userId = sessionStorage.getItem("userId")
+        const response = await axios.get(`${BASE_URL}/users/${userId}`, headers);
+        console.log(response);
+        return response.data;
     }
 )
 
@@ -59,7 +64,7 @@ const getUserInfo = createAsyncThunk(
 const getContacts = createAsyncThunk(
     'user/getContacts',
     async () => {
-        
+
         // const response = await axios.get(`${BASE_URL}/${userId}/contacts`)
         const response =
             [
@@ -79,11 +84,11 @@ const getContacts = createAsyncThunk(
 export const getAllContact = createAsyncThunk(
     'user/getAllContact',
     async () => {
-      const response = await axios.get(`${BASE_URL}/users_contacs/${userId}`, {headers});
-      return response.data;
+        const response = await axios.get(`${BASE_URL}/users_contacs/${userId}`, { headers });
+        return response.data;
 
     },
-  );
+);
 
 const initialState = {
     status: "idle",
@@ -110,7 +115,11 @@ const initialState = {
 export const userSlice = createSlice({
     name: 'user',
     initialState,
-    reducers: {},
+    reducers: {
+        setUserData(state, action) {
+            state.data = { ...state.data, ...action.payload }
+        },
+    },
     extraReducers(builder) {
         builder
             .addCase(getUserInfo.pending, (state) => {
@@ -154,4 +163,5 @@ export const getStatus = (state) => state.user.status;
 export const getError = (state) => state.user.error;
 
 export { getUserInfo, getContacts }
+export const { setUserData } = userSlice.actions
 export default userSlice.reducer

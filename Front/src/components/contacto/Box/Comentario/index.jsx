@@ -45,7 +45,7 @@ const CommentComp = ({ onCommentChange }) => {
       </h4>
       <div>
         <select
-          name="theme"
+          name="selectTheme"
           className="w-1/3.2 h-7 bg-white flex items-center px-2 text-gray rounded-md capitalize"
           value={selectedOption}
           onChange={handleOptionChange}
