@@ -5,7 +5,6 @@ import { getContacts } from "../../redux/userSlice";
 const Transfer = () => {
     const dispatch = useDispatch();
     const { status, data } = useSelector((state) => state.user);
-    console.log(status, data);
     useEffect(() => {
         dispatch(getContacts());
     }, [dispatch]);

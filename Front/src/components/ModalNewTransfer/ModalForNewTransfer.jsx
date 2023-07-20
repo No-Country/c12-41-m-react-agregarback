@@ -13,14 +13,21 @@ const ModalForNewTransfer = ({
   setCurrentContact,
 }) => {
   const [infoForTransfer, setInfoForTransfer] = useState({});
+  const [currentAccount, setCurrentAccount] = useState();
   const [errors, setErrors] = useState();
   const from = useRef(null);
 
   const notifier = new AWN();
   //traer de redux
-  const userId = 3;
+  const userId = sessionStorage.userId;
   const { data, error } = useFetch(`account/${userId}`);
-  
+
+  useEffect(() => {
+    if (data.accounts) {
+      setCurrentAccount(data.accounts[0]);
+    }
+  }, [data]);
+
   useEffect(() => {
     if (currentContact) {
       setInfoForTransfer((prev) => ({
@@ -44,15 +51,13 @@ const ModalForNewTransfer = ({
     from.current.reset();
   };
 
-  const handleChangeCurrentAccount = (e) => {
-    const CurrentAccountInfo = JSON.parse(e.target.value);
-    const senderAccount = CurrentAccountInfo.accountNumber;
-    const accountId = CurrentAccountInfo.id;
-    const currency = CurrentAccountInfo.currency;
+  const handleChangeCurrentAccount = (selectedAcount) => {
+    setCurrentAccount(selectedAcount);
+    const { accountNumber, id, currency } = selectedAcount;
     setInfoForTransfer((prev) => ({
       ...prev,
-      senderAccount,
-      accountId,
+      senderAccount: accountNumber,
+      accountId: id,
       currency,
     }));
   };
@@ -64,8 +69,20 @@ const ModalForNewTransfer = ({
     }));
   };
 
+  const assignDefaultAccount = (defaultAccount) => {
+    if (!infoForTransfer.senderAccount)
+      infoForTransfer.senderAccount = defaultAccount.accountNumber;
+    if (!infoForTransfer.accountId)
+      infoForTransfer.accountId = defaultAccount.id;
+    if (!infoForTransfer.currency)
+      infoForTransfer.currency = defaultAccount.currency;
+  };
+
   const handleSubmitTransfer = (e) => {
     e.preventDefault();
+    const defaultAccount = JSON.parse(e.target.account.value);
+    assignDefaultAccount(defaultAccount);
+
     const { error } = validInputsForTransfer(infoForTransfer);
     if (error) {
       return setErrors(error);
@@ -88,35 +105,41 @@ const ModalForNewTransfer = ({
   };
 
   return (
-    <section className="w-full h-[100vh] top-0 bg-dark/40 flex justify-center items-center p-3 left-0 fixed z-50">
-      <article className="w-full max-w-[400px] min-h-[550px] bg-white relative flex flex-col justify-center items-center rounded-lg">
-        <h3 className="text-dark uppercase tracking-[3px] font-medium py-10">
+    <section className="w-full h-[100vh] top-0 bg-dark/40 flex justify-center items-center p-3 left-0 fixed z-[200]">
+      <article className="w-full max-w-[400px] min-h-[550px] bg-gray text-white relative flex flex-col justify-center items-center rounded-lg shadow-lg">
+        <h3 className="uppercase tracking-[3px] font-medium py-10">
           Nueva Transferencia
         </h3>
         <form
           onSubmit={handleSubmitTransfer}
           ref={from}
-          className="grid gap-4 p-3 text-dark"
+          className="grid gap-4 p-3"
         >
-          <span className="text-left capitalize">
-            Contacto: {currentContact?.contactName}
+          <span className="text-left capitalize font-medium">
+            Contacto: {currentContact?.contactName || "transferencia a nuevo destino"}
           </span>
+          <div className="text-left">
+            <span>Saldo Disponible: </span>
+            <span>{currentAccount?.amount}</span>
+          </div>
           <div className="grid grid-cols-[90px,_1fr]">
             <label className="text-left font-medium" htmlFor="senderAccount">
               Tu cuenta
             </label>
             <select
-              onChange={handleChangeCurrentAccount}
+              onChange={(e) =>
+                handleChangeCurrentAccount(JSON.parse(e.target.value))
+              }
               id="account"
-              className="bg-gray text-white rounded-md"
+              className="bg-gray text-white rounded-md capitalize"
             >
               {data?.accounts?.map((account) => (
                 <option
-                  className="px-3 rounded-md"
+                  className="px-3 rounded-md capitalize text-center"
                   key={account.id}
                   value={JSON.stringify(account)}
                 >
-                  {account.accountNumber}
+                  {account.currency}
                 </option>
               ))}
             </select>
@@ -136,7 +159,7 @@ const ModalForNewTransfer = ({
           />
           <InputForModal
             handleChangeTransferInfo={handleChangeTransferInfo}
-            label={"validation"}
+            label={"Metodo"}
             name={"validation"}
             type={"text"}
             infoForTransfer={infoForTransfer}
@@ -144,20 +167,20 @@ const ModalForNewTransfer = ({
           />
           <InputForModal
             handleChangeTransferInfo={handleChangeTransferInfo}
-            label={"validationValue"}
+            label={"value"}
             name={"validationValue"}
             type={"text"}
             infoForTransfer={infoForTransfer}
             errors={errors?.validationValue}
           />
-          <button className="w-full mx-2 bg-gray text-white hover:bg-yellow hover:text-dark rounded-md shadow-xl py-3 my-5">
+          <button className="w-full mx-2  bg-orange text-white hover:bg-dark hover:text-yellow rounded-md shadow-xl py-3 my-5">
             Realizar transferencia
           </button>
         </form>
         <button
           onClick={handleCloseModal}
           type="button"
-          className="right-2 top-2 absolute text-dark text-3xl"
+          className="right-2 top-2 absolute text-white text-3xl"
         >
           <FiXCircle />
         </button>

@@ -5,7 +5,7 @@ import { GridLoader } from "react-spinners";
 
 const ContactCard = ({ setCurrentContact }) => {
   const user = useSelector((Storage) => Storage.user);
-  const userId = 3;
+  const userId = sessionStorage.userId;
   const { data, error } = useFetch(`users_contacs/${userId}`);
 
   if (error) {
