@@ -113,7 +113,7 @@ const AccountContent = () => {
               )}
             </article>
             <article className="grid gap-10">
-              <h4 className="font-medium">Bienvendio {data.name}!!</h4>
+              <h4 className="font-medium">Bienvenido {data.name}!!</h4>
               <div className="grid sm:grid-cols-2 items-center">
                 <p className="text-left">
                   Bienvenido a nuestra plataforma bancaria segura y confiable,
