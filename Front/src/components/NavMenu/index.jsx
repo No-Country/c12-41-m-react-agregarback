@@ -10,7 +10,7 @@ const NavMenu = () => {
         <div className={`text-2xl min-w-[240px] rounded-lg z-50 transtion-[translate] duration-500 bg-orange-navmenu pt-5 pb-5 absolute sm:sticky top-3 h-screen sm:translate-x-0 ${isActive ? "translate-x-0" : "translate-x-[-100%]"}`}>
             <NavLink className={({ isActive }) => isActive ? navLinkCommonClasses + " bg-orange-navmenu-active" : navLinkCommonClasses} to="/accounts">Cuentas</NavLink>
             <NavLink className={({ isActive }) => isActive ? navLinkCommonClasses + " bg-orange-navmenu-active" : navLinkCommonClasses} to="/transfers">Transferencias</NavLink>
-            <NavLink className={({ isActive }) => isActive ? navLinkCommonClasses + " bg-orange-navmenu-active" : navLinkCommonClasses} to="/*">Inversiones</NavLink>
+            <NavLink className={({ isActive }) => isActive ? navLinkCommonClasses + " bg-orange-navmenu-active" : navLinkCommonClasses} to="/investments">Inversiones</NavLink>
             <NavLink className={({ isActive }) => isActive ? navLinkCommonClasses + " bg-orange-navmenu-active" : navLinkCommonClasses} to="/*">Préstamos</NavLink>
             <div className='p-3'></div>
             <NavLink className={({ isActive }) => isActive ? navLinkCommonClasses + " bg-orange-navmenu-active" : navLinkCommonClasses} to="/contact">Contactanos</NavLink>

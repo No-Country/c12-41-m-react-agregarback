@@ -13,6 +13,7 @@ const ProtectedLayout = lazy(() => import('../components/Layout/Protected/index.
 //Redux
 import CustomProvider from "../redux/customProvider.jsx";
 import Nosotros from "../components/Nosotros/Nosotros.jsx";
+import Inversiones from "../pages/Inversiones/index.jsx";
 
 
 export function Routers() {
@@ -32,8 +33,8 @@ export function Routers() {
               <Route path="/accounts" element={<Accounts />} />
               <Route path="/transfers" element={<Transfer />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/investments" element={<Inversiones/>}/>
               <Route path="/cards" element={<div>This is cards</div>} />
-              <Route path="/investments" element={<div>This is investments</div>} />
               <Route path="/loans" element={<div>This is loans</div>} />
               <Route path="/help" element={<div>This is help</div>} />
               <Route path="/logout" element={<div>This is logout</div>} />
