@@ -15,6 +15,7 @@ import ModalNewAccount from "./ModalNewAccount";
 import ModalNewCard from "./ModalNewCard";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { formatearSaldoDelUsuario } from "../../utils/formatSaldo";
 
 const AccountContent = () => {
   const { status, data } = useSelector((state) => state.user);
@@ -69,7 +70,7 @@ const AccountContent = () => {
             </select>
             <div>
               <h2 className="text-xl">
-                Saldo: ${accounts[selectedIndex].amount}
+                Saldo: ${formatearSaldoDelUsuario(accounts[selectedIndex].amount)}
               </h2>
             </div>
             <CardInfo account={accounts[selectedIndex]} />
