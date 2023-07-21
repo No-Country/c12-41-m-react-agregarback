@@ -66,11 +66,19 @@ export const updateUserInfo = catchAsync(async (req, res, next) => {
     username: username || sessionUser.username,
   };
 
-  const updatedUser = await userServices.updateOneUser({ userNewData, next , sessionUser });
+  const updatedUser = await userServices.updateOneUser({ userNewData, next, sessionUser });
 
   return res.status(200).json({
     message: "login succes",
     status: "succes",
     updatedUser
   });
+});
+
+export const getUserById = catchAsync(async (req, res, next) => {
+  const { userId } = req.params;
+
+  const data = await userServices.findUserById({ id: userId, next });
+  return res.status(200).json(data);
+
 });

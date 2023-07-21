@@ -1,7 +1,6 @@
 import db from "./db/connection.js";
 import app from "./index.js";
 import initModel from "./models/init.model.js";
-import swaggerDocs from "../swagger.js";
 
 db.authenticate()
   .then(() => console.log("database authenticate"))

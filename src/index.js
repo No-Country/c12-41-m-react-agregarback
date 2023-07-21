@@ -14,8 +14,6 @@ import cardRoutes from "./routes/card.routes.js";
 import contactRoutes from "./routes/contact.route.js"
 import AppError from "./utils/AppError.js";
 import globalErrorHandler from "./controllers/error.controller.js";
-import swaggerUi from "swagger-ui-express"
-import swaggerSpec from "../swagger.js";
 
 //manejo de errores
 
@@ -33,7 +31,6 @@ const limiter = rateLimit({
 app.use("/api/v1", limiter);
 
 //ROUTES
-app.use("/api/v1/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use("/api/v1/users", userRoutes);
 app.use("/api/v1/account", accountRoutes);
 app.use("/api/v1/card", cardRoutes);
