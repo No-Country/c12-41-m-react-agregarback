@@ -1,28 +1,26 @@
-import { useEffect, useState } from "react";
-import CardInfo from "./CardInfo";
-import UltimosMovimientos from "./UltimosMovimientos";
 import axios from "axios";
-import { GridLoader } from "react-spinners";
-import { BsCreditCard2BackFill } from "react-icons/bs";
-import { FaHandHoldingDollar } from "react-icons/fa6";
+import { useEffect, useState } from "react";
 import {
   AiOutlineLineChart,
-  AiFillEyeInvisible,
-  AiFillEye,
 } from "react-icons/ai";
+import { BsCreditCard2BackFill } from "react-icons/bs";
+import { FaHandHoldingDollar } from "react-icons/fa6";
 import { RiQuestionnaireFill, RiShakeHandsFill } from "react-icons/ri";
+import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
+import { GridLoader } from "react-spinners";
+import { formatearSaldoDelUsuario } from "../../utils/formatSaldo";
 import Accesos from "./Accesos";
+import CardInfo from "./CardInfo";
 import ModalNewAccount from "./ModalNewAccount";
 import ModalNewCard from "./ModalNewCard";
-import { NavLink } from "react-router-dom";
-import { useSelector } from "react-redux";
+import UltimosMovimientos from "./UltimosMovimientos";
 
 const AccountContent = () => {
   const { status, data } = useSelector((state) => state.user);
   const headers = {
     Authorization: `Bearer ${sessionStorage.getItem("token")}`,
   };
-  const [showBalance, setShowBalance] = useState(false);
   const [accounts, setAccounts] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -60,6 +58,7 @@ const AccountContent = () => {
             <select
               onChange={(e) => handleSelectAccount(e)}
               className="outline-none text-sm text-white rounded-md bg-transparent py-1"
+              defaultValue={accounts[0]}
             >
               {accounts.map((account, index) => (
                 <option key={account.id} className="bg-gray" value={index}>
@@ -70,7 +69,7 @@ const AccountContent = () => {
             </select>
             <div>
               <h2 className="text-xl">
-                Saldo: ${accounts[selectedIndex].amount}
+                Saldo: ${formatearSaldoDelUsuario(accounts[selectedIndex].amount)}
               </h2>
             </div>
             <CardInfo account={accounts[selectedIndex]} />
@@ -114,7 +113,7 @@ const AccountContent = () => {
               )}
             </article>
             <article className="grid gap-10">
-              <h4 className="font-medium">Bienvendio {data.name}!!</h4>
+              <h4 className="font-medium">Bienvenido {data.name}!!</h4>
               <div className="grid sm:grid-cols-2 items-center">
                 <p className="text-left">
                   Bienvenido a nuestra plataforma bancaria segura y confiable,

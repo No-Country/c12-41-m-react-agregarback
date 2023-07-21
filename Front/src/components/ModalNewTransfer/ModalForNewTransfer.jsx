@@ -6,6 +6,7 @@ import { validInputsForTransfer } from "./validInput";
 import InputForModal from "./InputForModal";
 import { Authorization, backEnd } from "../../utils/axiosBackEnd";
 import AWN from "awesome-notifications";
+import { formatearSaldoDelUsuario } from "../../utils/formatSaldo";
 
 const ModalForNewTransfer = ({
   setIsModalActive,
@@ -121,7 +122,7 @@ const ModalForNewTransfer = ({
           </span>
           <div className="text-left">
             <span>Saldo Disponible: </span>
-            <span>{currentAccount?.amount}</span>
+            <span>{formatearSaldoDelUsuario(currentAccount?.amount)}</span>
           </div>
           <div className="grid grid-cols-[90px,_1fr]">
             <label className="text-left font-medium" htmlFor="senderAccount">
