@@ -96,3 +96,11 @@ export const changePassword = catchAsync(async (req, res, next) => {
     updatedUser,
   });
 });
+
+export const getUserById = catchAsync(async (req, res, next) => {
+  const { userId } = req.params;
+
+  const data = await userServices.findUserById({ id: userId, next });
+  return res.status(200).json(data);
+
+});
