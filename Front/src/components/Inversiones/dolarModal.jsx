@@ -21,6 +21,7 @@ const DolarModal = () => {
             try {
                 const response = await axios.get('https://dolar-api-argentina.vercel.app/v1/dolares/blue');
                 setDolarBlueData(response.data);
+
             } catch (error) {
                 console.error('Error fetching dolar data:', error);
             }
@@ -81,7 +82,7 @@ const DolarModal = () => {
 
 
             {showModal && (
-                <div className='h-screen w-screen fixed top-0 left-0 z-50 flex justify-center items-center bg-[rgba(1,1,1,0.6)]'>
+                <div className='z-[1000] h-screen w-screen fixed top-0 left-0  flex justify-center items-center bg-[rgba(1,1,1,0.6)]'>
                     <div className="fixed inset-0 flex justify-center items-center bg-gray-800 bg-opacity-50">
                         <div className="bg-gray p-6 rounded-lg border-2 border-orange">
                             <h2 className="text-xl font-semibold mb-4">Cotizaciones:</h2>
@@ -91,7 +92,7 @@ const DolarModal = () => {
                                 <div className="block p-5">
                                     <h3 className='font-semibold'>Dolar Oficial</h3>
                                     <p className="text-gray-500 mb-4">
-                                        Compra: {dolarOficialData.compra} | Venta: {dolarOficialData.venta}
+                                        Compra: ${dolarOficialData.compra} | Venta: ${dolarOficialData.venta}
                                     </p>
                                 </div>
 
@@ -99,7 +100,7 @@ const DolarModal = () => {
                                 <div className="block p-5">
                                     <h3 className='font-semibold'>Dolar Blue</h3>
                                     <p className="text-gray-500 mb-4">
-                                        Compra: {dolarBlueData.compra} | Venta: {dolarBlueData.venta}
+                                        Compra: ${dolarBlueData.compra} | Venta: ${dolarBlueData.venta}
                                     </p>
                                 </div>
 
@@ -108,20 +109,22 @@ const DolarModal = () => {
                                 <div className="block p-5">
                                     <h3 className='font-semibold'>Dolar Bolsa</h3>
                                     <p className="text-gray-500 mb-4">
-                                        Compra: {dolarBolsaData.compra} | Venta: {dolarBolsaData.venta}
+                                        Compra: ${dolarBolsaData.compra} | Venta: ${dolarBolsaData.venta}
                                     </p>
                                 </div>
                             </div>
 
                             <ChartDolarOficial />
 
+                            <div className='pt-5'>
 
-                            <button
-                                className="bg-dark text-white font-semibold px-4 py-2 rounded-md"
-                                onClick={toggleModal}
-                            >
-                                Cerrar
-                            </button>
+                                <button
+                                    className="bg-dark text-white font-semibold px-4 py-2 rounded-md"
+                                    onClick={toggleModal}
+                                >
+                                    Cerrar
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>

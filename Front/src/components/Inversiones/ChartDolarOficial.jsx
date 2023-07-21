@@ -10,8 +10,8 @@ const ChartDolarOficial = () => {
         labels: Data.map((data) => data.year),
         datasets: [
             {
-                label: "Dolar Compra",
-                data: Data.map((data) => data.dolarCompra, ),
+                label: "Dolar Blue",
+                data: Data.map((data) => data.dolarBlue ),
                 backgroundColor: [
                     "rgba(75, 192, 192, 1)",
                     "#ecf0f1",
@@ -20,11 +20,11 @@ const ChartDolarOficial = () => {
                     "#2a71d0",
                 ],
                 borderColor: "Black",
-                borderWidth: 1,
+                borderWidth: 3,
             },
             {
-                label: "Dolar Venta",
-                data: Data.map((data) => data.dolarVenta),
+                label: "Dolar Bolsa",
+                data: Data.map((data) => data.dolarBolsa),
                 backgroundColor: [
                   "rgba(255, 99, 132, 1)",
                   "#bdc3c7",
@@ -33,7 +33,20 @@ const ChartDolarOficial = () => {
                   "#3498db",
                 ],
                 borderColor: "black",
-                borderWidth: 1,
+                borderWidth: 3,
+              },
+              {
+                label: "Dolar Oficial",
+                data: Data.map((data) => data.dolarOficial),
+                backgroundColor: [
+                  "rgba(255, 99, 132, 1)",
+                  "#bdc3c7",
+                  "#34495e",
+                  "#f39c12",
+                  "#3498db",
+                ],
+                borderColor: "black",
+                borderWidth: 3,
               },
             
         ],

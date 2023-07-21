@@ -15,7 +15,6 @@ const plazoFijo = () => {
 
             <h2 className="text-xl font-semibold mb-2">Plazo Fijo</h2>
             <p className="text-gray-500 mb-4">
-                {/* Aquí muestra la descripción del Plazo Fijo */}
 
             </p>
 
