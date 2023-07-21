@@ -3,7 +3,7 @@ import { Line } from "react-chartjs-2";
 
 function PieChart({ chartData }) {
   return (
-    <div className="chart-container">
+    <div className="chart-container h-[500px]">
       <Line
         data={chartData}
         options={{
@@ -11,7 +11,7 @@ function PieChart({ chartData }) {
           
             title: {
               display: true,
-              text: "Cotizacion Anual Dolar Oficial"
+              text: "Cotizacion Anual Dolar"
             }
           },
           maintainAspectRatio: false,
