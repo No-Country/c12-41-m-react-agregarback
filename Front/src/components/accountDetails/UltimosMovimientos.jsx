@@ -1,3 +1,5 @@
+import { formatearSaldoDelUsuario } from "../../utils/formatSaldo";
+
 const UltimosMovimientos = ({ account }) => {
   const { transfers } = account;
 
@@ -20,7 +22,7 @@ const UltimosMovimientos = ({ account }) => {
                   <span>Destino: {transfer.validationValue}</span>
                 </div>
                 <div className="grid grid-rows-2">
-                  <span>Monto: ${transfer.amount}</span>
+                  <span>Monto: ${formatearSaldoDelUsuario(transfer.amount)}</span>
                 </div>
               </div>
             ))}

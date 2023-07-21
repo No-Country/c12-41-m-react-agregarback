@@ -1,10 +1,16 @@
 import { useState } from "react";
 import ContactCard from "./ContactCard";
 import ModalForNewTransfer from "./ModalForNewTransfer";
+import useFetch from "../../utils/useFetch";
+import ThrowModalError from "./ThrowModalError";
+import { GridLoader } from "react-spinners";
 
 const Transfer = () => {
   const [currentContact, setCurrentContact] = useState();
   const [isModalActive, setIsModalActive] = useState(false);
+
+  const userId = sessionStorage.userId;
+  const { data, error } = useFetch(`users_contacs/${userId}`);
 
   return (
     <div className="">
@@ -23,7 +29,11 @@ const Transfer = () => {
                 placeholder="Buscar en la agenda"
                 className="my-2 w-full text-sm bg-grey-light text-gray rounded h-10 p-3 focus:outline-none"
               />
-              <ContactCard setCurrentContact={setCurrentContact} />
+              <ContactCard
+                setCurrentContact={setCurrentContact}
+                contacts={data.contacts}
+                error={error}
+              />
             </div>
           </div>
           <div className="sm:flex bg-grey-light items-center justify-center px-2 py-4">
