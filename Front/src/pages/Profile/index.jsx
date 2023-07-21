@@ -3,6 +3,9 @@ import { getUserInfo } from "../../redux/userSlice";
 import { useSelector, useDispatch } from "react-redux";
 import EditableField from "./EditableField";
 import { ClimbingBoxLoader } from "react-spinners";
+import axios from "axios";
+
+
 const formatDate = (dateInput) => {
     const date = new Date(dateInput);
 
@@ -19,16 +22,20 @@ const Profile = () => {
         name: data.name,
         email: data.email,
         password: data.password,
-        date_of_birth: formatDate(data.date_of_birth),
+        date_of_birth: data.date_of_birth,
         dni: data.dni,
         address: data.address,
         username: data.username,
         phone_number: data.phone_number
     });
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(userData);
+        const headers = {
+            Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+        };
+        const response = await axios.patch(`https://nocountrybackend.onrender.com/api/v1/users/${sessionStorage.getItem('userId')}/updateUser`, userData, { headers })
+        console.log(response);
     }
 
     const handleInputChange = (e) => {
@@ -55,7 +62,7 @@ const Profile = () => {
                             <EditableField name="name" label="Nombre" value={userData.name} onChangeHandler={handleInputChange} type="text" editable={false} />
                             <EditableField name="dni" label="DNI" value={userData.dni} onChangeHandler={handleInputChange} type="number" editable={false} />
                             <EditableField name="address" label="Dirección" value={userData.address} onChangeHandler={handleInputChange} type="text" editable={false} />
-                            <EditableField name="date_of_birth" label="Fecha de nacimiento" value={userData.date_of_birth} onChangeHandler={handleInputChange} type="text" editable={false} />
+                            <EditableField name="date_of_birth" label="Fecha de nacimiento" value={formatDate(userData.date_of_birth)} onChangeHandler={handleInputChange} type="text" editable={false} />
                         </div>
                         <div className="flex flex-col gap-8">
                             <EditableField name="username" label="Usuario" value={userData.username} regex={/^[a-zA-Z0-9_]{2,20}$/} errorMsg="Usuario inválido" onChangeHandler={handleInputChange} type="text" editable={true} />

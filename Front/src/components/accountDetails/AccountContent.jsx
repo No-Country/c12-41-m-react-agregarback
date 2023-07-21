@@ -7,8 +7,7 @@ import { BsCreditCard2BackFill } from "react-icons/bs";
 import { FaHandHoldingDollar } from "react-icons/fa6";
 import {
   AiOutlineLineChart,
-  AiFillEyeInvisible,
-  AiFillEye,
+
 } from "react-icons/ai";
 import { RiQuestionnaireFill, RiShakeHandsFill } from "react-icons/ri";
 import Accesos from "./Accesos";
@@ -22,7 +21,6 @@ const AccountContent = () => {
   const headers = {
     Authorization: `Bearer ${sessionStorage.getItem("token")}`,
   };
-  const [showBalance, setShowBalance] = useState(false);
   const [accounts, setAccounts] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -60,6 +58,7 @@ const AccountContent = () => {
             <select
               onChange={(e) => handleSelectAccount(e)}
               className="outline-none text-sm text-white rounded-md bg-transparent py-1"
+              defaultValue={accounts[0]}
             >
               {accounts.map((account, index) => (
                 <option key={account.id} className="bg-gray" value={index}>
@@ -114,7 +113,7 @@ const AccountContent = () => {
               )}
             </article>
             <article className="grid gap-10">
-              <h4 className="font-medium">Bienvendio {data.name}!!</h4>
+              <h4 className="font-medium">Bienvenido {data.name}!!</h4>
               <div className="grid sm:grid-cols-2 items-center">
                 <p className="text-left">
                   Bienvenido a nuestra plataforma bancaria segura y confiable,
