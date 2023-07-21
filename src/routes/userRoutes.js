@@ -3,7 +3,8 @@ import {
   singUp,
   login,
   updateUserInfo,
-  getUserById
+  getUserById,
+  changePassword
 } from "../controllers/userController.js";
 import {
   validSingUp,
