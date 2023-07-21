@@ -66,11 +66,33 @@ export const updateUserInfo = catchAsync(async (req, res, next) => {
     username: username || sessionUser.username,
   };
 
-  const updatedUser = await userServices.updateOneUser({ userNewData, next , sessionUser });
+  const updatedUser = await userServices.updateOneUser({
+    userNewData,
+    next,
+    sessionUser,
+  });
 
   return res.status(200).json({
-    message: "login succes",
+    message: "update succes",
     status: "succes",
-    updatedUser
+    updatedUser,
+  });
+});
+
+export const changePassword = catchAsync(async (req, res, next) => {
+  const { oldPassword, newPassword } = req.body;
+  const { sessionUser } = req;
+
+  const updatedUser = await userServices.changePasswordOfUser({
+    password: oldPassword,
+    user: sessionUser,
+    newPassword,
+    next,
+  });
+
+  return res.status(200).json({
+    message: "update succes",
+    status: "succes",
+    updatedUser,
   });
 });

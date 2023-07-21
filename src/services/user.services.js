@@ -73,12 +73,30 @@ class UserServices {
     }
   }
 
-  async updateOneUser({ userNewData , next , sessionUser}){
+  async updateOneUser({ userNewData, next, sessionUser }) {
     try {
-      console.log(userNewData)
-      const updatedUser = await sessionUser.update(userNewData)
-      return updatedUser
-      
+      console.log(userNewData);
+      const updatedUser = await sessionUser.update(userNewData);
+      return updatedUser;
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
+  async changePasswordOfUser({ password, user, newPassword , next }) {
+    try {
+      if (!(await bcrypt.compare(password, user.password))) {
+        throw next(new AppError("password incorrect", 401));
+      }
+      const salt = await bcrypt.genSalt(12);
+      const newSecretPassword = await bcrypt.hash(newPassword, salt);
+      console.log(password, newPassword);
+
+      const userWithPasswordUpdated = await user.update({
+        password: newSecretPassword,
+      });
+
+      return userWithPasswordUpdated;
     } catch (error) {
       throw new Error(error);
     }

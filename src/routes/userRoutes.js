@@ -3,12 +3,14 @@ import {
   singUp,
   login,
   updateUserInfo,
+  changePassword,
 } from "../controllers/userController.js";
 import {
   validSingUp,
   validLogin,
-  // validTransferOptional,
   validTransferRequire,
+  validUpdateInfoUser,
+  validChangePassword,
 } from "../middlewares/valid.middleware.js";
 import {
   CreateTransfer,
@@ -111,13 +113,13 @@ const router = express.Router();
  *                       example: "Some error message"
  */
 router.post("/signup", validSingUp, singUp);
-
 router.post("/login", validLogin, login);
 
 router.use(protect);
 router.use("/:userId", protectAccountOwner);
 
-router.patch("/:userId/updateUser", updateUserInfo);
+router.patch("/:userId/updateUser", validUpdateInfoUser, updateUserInfo);
+router.patch("/:userId/changePassword", validChangePassword, changePassword);
 
 //accounnumber cbu || cvu || alias del destinatario amount por req
 router.get("/:userId/:currency/", GetTransfers);

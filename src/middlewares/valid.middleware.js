@@ -139,3 +139,29 @@ export const validCreateCard = [
     .withMessage("validation has to be one of credito debito"),
   validateFields,
 ];
+
+const notFalsiValues = (body) => {
+  for (const key in body) {
+    console.log(body[key]);
+    if (
+      body[key] == true ||
+      body[key] == false ||
+      body[key] == undefined ||
+      body[key] == null
+    ) {
+      return false;
+    }
+  }
+  return true;
+};
+
+export const validUpdateInfoUser = [
+  body().custom(notFalsiValues).withMessage("el valor asiganado no es valido"),
+  validateFields,
+];
+
+export const validChangePassword = [
+  body("oldPassword").notEmpty().withMessage("oldPassword is require"),
+  body("newPassword").notEmpty().withMessage("newPassword is require"),
+  validateFields,
+];
