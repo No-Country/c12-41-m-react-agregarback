@@ -1,21 +1,20 @@
-import { useEffect, useState } from "react";
-import CardInfo from "./CardInfo";
-import UltimosMovimientos from "./UltimosMovimientos";
 import axios from "axios";
-import { GridLoader } from "react-spinners";
-import { BsCreditCard2BackFill } from "react-icons/bs";
-import { FaHandHoldingDollar } from "react-icons/fa6";
+import { useEffect, useState } from "react";
 import {
   AiOutlineLineChart,
-
 } from "react-icons/ai";
+import { BsCreditCard2BackFill } from "react-icons/bs";
+import { FaHandHoldingDollar } from "react-icons/fa6";
 import { RiQuestionnaireFill, RiShakeHandsFill } from "react-icons/ri";
+import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
+import { GridLoader } from "react-spinners";
+import { formatearSaldoDelUsuario } from "../../utils/formatSaldo";
 import Accesos from "./Accesos";
+import CardInfo from "./CardInfo";
 import ModalNewAccount from "./ModalNewAccount";
 import ModalNewCard from "./ModalNewCard";
-import { NavLink } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { formatearSaldoDelUsuario } from "../../utils/formatSaldo";
+import UltimosMovimientos from "./UltimosMovimientos";
 
 const AccountContent = () => {
   const { status, data } = useSelector((state) => state.user);
