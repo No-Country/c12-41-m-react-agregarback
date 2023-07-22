@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { GridLoader } from "react-spinners";
 import PlazoFijo from "./PlazoFijo";
-import SuperFondos from "./SuperFondos";
+import SuperFondos from "./superFondos.jsx"
 import Dolar from "./Dolar";
 import axios from "axios";
 
