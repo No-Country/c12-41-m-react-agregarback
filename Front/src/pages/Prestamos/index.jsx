@@ -3,7 +3,7 @@ import Loans from "../../components/Prestamos";
 
 const LoanPri = () => {
     return (
-        <section className="bg-gray rounded-xl min-h-screen w-screen">
+        <section className=" w-max rounded-xl min-h-screen overflow-hidden p-3 m-auto  ">
             <Loans/>
         </section>
     )

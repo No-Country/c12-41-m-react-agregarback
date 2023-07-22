@@ -48,12 +48,8 @@ export function Routers() {
               <Route path="/profile" element={<Profile />} />
               <Route path="/investments" element={<Inversiones/>}/>
               <Route path="/cards" element={<div>This is cards</div>} />
-<<<<<<< HEAD
               <Route path="/investments" element={<div>This is investments</div>} />
-              <Route path="/loans" element={<div><LoanPri /></div>} />
-=======
-              <Route path="/loans" element={<div>This is loans</div>} />
->>>>>>> 02a479b4d2893f076cf1f3254558923d23e2e5d9
+              <Route path="/loans" element={<LoanPri />} />
               <Route path="/help" element={<div>This is help</div>} />
               <Route path="/logout" element={<div>This is logout</div>} />
               <Route path="/token" element={<div>This is token</div>} />
