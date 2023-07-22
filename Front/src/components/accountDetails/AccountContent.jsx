@@ -106,7 +106,7 @@ const AccountContent = () => {
               {showNewCardModal && (
                 <ModalNewCard
                   setShowNewCardModal={setShowNewCardModal}
-                  accounts={accounts}
+                  account={accounts[selectedIndex]}
                 />
               )}
 

@@ -13,7 +13,6 @@ const ModalChangePassword = ({ setShowModalChangePassword }) => {
     })
 
     const handleChangeInput = (e) => {
-        console.log(e.target.value);
         setData({ ...data, [e.target.name]: e.target.value })
     }
 
@@ -45,7 +44,7 @@ const ModalChangePassword = ({ setShowModalChangePassword }) => {
                     <div className="pb-6">
 
                         <div>
-                            <form onSubmit={handleSubmit} className="flex flex-col gap-3 items-center justify-center gap-8 bg-gradient-to-br from-dark to-gray-500">
+                            <form onSubmit={handleSubmit} className="flex flex-col gap-3 items-center justify-center gap-8">
                                 <div className="flex flex-col align-bottom w-[80%] text-lg">
                                     <label htmlFor="oldPassword" className="block text-left  font-semibold">Contraseña actual</label>
                                     <input id="oldPassword" type="text" onChange={handleChangeInput} value={data.oldPassword} name="oldPassword" className="bg-dark border-yellow border-b-2 focus:outline-0" />
