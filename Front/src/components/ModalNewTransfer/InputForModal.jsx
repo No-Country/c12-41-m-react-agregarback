@@ -1,11 +1,11 @@
 const InputForModal = ({label , type , name , handleChangeTransferInfo , infoForTransfer , errors}) => {
   return (
-    <div className="grid grid-cols-[90px,_1fr]">
-      <label className="text-left font-medium" htmlFor="amount">
+    <div className="flex flex-wrap">
+      <label className="text-left font-medium w-[90px]" htmlFor="amount">
         {label}
       </label>
       <input
-        className="px-3 bg-transparent outline-none border-b-2 border-yellow text-white uppercase"
+        className="bg-transparent outline-none border-b-2 border-yellow text-white uppercase grow"
         type={type}
         name={name}
         onChange={(e) => handleChangeTransferInfo(e.target.value, name)}
