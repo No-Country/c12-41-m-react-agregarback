@@ -1,6 +1,6 @@
-import { useDispatch, useSelector } from "react-redux";
-import TransferContent from "../../components/ModalNewTransfer/TransferContent"
 import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import TransferContent from "../../components/ModalNewTransfer/TransferContent";
 import { getContacts } from "../../redux/userSlice";
 const Transfer = () => {
     const dispatch = useDispatch();
