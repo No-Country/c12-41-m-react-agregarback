@@ -6,7 +6,6 @@ import {
 import { BsCreditCard2BackFill } from "react-icons/bs";
 import { FaHandHoldingDollar } from "react-icons/fa6";
 import { RiQuestionnaireFill, RiShakeHandsFill } from "react-icons/ri";
-import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { GridLoader } from "react-spinners";
 import { formatearSaldoDelUsuario } from "../../utils/formatSaldo";
@@ -17,31 +16,45 @@ import ModalNewCard from "./ModalNewCard";
 import UltimosMovimientos from "./UltimosMovimientos";
 
 const AccountContent = () => {
-  const { status, data } = useSelector((state) => state.user);
-  const headers = {
-    Authorization: `Bearer ${sessionStorage.getItem("token")}`,
-  };
+  const [userData, setUserData] = useState(null);
   const [accounts, setAccounts] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [showNewAccountModal, setShowNewAccountModal] = useState(false);
   const [showNewCardModal, setShowNewCardModal] = useState(false);
+
+  const headers = {
+    Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+  };
+
   useEffect(() => {
+    const getUserbyId = async () => {
+      try {
+        const response = await axios.get(`https://nocountrybackend.onrender.com/api/v1/users/${sessionStorage.getItem('userId')}
+            `, { headers })
+        setUserData(response.data)
+      }
+      catch (error) {
+        console.log(error);
+      }
+    }
     const getAccounts = async () => {
       try {
-        const response = await axios.get(
+        const accountsData = await axios.get(
           `https://nocountrybackend.onrender.com/api/v1/account/${sessionStorage.getItem(
             "userId"
           )}`,
           { headers }
         );
-        setAccounts(response.data.accounts);
+        setAccounts(accountsData.data.accounts);
         setIsLoaded(true);
       } catch (error) {
         console.log(error);
         setIsLoaded(true);
       }
     };
+
+    getUserbyId();
     getAccounts();
   }, []);
 
@@ -49,7 +62,7 @@ const AccountContent = () => {
     setSelectedIndex(e.target.value);
   };
 
-  return isLoaded ? (
+  return isLoaded && userData != null ? (
     <section className="grid lg:grid-cols-2 overflow-hidden p-3 pt-16 gap-4">
       {accounts.length > 0 ? (
         <>
@@ -72,7 +85,7 @@ const AccountContent = () => {
                 Saldo: ${formatearSaldoDelUsuario(accounts[selectedIndex].amount)}
               </h2>
             </div>
-            <CardInfo account={accounts[selectedIndex]} />
+            <CardInfo account={accounts[selectedIndex]} name={userData.name} />
             <article className="grid grid-cols-[repeat(auto-fill,_minmax(100px,_1fr))] gap-3 auto-cols-fr py-10">
               <Accesos text={"Inversiones"} icon={<AiOutlineLineChart />} />
               <Accesos text={"prestamos"} icon={<FaHandHoldingDollar />} />
@@ -113,7 +126,7 @@ const AccountContent = () => {
               )}
             </article>
             <article className="grid gap-10">
-              <h4 className="font-medium">Bienvenido {data.name}!!</h4>
+              <h4 className="font-medium">Bienvenido {userData.name}!!</h4>
               <div className="grid sm:grid-cols-2 items-center">
                 <p className="text-left">
                   Bienvenido a nuestra plataforma bancaria segura y confiable,
