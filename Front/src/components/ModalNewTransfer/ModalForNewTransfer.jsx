@@ -106,7 +106,7 @@ const ModalForNewTransfer = ({
   };
 
   return (
-    <section className="w-full h-[100vh] top-0 bg-dark/40 flex justify-center items-center p-3 left-0 fixed z-[200]">
+    <section className="w-full h-[100vh] top-0 bg-dark/10 flex justify-center items-center p-3 left-0 fixed z-[200]">
       <article className="w-full max-w-[400px] min-h-[550px] bg-gray text-white relative flex flex-col justify-center items-center rounded-lg shadow-lg">
         <h3 className="uppercase tracking-[3px] font-medium py-10">
           Nueva Transferencia

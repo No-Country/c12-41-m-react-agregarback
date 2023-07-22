@@ -38,7 +38,7 @@ const TokenModal = ({ setShowTokenModal }) => {
     return (
         <>
             <div className="h-screen w-screen fixed top-0 left-0 z-50 flex justify-center items-center bg-[rgba(1,1,1,0.6)]" >
-                <div className="w-[350px] border-white border-2 rounded-lg bg-white p-3 text-dark flex flex-col gap-6" >
+                <div className="w-full max-w-[350px] border-white border-2 rounded-lg bg-white p-3 text-dark flex flex-col gap-6" >
                     <RiCloseLine className="self-end text-dark text-3xl" onClick={() => setShowTokenModal(false)} />
                     <h3 className="font-semibold">Token de seguridad</h3>
                     <div className="pb-6">{token}</div>
