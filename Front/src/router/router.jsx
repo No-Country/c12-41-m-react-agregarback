@@ -7,6 +7,7 @@ import Products from "../pages/Products/index.jsx";
 const Transfer = lazy(() => import('../pages/Transfer'));
 const Accounts = lazy(() => import('../pages/Accounts'));
 const Profile = lazy(() => import('../pages/Profile'))
+const LoanPri = lazy(() => import('../pages/Prestamos'))
 const Proteccion = lazy(() => import('../components/Proteccion/Proteccion.jsx'));
 const ProtectedLayout = lazy(() => import('../components/Layout/Protected/index.jsx'));
 
@@ -28,7 +29,6 @@ const Contacto = lazy(() => import("../pages/Contactos"));
 const QaPage = lazy(() => import("../pages/QaQuestions"));
 
 
-
 export function Routers() {
 
   return (
@@ -48,7 +48,8 @@ export function Routers() {
               <Route path="/profile" element={<Profile />} />
               <Route path="/investments" element={<Inversiones/>}/>
               <Route path="/cards" element={<div>This is cards</div>} />
-              <Route path="/loans" element={<div>This is loans</div>} />
+              <Route path="/investments" element={<div>This is investments</div>} />
+              <Route path="/loans" element={<LoanPri />} />
               <Route path="/help" element={<div>This is help</div>} />
               <Route path="/logout" element={<div>This is logout</div>} />
               <Route path="/token" element={<div>This is token</div>} />

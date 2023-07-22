@@ -20,8 +20,8 @@ const SideNavLanding = () => {
   return (
     <div>
       <nav className="bg-dark ">
-        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-7 md:p-2 relative">
-          <NavLink to="/" className="flex items-center">
+        <div className="max-w-screen-xl flex flex-wrap items-center justify-evenly mx-auto xl:justify-between p-7   leading-4 md:p-2 relative transition duration-300 ease-out">
+          <NavLink to="/" className="flex items-center  justify-center flex-wrap ">
             <img
               src="https://res.cloudinary.com/academia/image/upload/v1688654002/logo-accessBank_pg8pec.png"
               className="h-[70px] mr-3"
@@ -32,7 +32,7 @@ const SideNavLanding = () => {
             onClick={handleNavLanding}
             data-collapse-toggle="navbar-default"
             type="button"
-            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            className="inline-flex items-center  p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
             aria-controls="navbar-default"
             aria-expanded="false"
           >
@@ -56,12 +56,12 @@ const SideNavLanding = () => {
           <div
             className={`${
               navLanding
-                ? "translate-y-0 top-[100%]"
+                ? "translate-y-0 top-[100%]  duration-500"
                 : "translate-y-[-100%] top-0"
-            } w-full absolute left-0 mx-auto z-[100] bg-dark duration-500 md:w-auto md:translate-y-0 md:relative p-3`}
+            } w-full absolute left-0 mx-auto z-[100] bg-dark md:w-auto md:translate-y-0 md:relative p-3`}
             id="navbar-default"
           >
-            <ul className="font-medium flex flex-col items-center md:p-0 py-4 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-dark">
+            <ul className="font-medium flex flex-col items-center md:p-0 py-4 rounded-lg bg-gray-50 xl:text-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-dark">
               {sessionStorage.getItem("token") ? (
                 <SideNavLandingLink path={"/accounts"} title={"Mis Cuentas"} />
               ) : (
@@ -82,7 +82,7 @@ const SideNavLanding = () => {
                     <span
                       href="/"
                       aria-label=""
-                      className="bg-transparent inline-flex justify-center font-medium text-yellow  hover:bg-white hover:text-dark hover: rounded shadow hover:shadow-lg  h-10 items-center  px-6 border border-yellow hover:border-white"
+                      className="bg-transparent inline-flex justify-center font-medium lg:text-base text-sm text-yellow  hover:bg-white hover:text-dark hover: rounded shadow hover:shadow-lg   lg:h-10 items-center  px-6 border border-yellow hover:border-white"
                     >
                       Cerrar sesión
                     </span>

@@ -86,7 +86,7 @@ function Login() {
                                             onWheel={(e) => e.target.blur()}
                                         />
                                         <p className="error text-yellow font-bold h-12">{errors.dni}</p>
-                                        <label htmlFor="dni" className="absolute left-0 -top-3.5 font-bold text-white  text-xl peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Numero de documento</label>
+                                        <label htmlFor="dni" className="absolute left-0 -top-3.5 font-bold text-white   peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Numero de documento</label>
                                     </div>
                                 </div>
                                 <div className="w-full max-w-lg p-10">
@@ -101,7 +101,7 @@ function Login() {
                                             onChange={handleInputChange}
                                         />
                                         <p className="error text-yellow font-bold h-12">{errors.usuario}</p>
-                                        <label htmlFor="username" className="absolute left-0 -top-3.5 font-bold text-white  text-xl peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Usuario</label>
+                                        <label htmlFor="username" className="absolute left-0 -top-3.5 font-bold text-white   peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Usuario</label>
                                     </div>
                                 </div>
                                 <div className="w-full max-w-lg p-10">
