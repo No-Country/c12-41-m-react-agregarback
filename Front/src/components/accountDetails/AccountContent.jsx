@@ -1,8 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import {
-  AiOutlineLineChart,
-} from "react-icons/ai";
+import { AiOutlineLineChart } from "react-icons/ai";
 import { BsCreditCard2BackFill } from "react-icons/bs";
 import { FaHandHoldingDollar } from "react-icons/fa6";
 import { RiQuestionnaireFill, RiShakeHandsFill } from "react-icons/ri";
@@ -23,15 +21,14 @@ const AccountContent = () => {
   const [showNewAccountModal, setShowNewAccountModal] = useState(false);
   const [showNewCardModal, setShowNewCardModal] = useState(false);
 
-  const headers = {
-    Authorization: `Bearer ${sessionStorage.getItem("token")}`,
-  };
-
   useEffect(() => {
+    const headers = {
+      Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+    };
+
     const getUserbyId = async () => {
       try {
-        const response = await axios.get(`https://nocountrybackend.onrender.com/api/v1/users/${sessionStorage.getItem('userId')}
-            `, { headers })
+        const response = await axios.get(`https://nocountrybackend.onrender.com/api/v1/users/${sessionStorage.getItem('userId')}`, { headers })
         setUserData(response.data)
       }
       catch (error) {
@@ -80,51 +77,33 @@ const AccountContent = () => {
                 </option>
               ))}
             </select>
+
             <div>
-              <h2 className="text-xl">
-                Saldo: ${formatearSaldoDelUsuario(accounts[selectedIndex].amount)}
-              </h2>
+              <h2 className="text-xl">Saldo: ${formatearSaldoDelUsuario(accounts[selectedIndex].amount)}</h2>
             </div>
+
             <CardInfo account={accounts[selectedIndex]} name={userData.name} />
+
             <article className="grid grid-cols-[repeat(auto-fill,_minmax(100px,_1fr))] gap-3 auto-cols-fr py-10">
               <Accesos text={"Inversiones"} icon={<AiOutlineLineChart />} />
               <Accesos text={"prestamos"} icon={<FaHandHoldingDollar />} />
-              <NavLink to="/preguntasfrecuentes">
+              <NavLink to="/preguntasfrecuentes"><Accesos text={"Contactanos"} icon={<RiQuestionnaireFill />} /></NavLink>
+              <div onClick={() => setShowNewCardModal(true)}>
                 <Accesos
-                  text={"Contactanos"}
-                  icon={<RiQuestionnaireFill />}
+                  text={"Solicitar nueva tarjeta"}
+                  icon={<BsCreditCard2BackFill />}
                 />
-              </NavLink>
-              <Accesos
-                text={"Solicitar nueva tarjeta"}
-                icon={
-                  <BsCreditCard2BackFill
-                    onClick={() => setShowNewCardModal(true)}
-                  />
-                }
-              />
-              {showNewCardModal && (
-                <ModalNewCard
-                  setShowNewCardModal={setShowNewCardModal}
-                  account={accounts[selectedIndex]}
+              </div>
+              {showNewCardModal && (<ModalNewCard setShowNewCardModal={setShowNewCardModal} account={accounts[selectedIndex]} />)}
+              <div onClick={() => setShowNewAccountModal(true)}>
+                <Accesos
+                  text={"Solicitar nueva cuenta"}
+                  icon={<RiShakeHandsFill />}
                 />
-              )}
-
-              <Accesos
-                text={"Solicitar nueva cuenta"}
-                icon={
-                  <RiShakeHandsFill
-                    onClick={() => setShowNewAccountModal(true)}
-                  />
-                }
-              />
-              {showNewAccountModal && (
-                <ModalNewAccount
-                  setShowNewAccountModal={setShowNewAccountModal}
-                  accounts={accounts}
-                />
-              )}
+              </div>
+              {showNewAccountModal && (<ModalNewAccount setShowNewAccountModal={setShowNewAccountModal} accounts={accounts} />)}
             </article>
+
             <article className="grid gap-10">
               <h4 className="font-medium">Bienvenido {userData.name}!!</h4>
               <div className="grid sm:grid-cols-2 items-center">
@@ -146,26 +125,18 @@ const AccountContent = () => {
               </div>
             </article>
           </div>
+
           <UltimosMovimientos account={accounts[selectedIndex]} />
         </>
       ) : (
         <div className="col-span-2 flex flex-col gap-10 items-center">
           <h2>No se han encontrado cuentas</h2>
-          <div className="w-[150px]">
+          <div className="w-[150px]" onClick={() => setShowNewAccountModal(true)}>
             <Accesos
               text={"Solicitar nueva cuenta"}
-              icon={
-                <RiShakeHandsFill
-                  onClick={() => setShowNewAccountModal(true)}
-                />
-              }
+              icon={<RiShakeHandsFill />}
             />
-            {showNewAccountModal && (
-              <ModalNewAccount
-                setShowNewAccountModal={setShowNewAccountModal}
-                accounts={accounts}
-              />
-            )}
+            {showNewAccountModal && (<ModalNewAccount setShowNewAccountModal={setShowNewAccountModal} accounts={accounts} />)}
           </div>
         </div>
       )}
