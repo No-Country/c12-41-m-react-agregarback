@@ -36,7 +36,7 @@
 
 ### ⚛️Frontend Developers
 
-| <img src="https://res.cloudinary.com/danjwp1pg/image/upload/v1689731280/ab/developers/Aron.jpg" width=50>| <img src="https://res.cloudinary.com/danjwp1pg/image/upload/v1689790761/ab/developers/Emilio.png" width=50>| <img src="https://res.cloudinary.com/danjwp1pg/image/upload/v1689731280/ab/developers/Fabricio.jpg" width=50>|
+| <img src="https://res.cloudinary.com/danjwp1pg/image/upload/v1689731280/ab/developers/Aron.jpg" width=50>| <img src="https://res.cloudinary.com/danjwp1pg/image/upload/v1690148378/ab/developers/Emilio.jpg" width=50>| <img src="https://res.cloudinary.com/danjwp1pg/image/upload/v1689731280/ab/developers/Fabricio.jpg" width=50>|
 |:-:|:-:|:-:|
 | **Aron Resnicoff**| **Emilio Rivas Ruiz**| **Fabricio Reyna** | 
 | <a href="https://github.com/aronresni"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/aron-resnicoff-333b2a215/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/Emilio0308"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/emilio-rivas-ruiz-a8857226b/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/><a> | <a href="https://github.com/FabricioReyna"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/fabridevtoll/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/><a>
@@ -52,4 +52,4 @@
 | <img src="https://res.cloudinary.com/danjwp1pg/image/upload/v1689731279/ab/developers/Yessica.jpg" width=80>|
 |:-:|
 | Yessica Rodriguez|
-|<a href="https://github.com/Yessica"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/yessicar/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> ||
+|<a href="https://github.com/Yessicarm"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/yessicarm/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> ||
