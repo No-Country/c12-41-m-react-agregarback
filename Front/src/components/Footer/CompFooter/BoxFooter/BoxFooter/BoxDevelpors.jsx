@@ -21,12 +21,7 @@ const BoxDevelopers = () => {
               Fabricio Reyna
             </a>
           </li>
-          <li className="mt-3">
-            <a href="https://www.linkedin.com/in/gabriel-medina-frontend/" className="text-gray-500 cursor-pointer hover:text-gray-900">
-              Gabriel Medina
-            </a>
-          </li>
-          <li className="mt-3">
+           <li className="mt-3">
             <a href="https://www.linkedin.com/in/gabriel-shimabuku/" className="text-gray-500 cursor-pointer hover:text-gray-900">
               Gabriel Shimabuku
             </a>
