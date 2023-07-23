@@ -3,7 +3,7 @@ import { useState } from "react";
 
 import CarruselCard from "./CarruselCard";
 
-const CardInfo = ({ account }) => {
+const CardInfo = ({ account, name }) => {
   const { accountNumber, alias, amount, cards, cbu, cvu, status, transfers } = account;
 
   return (
@@ -16,7 +16,7 @@ const CardInfo = ({ account }) => {
           <div className="absolute left-[-15%] bottom-[-10%]">
             <img src="/accounts/Ellipse 20.png" alt="elipse" loading="lazy" />
           </div>
-          <CarruselCard listOfCards={cards} />
+          <CarruselCard listOfCards={cards} name={name} />
         </article>
       </article>
     </section>
