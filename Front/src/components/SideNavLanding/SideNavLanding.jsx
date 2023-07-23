@@ -21,7 +21,10 @@ const SideNavLanding = () => {
     <div>
       <nav className="bg-dark ">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-evenly mx-auto xl:justify-between p-7   leading-4 md:p-2 relative transition duration-300 ease-out">
-          <NavLink to="/" className="flex items-center  justify-center flex-wrap ">
+          <NavLink
+            to="/"
+            className="flex items-center  justify-center flex-wrap "
+          >
             <img
               src="https://res.cloudinary.com/academia/image/upload/v1688654002/logo-accessBank_pg8pec.png"
               className="h-[70px] mr-3"

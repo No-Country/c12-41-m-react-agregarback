@@ -23,7 +23,7 @@ const ListContactTransfer = () => {
 
   return (
     <div className="">
-      <div className="rounded-lg bg-gray h-full p-10">
+      <div className="rounded-lg bg-gray h-full">
         <div className="bg-dark h-full grid mx-auto max-w-sm shadow-lg rounded-lg overflow-hidden">
           <div className="sm:flex sm:items-center px-2 py-4">
             <div className="flex-grow">

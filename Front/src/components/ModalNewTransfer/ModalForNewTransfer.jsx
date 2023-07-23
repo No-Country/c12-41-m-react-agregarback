@@ -107,25 +107,27 @@ const ModalForNewTransfer = ({
 
   return (
     <section className="w-full h-[100vh] top-0 bg-dark/10 flex justify-center items-center p-3 left-0 fixed z-[200]">
-      <article className="w-full max-w-[400px] min-h-[550px] bg-gray text-white relative flex flex-col justify-center items-center rounded-lg shadow-lg">
+      <article className="w-full max-w-[400px] p-2 min-h-[550px] bg-gray text-white relative flex flex-col justify-center items-center rounded-lg shadow-lg overflow-hidden">
         <h3 className="uppercase tracking-[3px] font-medium py-10">
           Nueva Transferencia
         </h3>
         <form
           onSubmit={handleSubmitTransfer}
           ref={from}
-          className="grid gap-4 p-3"
+          className="grid gap-4 px-3 break-words"
         >
-          <span className="text-left capitalize font-medium">
-            Contacto:{" "}
-            {currentContact?.contactName || "transferencia a nuevo destino"}
-          </span>
+          <div className="flex gap-5">
+            <span className="text-left capitalize font-medium">Contacto:</span>
+            <span>
+              {currentContact?.contactName || "transferencia a nuevo destino"}
+            </span>
+          </div>
           <div className="text-left">
             <span>Saldo Disponible: </span>
             <span>{formatearSaldoDelUsuario(currentAccount?.amount)}</span>
           </div>
-          <div className="grid grid-cols-[90px,_1fr]">
-            <label className="text-left font-medium" htmlFor="senderAccount">
+          <div className="flex flex-wrap">
+            <label className="text-left font-medium w-[90px]" htmlFor="senderAccount">
               Tu cuenta
             </label>
             <select
@@ -175,7 +177,7 @@ const ModalForNewTransfer = ({
             infoForTransfer={infoForTransfer}
             errors={errors?.validationValue}
           />
-          <button className="w-full mx-2  bg-orange text-white hover:bg-dark hover:text-yellow rounded-md shadow-xl py-3 my-5">
+          <button className="w-full mx-2 max-w-[250px] bg-orange text-white hover:bg-dark hover:text-yellow rounded-md shadow-xl py-3 my-5">
             Realizar transferencia
           </button>
         </form>

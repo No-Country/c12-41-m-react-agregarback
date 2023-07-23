@@ -5,12 +5,17 @@ import Footer from "../../Footer/Footer";
 import SideNavLanding from "../../SideNavLanding/SideNavLanding";
 
 const ProtectedLayout = () => {
+
+
   return (
     <div className="min-h-screen">
       {/* <Sidenav /> */}
       <SideNavLanding />
-      <div className="flex bg-dark sm:p-3 h-full gap-4 relative">
-          <NavMenu />
+      <div
+        id="navContainer"
+        className="flex bg-dark sm:p-3 h-full gap-4 relative"
+      >
+        <NavMenu />
         <Outlet />
       </div>
       <Footer />

@@ -14,10 +14,10 @@ const Transfer = () => {
 
   return (
     <div className="">
-      <div className="rounded-lg bg-gray h-full p-10">
+      <div className="rounded-lg bg-gray h-full">
         <div className="bg-dark h-full grid mx-auto max-w-sm shadow-lg rounded-lg overflow-hidden">
-          <div className="sm:flex sm:items-center px-2 py-4">
-            <div className="">
+          <div className="sm:flex sm:items-center justify-center px-2 py-4">
+            <div className="w-full">
               <h2 className="font-bold px-2 py-3 leading-tight uppercase">
                 Transferencias
               </h2>
