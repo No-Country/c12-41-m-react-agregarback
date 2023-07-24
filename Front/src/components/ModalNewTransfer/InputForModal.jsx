@@ -1,6 +1,6 @@
 const InputForModal = ({label , type , name , handleChangeTransferInfo , infoForTransfer , errors}) => {
   return (
-    <div className="flex flex-wrap">
+    <div className="grid grid-cols-2 grid-rows-2">
       <label className="text-left font-medium w-[90px]" htmlFor="amount">
         {label}
       </label>
@@ -12,7 +12,7 @@ const InputForModal = ({label , type , name , handleChangeTransferInfo , infoFor
         id={name}
         value={infoForTransfer[name]}
       />
-      {<span className="h-4  text-yellow text-[12px] col-span-2">{errors}</span>}
+      {<span className="h-4 text-yellow text-[12px] col-span-2">{errors}</span>}
     </div>
   );
 };
