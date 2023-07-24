@@ -1,13 +1,11 @@
-import { GiReceiveMoney } from "react-icons/gi";
-import { MdAccountBalance } from "react-icons/md";
-import { FaCcVisa } from "react-icons/fa";
-import { FaMoneyCheckAlt } from "react-icons/fa";
 import { AiOutlineAreaChart } from "react-icons/ai";
 import { BsFillHouseLockFill } from "react-icons/bs";
+import { FaCcVisa, FaMoneyCheckAlt } from "react-icons/fa";
+import { GiReceiveMoney } from "react-icons/gi";
+import { MdAccountBalance } from "react-icons/md";
 import { PiPercentFill } from "react-icons/pi";
 import { RiMoneyEuroCircleFill } from "react-icons/ri";
 import Card from "./CardProducts";
-
 
 const BankProducts = () => {
   return (
@@ -42,7 +40,7 @@ const BankProducts = () => {
         </div>
       </section>
       <div className="flex items-center justify-center">
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4">
+        <div className="grid w-full gap-6 grid-cols-[repeat(auto-fill,_minmax(280px,_1fr))]">
           <Card
             title="Cajas de Ahorro"
             description="Maneja tus finanzas con total
