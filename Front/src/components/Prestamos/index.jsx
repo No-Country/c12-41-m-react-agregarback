@@ -254,9 +254,9 @@ import "awesome-notifications/dist/style.css";
                 <div className="1/3 text-left">
                   <p className="text-[20px]">
                     <strong className="text-orange-navmenu uppercase">
-                      Informacion:
+                      Informacion: {""}
                     </strong>
-                    La primer cuota será calculada de acuerdo con la cantidad de
+                     La primer cuota será calculada de acuerdo con la cantidad de
                     días existentes entre la fecha de liquidación y la fecha hasta
                     la cual se difiera su pago. Al vencimiento de esta cuota se
                     deberán abonar los intereses acumulados.

@@ -3,7 +3,7 @@ import { AboutBox, BoxContactFooter, BoxDevelopers, BoxTL, RedesFooter } from ".
 
 const InfoFooter = () => {
     return(
-        <div className="container flex flex-col flex-wrap justify-center  px-5 py-20 mx-auto md:items-center lg:items-start md:flex md:flex-row md:flex-no-wrap">
+        <div className="container flex flex-col flex-wrap justify-center   px-5 py-20 mx-auto md:items-center lg:items-start md:flex md:flex-row md:flex-no-wrap">
         <RedesFooter/>
          <div className="flex flex-wrap flex-grow mt-10 mb-10 text-center md:pl-20 md:mt-3 md:text-left">
          <AboutBox/>
