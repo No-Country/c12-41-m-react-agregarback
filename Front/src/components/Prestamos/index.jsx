@@ -91,7 +91,6 @@
       const maxAllowedValue = 20000;
       const clampedValue = Math.min(newValue, maxAllowedValue);
       setRangeImporteValue(clampedValue);
-      onImporteChange(clampedValue);
     };
 
     const handleTextCuotaChange = (event) => {
@@ -331,11 +330,11 @@
                       
                       Importe neto a acreditar (1)
                     </p>
-                    <p className=" text-white ">$ {rangeImporteValue}</p>
+                    <p className=" text-white ">$ {rangeImporteValue.toFixed(2)}</p>
                   </div>
                   <div className="border-b-2 border-orange-navmenu w-full h-[53px] flex justify-between items-end  ">
                     <p className="capitalize text-white"> cuenta destino</p>
-                    <p className=" text-white capitalize "> </p>
+                    <p className=" text-white capitalize "> Cuenta Unica </p>
                   </div>
                   <div className="border-b-2 border-orange-navmenu w-full h-[53px] flex justify-between items-end  ">
                     <p className="capitalize text-white">
