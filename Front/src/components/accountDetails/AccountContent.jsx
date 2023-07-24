@@ -85,14 +85,17 @@ const AccountContent = () => {
             <CardInfo account={accounts[selectedIndex]} name={userData.name} />
 
             <article className="grid grid-cols-[repeat(auto-fill,_minmax(100px,_1fr))] gap-3 auto-cols-fr py-10">
-              <Accesos text={"Inversiones"} icon={<AiOutlineLineChart />} />
-              <Accesos text={"prestamos"} icon={<FaHandHoldingDollar />} />
-              <NavLink to="/preguntasfrecuentes"><Accesos text={"Contactanos"} icon={<RiQuestionnaireFill />} /></NavLink>
+              <NavLink to="/investments">
+                <Accesos text={"Inversiones"} icon={<AiOutlineLineChart />} />
+              </NavLink>
+              <NavLink to="/loans">
+                <Accesos text={"Prestamos"} icon={<FaHandHoldingDollar />} />
+              </NavLink>
+              <NavLink to="/contact">
+                <Accesos text={"Contactanos"} icon={<RiQuestionnaireFill />} />
+              </NavLink>
               <div onClick={() => setShowNewCardModal(true)}>
-                <Accesos
-                  text={"Solicitar nueva tarjeta"}
-                  icon={<BsCreditCard2BackFill />}
-                />
+                <Accesos text={"Solicitar nueva tarjeta"} icon={<BsCreditCard2BackFill />} />
               </div>
               {showNewCardModal && (<ModalNewCard setShowNewCardModal={setShowNewCardModal} account={accounts[selectedIndex]} />)}
               <div onClick={() => setShowNewAccountModal(true)}>
@@ -139,8 +142,9 @@ const AccountContent = () => {
             {showNewAccountModal && (<ModalNewAccount setShowNewAccountModal={setShowNewAccountModal} accounts={accounts} />)}
           </div>
         </div>
-      )}
-    </section>
+      )
+      }
+    </section >
   ) : (
     <div className="flex flex-row justify-center items-center h-screen">
       <GridLoader color="white" />

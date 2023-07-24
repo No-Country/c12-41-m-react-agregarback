@@ -19,8 +19,10 @@ const PlazoFijoModal = ({ data }) => {
       {showModal && (
         <div className="fixed inset-0 flex justify-center items-center bg-gray-800 bg-opacity-50">
           <div className="bg-orange p-6 rounded-lg">
-            <h2 className="text-xl font-semibold mb-4">Plazo Fijo</h2>
-            {/* Render the data inside the modal */}
+            <h2 className="text-xl font-semibold mb-4">Simulador Plazo Fijo</h2>
+            <p>Ahora podés constituir un depósito a plazo fijo sin ser cliente/a del Banco Provincia.
+            </p>
+            <button className="btn btn-dropdown ">Tradicional</button>
             <p className="text-gray-500 mb-4">{data}</p>
 
             <button
