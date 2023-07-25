@@ -21,24 +21,15 @@ const Home = () => {
         </div>
         <div className="relative flex flex-col items-start w-full max-w-xl px-4 mx-auto md:px-0 lg:px-8 lg:max-w-screen-xl">
           <div className="mb-16 lg:my-40 lg:max-w-lg lg:pr-5">
-
-            <h2 className="mb-5 font-sans text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none">
-              Accesibilidad y
+            <h2 className="mb-5 font-sans text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none ">
+              Accesibilidad y{" "}
               <br className="hidden md:block" />
               cuidado de su dinero{' '}
 
             </h2>
 
-            {!sessionStorage.getItem('token') &&
-              <div className="flex items-center">
-                <NavLink to="/signup" className="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-orange hover:bg-yellow hover:text-dark focus:shadow-outline focus:outline-none">
-                  Crear cuenta
-                </NavLink>
-                <NavLink to="/login" className="bg-transparent inline-flex justify-center font-medium text-yellow  hover:bg-white hover:text-dark hover: rounded shadow hover:shadow-lg  h-12 items-center  px-6 border border-yellow hover:border-white">
-                  Iniciar sesión
-                </NavLink>
-              </div>
-            }
+
+      
           </div>
         </div>
       </div>

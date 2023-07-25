@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { IconContext } from "react-icons/lib";
-import { PiUserGearLight } from "react-icons/pi";
+import { PiNotePencilBold, PiUserGearLight } from "react-icons/pi";
 import { NavLink, useNavigate } from "react-router-dom";
 import SideNavLandingLink from "./SideNavLandingLink";
-
+import { FiLogOut } from "react-icons/fi";
+import { BiLogIn } from "react-icons/bi";
+import { AiOutlinePlusCircle, AiOutlineUserAdd } from "react-icons/ai";
 const SideNavLanding = () => {
   const [navLanding, setNavLanding] = useState(false);
   const navigate = useNavigate();
@@ -17,11 +19,57 @@ const SideNavLanding = () => {
     navigate("/");
   };
 
+  const LogoutButton = () => {
+    return (
+      <NavLink to="/" onClick={handleLogout}>
+        <span
+          href="/"
+          className="bg-transparent inline-flex justify-center x items-center duration-1000 text-yellow hover:bg-orange-navmenu hover:text-dark hover:rounded shadow hover:shadow-lg lg:h-10 h-10 w-fit px-6 border  border-yellow lg:space-x-2 space-x-0"
+        >
+          <span className="hidden xl:inline">Cerrar sesión</span>
+          <FiLogOut className="xl:hidden text-2xl" />
+        </span>
+      </NavLink>
+    );
+  };
+
+  const LoginButton = () => {
+    return (
+      <NavLink to="/login">
+        <span
+          href="/"
+          aria-label=""
+          className="bg-transparent inline-flex justify-center items-center rounded-md  text-yellow hover:bg-gradient-to-tr from-orange-navmenu-active via-orange-navmenu to-yellow hover:text-dark hover:rounded shadow hover:shadow-lg lg:h-10 h-10 w-fit px-6 border-none border-yellow lg:space-x-2 space-x-0 transition-all ease-in-out duration-1000"
+        >
+          <span className="hidden xl:inline">Iniciar Sesion</span>
+          <BiLogIn className="xl:hidden text-4xl border-none" />
+        </span>
+      </NavLink>
+    );
+  };
+
+  const SignInButton = () => {
+    return (
+      <NavLink to="/signup">
+        <span
+          href="./signup"
+          className="bg-gradient-to-tr from-orange-navmenu-active via-orange-navmenu to-yellow hover:bg-none hover:text-orange-navmenu  inline-flex items-center justify-center h-10 px-6 mr-6 font-bold uppercase tracking-wide text-dark transition duration-1000 hover:duration-1000 rounded shadow-md    focus:shadow-outline focus:outline-none"
+        >
+          <span className="hidden xl:inline">Crear Cuenta</span>
+          <AiOutlineUserAdd className="xl:hidden text-4xl rounded-md" />
+        </span>
+      </NavLink>
+    );
+  };
+
   return (
     <div>
       <nav className="bg-dark ">
-        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-7 md:p-2 relative">
-          <NavLink to="/" className="flex items-center">
+        <div className="max-w-screen-xl flex flex-wrap items-center justify-evenly mx-auto xl:justify-between p-7   leading-4 md:p-2 relative transition duration-300 ease-out">
+          <NavLink
+            to="/"
+            className="flex items-center  justify-center flex-wrap "
+          >
             <img
               src="https://res.cloudinary.com/academia/image/upload/v1688654002/logo-accessBank_pg8pec.png"
               className="h-[70px] mr-3"
@@ -32,7 +80,7 @@ const SideNavLanding = () => {
             onClick={handleNavLanding}
             data-collapse-toggle="navbar-default"
             type="button"
-            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            className="inline-flex items-center  p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
             aria-controls="navbar-default"
             aria-expanded="false"
           >
@@ -56,14 +104,14 @@ const SideNavLanding = () => {
           <div
             className={`${
               navLanding
-                ? "translate-y-0 top-[100%]"
+                ? "translate-y-0 top-[100%]  duration-500"
                 : "translate-y-[-100%] top-0"
-            } w-full absolute left-0 mx-auto z-50 bg-dark duration-500 md:w-auto md:translate-y-0 md:relative p-3`}
+            } w-full absolute left-0 mx-auto z-[100] bg-dark md:w-auto md:translate-y-0 md:relative p-3`}
             id="navbar-default"
           >
-            <ul className="font-medium flex flex-col items-center md:p-0 py-4 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-dark ">
+            <ul className="font-medium flex flex-col items-center md:p-0 py-4 rounded-lg bg-gray-50 xl:text-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-dark">
               {sessionStorage.getItem("token") ? (
-                <SideNavLandingLink path={"/accounts"} title={"Mis Cuentas"} />
+                <SideNavLandingLink path={"/accounts"} title={`Mis Cuentas`} />
               ) : (
                 <SideNavLandingLink path={"./"} title={"Home"} />
               )}
@@ -74,49 +122,27 @@ const SideNavLanding = () => {
               <SideNavLandingLink
                 path={"/preguntasfrecuentes"}
                 title={"preguntas frecuentes"}
+                className="mb-3"
               />
 
               {sessionStorage.getItem("token") ? (
                 <>
-                  <NavLink to="/" onClick={handleLogout}>
-                    <span
-                      href="/"
-                      aria-label=""
-                      className="bg-transparent inline-flex justify-center font-medium text-yellow  hover:bg-white hover:text-dark hover: rounded shadow hover:shadow-lg  h-10 items-center  px-6 border border-yellow hover:border-white"
-                    >
-                      Cerrar sesión
-                    </span>
-                  </NavLink>
+                  <LogoutButton />
                   <NavLink
                     to="/profile"
-                    className="ease-in duration-300 border-2 border-transparent hover:border-white hover:opacity-70 rounded-full p-1"
+                    className="ease-in duration-500 border-2 border-transparent hover:border-orange hover:opacity-70 rounded-full p-1"
                   >
                     <IconContext.Provider
                       value={{ style: { fontSize: "2rem" } }}
                     >
-                      <PiUserGearLight />
+                      <PiUserGearLight className="text-orange-navmenu" />
                     </IconContext.Provider>
                   </NavLink>
                 </>
               ) : (
                 <div className="flex items-center">
-                  <NavLink to="/signup">
-                    <span
-                      href="./signup"
-                      className="inline-flex items-center justify-center h-10 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-orange hover:bg-yellow hover:text-dark focus:shadow-outline focus:outline-none"
-                    >
-                      Crear cuenta
-                    </span>
-                  </NavLink>
-                  <NavLink to="/login">
-                    <span
-                      href="/"
-                      aria-label=""
-                      className="bg-transparent inline-flex justify-center font-medium text-yellow  hover:bg-white hover:text-dark hover: rounded shadow hover:shadow-lg  h-10 items-center  px-6 border border-yellow hover:border-white"
-                    >
-                      Iniciar sesión
-                    </span>
-                  </NavLink>
+                  <SignInButton />
+                  <LoginButton />
                 </div>
               )}
             </ul>

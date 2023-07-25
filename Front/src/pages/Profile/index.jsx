@@ -1,25 +1,35 @@
 import { useState, useEffect } from "react";
-import { getUserInfo } from "../../redux/userSlice";
-import { useSelector, useDispatch } from "react-redux";
 import EditableField from "./EditableField";
 import { ClimbingBoxLoader } from "react-spinners";
-const Profile = () => {
-    const dispatch = useDispatch();
-    const { status, data } = useSelector((state) => state.user);
-    const [userData, setUserData] = useState({
-        name: data.name,
-        email: data.email,
-        password: data.password,
-        date_of_birth: data.date_of_birth,
-        dni: data.dni,
-        address: data.address,
-        username: data.username,
-        phone_number: data.phone_number
-    });
+import axios from "axios";
+import AWN from "awesome-notifications"
+import ModalChangePassword from "./ModalChangePassword";
+const notifier = new AWN();
 
-    const handleSubmit = (e) => {
+const formatDate = (dateInput) => {
+    const date = new Date(dateInput);
+
+    const day = date.getUTCDate();
+    const month = date.getUTCMonth() + 1;
+    const year = date.getUTCFullYear();
+
+    return `${day < 10 ? "0" : ""}${day}-${month < 10 ? "0" : ""}${month}-${year}`;
+}
+
+
+const Profile = () => {
+    const [userData, setUserData] = useState(null);
+    const [showModalChangePassword, setShowModalChangePassword] = useState(false);
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(userData);
+        const headers = {
+            Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+        };
+        await notifier.asyncBlock(axios.patch(`https://nocountrybackend.onrender.com/api/v1/users/${sessionStorage.getItem('userId')}/updateUser`, userData, { headers }),
+            "Datos actualizados correctamente",
+            err => { console.log(err); notifier.alert('Hubo un error al intentar actualizar los datos') },
+            "Actualizando datos..."
+        )
     }
 
     const handleInputChange = (e) => {
@@ -30,12 +40,21 @@ const Profile = () => {
         });
     };
     useEffect(() => {
-        dispatch(getUserInfo());
-    }, [dispatch]);
+
+        const getUserbyId = async () => {
+            const headers = {
+                Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+            };
+            const response = await axios.get(`https://nocountrybackend.onrender.com/api/v1/users/${sessionStorage.getItem('userId')}
+            `, { headers })
+            setUserData(response.data)
+        }
+        getUserbyId();
+    }, []);
 
     return (
         <div className="bg-gray w-full rounded-lg p-24">
-            {status == "loading" ?
+            {userData === null ?
                 <div className="flex flex-row justify-center items-center h-full">
                     <ClimbingBoxLoader color="white" />
                 </div> :
@@ -46,16 +65,20 @@ const Profile = () => {
                             <EditableField name="name" label="Nombre" value={userData.name} onChangeHandler={handleInputChange} type="text" editable={false} />
                             <EditableField name="dni" label="DNI" value={userData.dni} onChangeHandler={handleInputChange} type="number" editable={false} />
                             <EditableField name="address" label="Dirección" value={userData.address} onChangeHandler={handleInputChange} type="text" editable={false} />
-                            <EditableField name="date_of_birth" label="Fecha de nacimiento" value={userData.date_of_birth} onChangeHandler={handleInputChange} type="text" editable={false} />
+                            <EditableField name="date_of_birth" label="Fecha de nacimiento" value={formatDate(userData.date_of_birth)} onChangeHandler={handleInputChange} type="text" editable={false} />
                         </div>
                         <div className="flex flex-col gap-8">
                             <EditableField name="username" label="Usuario" value={userData.username} regex={/^[a-zA-Z0-9_]{2,20}$/} errorMsg="Usuario inválido" onChangeHandler={handleInputChange} type="text" editable={true} />
                             <EditableField name="email" label="Correo electrónico" value={userData.email} regex={/^[^\s@]+@[^\s@]+\.[^\s@]+$/} errorMsg="Correo inválido" onChangeHandler={handleInputChange} type="text" editable={true} />
                             <EditableField name="phone_number" label="Teléfono" value={userData.phone_number} onChangeHandler={handleInputChange} type="number" editable={true} />
-                            {/* <EditableField name="password" label="Contraseña" value={userData.password} regex={/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/} errorMsg="Contraseña inválida" onChangeHandler={handleInputChange} type="password" editable={true} /> */}
+                            <div className="mb-10 self-start cursor-pointer ease-in duration-100 hover:text-yellow" onClick={() => setShowModalChangePassword(true)}>Cambiar contraseña</div>
+
                         </div>
                         <button type="submit" className="justify-self-start h-10 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-orange hover:bg-yellow hover:text-dark focus:shadow-outline focus:outline-none">Actualizar datos</button>
                     </form>
+                    {showModalChangePassword && (
+                        <ModalChangePassword setShowModalChangePassword={setShowModalChangePassword} />
+                    )}
                 </>
             }
         </div>

@@ -1,8 +1,10 @@
+import { TitleFooter } from "./BoxClases"
+
 const BoxCopyright = () => {
     return(
         <div className="bg-gray-300">
         <div className="container px-5 py-4 mx-auto">
-          <p className="text-sm text-gray-700 capitalize xl:text-center">
+          <p className={TitleFooter}>
             © 2023 All rights reserved No Country
           </p>
         </div>

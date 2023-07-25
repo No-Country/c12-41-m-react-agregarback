@@ -1,44 +1,55 @@
 import { useState } from "react";
-import {useSelector, useDispatch} from 'react-redux'
-import ModalContact from "./ModalContact"
+import { useDispatch, useSelector } from "react-redux";
+import { getStatus } from "../../redux/userSlice";
+import useFetch from "../../utils/useFetch";
 import ContactCard from "./ContactCard";
-import { useEffect } from "react";
-import { getAllContact, getStatus} from "../../redux/userSlice";
+import FormAndListContac from "./FormAndListContac";
+import ModalContact from "./ModalContact";
 
 const ListContactTransfer = () => {
   const dispatch = useDispatch();
   const userStatus = useSelector(getStatus);
-  const [open, setOpen]=useState(false)
-  
-  useEffect(() => {
-    if (userStatus === 'idle'){
-      dispatch(getAllContact());
-    }
-  }, [userStatus])
-  
+  const [listOfContactsFiltered, setListOfContactsFiltered] = useState();
+  const [open, setOpen] = useState(false);
+
+  const userId = sessionStorage.userId;
+  const { data, error } = useFetch(`users_contacs/${userId}`);
+
+  // useEffect(() => {
+  //   if (userStatus === "idle") {
+  //     // dispatch(getAllContact());
+  //   }
+  // }, [userStatus]);
+
   return (
-    <div className="">
-      <div className="rounded-lg bg-gray h-full p-10">
-        <div className="bg-dark mx-auto max-w-sm shadow-lg rounded-lg overflow-hidden">
+    <div className="mb-10">
+      <div className="rounded-lg bg-gray">
+        <div className="bg-dark h-full grid mx-auto max-w-[650px] shadow-lg rounded-lg overflow-hidden">
           <div className="sm:flex sm:items-center px-2 py-4">
             <div className="flex-grow">
-              <h2 className="uppercase font-bold px-2 py-3 ">
+              <h2 className="uppercase text-yellow text-2xl font-bold px-2 py-3 ">
                 Contactos
               </h2>
-              <h3 className="font-normal px-1 py-3">
+              <h3 className="font-normal px-1 py-3 h-[80px]">
                 Transferí a un contacto de la agenda o a un nuevo destinatario
               </h3>
-              <input
-                type="text"
-                placeholder="Buscar en la agenda"
-                className="my-2 w-full text-sm bg-grey-light text-gray rounded h-10 p-3 focus:outline-none"
+              <FormAndListContac
+                contacts={data.contacts}
+                setListOfContactsFiltered={setListOfContactsFiltered}
               />
-              <ContactCard />
+              <ContactCard
+                setCurrentContact={""}
+                contacts={listOfContactsFiltered || data.contacts}
+                error={error}
+              />
             </div>
           </div>
-          <div className="sm:flex bg-grey-light sm:items-center px-2 py-4">
+          <div className="sm:flex bg-grey-light sm:items-center px-2 py-4 self-end mb-5">
             <div className="flex-grow text-center">
-              <button className="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-orange hover:bg-yellow hover:text-dark focus:shadow-outline focus:outline-none" onClick={()=>setOpen(true)}>
+              <button
+                className="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-orange hover:bg-yellow hover:text-dark focus:shadow-outline focus:outline-none"
+                onClick={() => setOpen(true)}
+              >
                 Nuevo Contacto
               </button>
               {open && <ModalContact setOpen={setOpen} />}

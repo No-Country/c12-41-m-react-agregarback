@@ -365,10 +365,9 @@ Si sospechas que has sido víctima de una estafa o fraude, te recomendamos que t
   ];
 
   return (
-    <main className="flex flex-col  items-center min-h-screen bg-Qa-bg bg-auto   relative">
-    <div className="absolute bg-gradient-to-t from-dark from-55% via-gray via-10% to-dark to-35% opacity-95 h-full w-full"></div>
-    <div className="z-10  md:w-3/5 w-full flex flex-col text-center">
-      <h2 className="md:text-4xl  text-2xl font-bold text-orange mt-5 text-center">
+    <main className="flex flex-col  items-center min-h-screen bg-gradient-to-t from-dark via-gray to-dark relative">
+    <div className="z-10  xl:w-4/5 md:3/5 w-full flex flex-col text-center duration-300">
+      <h2 className="xl:text-4xl  md:text-3xl text-2xl font-bold text-orange mt-5 text-center">
         <span className="bg-gradient-to-r from-yellow to-orange text-transparent bg-clip-text">
           Preguntas Frecuentes
         </span>
@@ -396,12 +395,12 @@ const FaqItem = ({ question, content }) => {
   };
 
   return (
-    <div className="flex flex-col border-dark border my-2 rounded-xl">
+    <div className="flex flex-col border-dark border my-2 rounded-xl transition-all duration-500">
     <div
       className="flex justify-between px-6 items-center h-[46px] cursor-pointer hover:bg-gray transition-colors rounded-xl"
       onClick={toggleOpen}
     >
-      <h3 className="text-orange text-left md:text-xl">{question}</h3>
+      <h3 className="text-orange text-left lg:text-xl md:text-base">{question}</h3>
       {isOpen ? (
         <AiOutlineMinus className="fill-orange md:w-6 md:h-6 transition-all ease-in duration-300" />
       ) : (

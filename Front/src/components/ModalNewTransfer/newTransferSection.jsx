@@ -1,32 +1,41 @@
 import { useState } from "react";
+import useFetch from "../../utils/useFetch";
 import ContactCard from "./ContactCard";
+import FormAndListContac from "./FormAndListContac";
 import ModalForNewTransfer from "./ModalForNewTransfer";
 
 const Transfer = () => {
   const [currentContact, setCurrentContact] = useState();
   const [isModalActive, setIsModalActive] = useState(false);
+  const [listOfContactsFiltered, setListOfContactsFiltered] = useState();
+
+  const userId = sessionStorage.userId;
+  const { data, error } = useFetch(`users_contacs/${userId}`);
 
   return (
-    <div className="">
-      <div className="rounded-lg bg-gray h-full p-10">
-        <div className="bg-dark h-full mx-auto max-w-sm shadow-lg rounded-lg overflow-hidden">
-          <div className="sm:flex sm:items-center px-2 py-4">
-            <div className="">
-              <h2 className="font-bold px-2 py-3 leading-tight">
+    <div className="mb-10">
+      <div className="rounded-lg bg-gray">
+        <div className="bg-dark h-full grid mx-auto max-w-[650px] shadow-lg rounded-lg overflow-hidden">
+          <div className="sm:flex sm:items-center justify-center px-2 py-4">
+            <div className="w-full">
+              <h2 className="font-bold px-2 py-3 leading-tight uppercase text-yellow text-2xl">
                 Transferencias
               </h2>
-              <h3 className="font-normal px-1 py-3">
+              <h3 className="font-normal px-1 py-3 h-[80px]">
                 Transfiere a un contacto de manera rapida y segura
               </h3>
-              <input
-                type="text"
-                placeholder="Buscar en la agenda"
-                className="my-2 w-full text-sm bg-grey-light text-gray rounded h-10 p-3 focus:outline-none"
+              <FormAndListContac
+                contacts={data.contacts}
+                setListOfContactsFiltered={setListOfContactsFiltered}
               />
-              <ContactCard setCurrentContact={setCurrentContact} />
+              <ContactCard
+                setCurrentContact={setCurrentContact}
+                contacts={listOfContactsFiltered || data.contacts}
+                error={error}
+              />
             </div>
           </div>
-          <div className="sm:flex bg-grey-light items-center justify-center px-2 py-4">
+          <div className="sm:flex bg-grey-light items-center justify-center px-2 py-4 mb-5 self-end">
             <button
               onClick={() => setIsModalActive(true)}
               className="inline-flex items-center justify-center h-12 px-6 mx-auto font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-orange hover:bg-yellow hover:text-dark focus:shadow-outline focus:outline-none"
