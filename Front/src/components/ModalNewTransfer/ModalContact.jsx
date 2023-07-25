@@ -86,8 +86,6 @@ const ModalContact = function ({ setOpen } ) {
                     <div>
                         <h1 className="text-base font-bold  text-white block mb-2">Elige como quieres agregar al nuevo contacto</h1>
                         <div className='grid grid-cols-2 gap-2'>
-           
-           
                         <Select value={selectedOption} onChange={handleOptionChange} options={options} />
                         <input type="text" name="account" value={account} onChange={handleInputChange} className="peer placeholder-transparent py-3 mb-4 w-full border-b-2 border-yellow  bg-gray text-white focus:outline-none focus:border-yellow" required="" />
                     </div>
