@@ -13,7 +13,7 @@ const ProtectedLayout = () => {
       <SideNavLanding />
       <div
         id="navContainer"
-        className="flex bg-dark sm:p-3 h-full gap-4 relative"
+        className="flex bg-dark md:p-3 h-full gap-4 relative"
       >
         <NavMenu />
         <Outlet />
