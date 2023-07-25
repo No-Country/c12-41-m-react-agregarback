@@ -38,7 +38,7 @@ const ModalNewAccount = ({ setShowNewAccountModal, accounts }) => {
         <>
             <div className="h-screen w-screen fixed top-0 left-0 z-50 flex justify-center items-center bg-[rgba(1,1,1,0.6)]">
                 <div className="w-[350px] rounded-lg bg-dark p-3 flex flex-col gap-6">
-                    <FiXCircle className="self-end text-3xl" onClick={() => setShowNewAccountModal(false)} />
+                    <FiXCircle className="self-end text-3xl cursor-pointer" onClick={() => setShowNewAccountModal(false)} />
                     <h3 className="font-semibold">SOLICITUD DE APERTURA DE NUEVA CUENTA</h3>
                     <div className="pb-6">
                         {remainingAccounts.length == 0 ? "Usted ya ha solicitado todos los tipos de cuenta disponibles (cuenta en soles, pesos y dólares)" :

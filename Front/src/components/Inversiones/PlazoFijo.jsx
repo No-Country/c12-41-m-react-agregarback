@@ -4,9 +4,7 @@ import PlazoFijoModal from "./PlazoFijoModal";
 const plazoFijo = () => {
 
     const ejemplosTasasInteres = [
-        { plazo: "30 días", tasa: 2.5 },
-        { plazo: "60 días", tasa: 2.8 },
-        { plazo: "90 días", tasa: 3.0 },
+        { plazo: "365 días", tasa: 97.3 },
     ];
 
 
@@ -23,13 +21,13 @@ const plazoFijo = () => {
                 <h3 className="text-lg font-semibold mb-2">Ejemplos de Tasas de Interés</h3>
                 <ul className="list-disc list-inside">
                     {ejemplosTasasInteres.map((ejemplo, index) => (
-                        <li key={index}>
-                            <span className="font-semibold">{ejemplo.plazo}: </span>
+                        <li className="p-3 opacity-50 text-sm list-none" key={index}>
+                            <span>{ejemplo.plazo}: </span>
                             {ejemplo.tasa} % {/* Muestra los ejemplos de tasas de interés */}
                         </li>
                     ))}
                 </ul>
-              
+
                 <PlazoFijoModal data={PlazoFijoModal} />
 
             </div>

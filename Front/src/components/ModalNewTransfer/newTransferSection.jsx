@@ -13,15 +13,15 @@ const Transfer = () => {
   const { data, error } = useFetch(`users_contacs/${userId}`);
 
   return (
-    <div className="">
-      <div className="rounded-lg bg-gray h-full">
-        <div className="bg-dark h-full grid mx-auto max-w-sm shadow-lg rounded-lg overflow-hidden">
+    <div className="mb-10">
+      <div className="rounded-lg bg-gray">
+        <div className="bg-dark h-full grid mx-auto max-w-[650px] shadow-lg rounded-lg overflow-hidden">
           <div className="sm:flex sm:items-center justify-center px-2 py-4">
             <div className="w-full">
-              <h2 className="font-bold px-2 py-3 leading-tight uppercase">
+              <h2 className="font-bold px-2 py-3 leading-tight uppercase text-yellow text-2xl">
                 Transferencias
               </h2>
-              <h3 className="font-normal px-1 py-3">
+              <h3 className="font-normal px-1 py-3 h-[80px]">
                 Transfiere a un contacto de manera rapida y segura
               </h3>
               <FormAndListContac

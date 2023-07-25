@@ -17,13 +17,8 @@ const InversionesContent = () => {
 
     return isLoaded ? (
         <section className="grid lg:grid-cols-2 overflow-hidden p-3 pt-16 gap-4">
-            {/* Plazo Fijo */}
             <PlazoFijo />
-
-            {/* Super Fondos */}
             <SuperFondos />
-
-            {/* Acciones y Bonos */}
             <Dolar />
         </section>
     ) : (
