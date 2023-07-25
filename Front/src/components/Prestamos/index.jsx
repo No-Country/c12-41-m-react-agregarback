@@ -157,75 +157,75 @@ import "awesome-notifications/dist/style.css";
           </form>
         ) : showSimutartorSolitud ? (
           <form className="border-1 relative min-h-max flex justify-center items-center duration-1000 ease-out">
-            <div className="md:w-[1149px] md:h-max w-[393px] h-[367px] bg-[#312626] bg-opacity-50 rounded-[47px] transition-all duration-[2000ms] grid grid-rows-2 gap-4 items-center ">
+            <div className="md:w-[1149px] md:h-max  bg-[#312626] bg-opacity-50 rounded-[47px] transition-all duration-[2000ms] grid grid-rows-2 gap-4 items-center ">
               <div className="flex flex-col justify-center items-center w-2/3 m-auto ">
-                <h2 className="relative text-center text-4xl uppercase">
+                <h2 className="relative text-center xl:text-4xl lg:text-3xl md:text-2xl text-lg uppercase mt-2">
                   <span className="bg-gradient-to-r from-yellow to-orange text-transparent bg-clip-text font-bold">
                     Con el calculador podes conocer tus posibilidades
                   </span>
                 </h2>
-                <h3 className="text-2xl mt-3 w-3/4">
+                <h3 className="lg:text-2xl md:text-lg text-base mt-3 w-3/4">
                   Calculá un préstamo a tu medida y concreta todos tus proyectos
                   fácilmente
                 </h3>
               </div>
 
-              <div className="bg-[#1A1919] m-auto w-3/4 h-[237px] flex flex-col items-center rounded-md shadow-md">
-                <div className="bg-orange-navmenu w-full h-20 rounded-t-md flex justify-between px-5">
-                  <p className="text-dark w-1/2 md:text-3xl text-2xl flex justify-left items-center h-full">
+              <div className="bg-[#1A1919] m-auto w-3/4 lg:h-[237px] md:h-[167px] h-[120px] flex flex-col items-center rounded-md shadow-md">
+                <div className="bg-orange-navmenu w-full xl:h-20 lg:h-1/2 md:h-1/2 h-3/5 rounded-t-md flex justify-between px-5 lg:text-3xl md:text-xl text-base ">
+                  <p className="text-dark w-1/2 xl:text-3xl lg:text-xl md:text-base text-sm flex justify-left items-center h-full">
                     Importe a solicitar
                   </p>
                   <input
                     type="text"
                     value={"$" + rangeImporteValue}
                     onChange={handleTextImporteChange}
-                    className="capitalize border-b-2 w-full h-4/5 text-dark md:text-3xl text-2xl flex justify-end items-center bg-transparent text-right outline-none"
+                    className="capitalize border-b-2 xl:w-full  lg:w-max  md:w-1/2 w-2/3  lg:h-4/5 md:h-3/4 h-4/5 text-dark lg:text-3xl md:text-xl text-base  flex justify-end items-center bg-transparent text-right outline-none"
                     id="ImporteSolicitado"
                   />
                 </div>
                 <div className="w-2/3 flex items-center h-full flex-col justify-center">
                   <input
                     type="range"
-                    className="w-full h-5 bg-orange-navmenu appearance-none cursor-pointer rounded-full focus:outline-none focus-visible:ring text-dark focus-visible:ring-dark focus-visible:ring-opacity-50"
+                    className="w-full lg:h-5 md:h-3 h-1  bg-orange-navmenu appearance-none cursor-pointer rounded-full focus:outline-none focus-visible:ring text-dark focus-visible:ring-dark focus-visible:ring-opacity-50"
                     value={rangeImporteValue}
                     onChange={handleRangeImporteChange}
                     min="2000" // Valor mínimo permitido
                     max="20000" // Valor máximo permitido
                   />
-                  <div className="flex w-full justify-between mt-3">
+                  <div className="flex w-full justify-between mt-3 md:text-base text-xs">
                     <p>$ 2.000</p>
                     <p>$ 20.000</p>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-[#1A1919] mx-auto  w-3/4 h-[237px] flex flex-col items-center rounded-md shadow-md">
-                <div className="bg-orange-navmenu w-full h-20 rounded-t-md flex justify-between px-5">
+              <div className="bg-[#1A1919] mx-auto  w-3/4 lg:h-[237px] md:h-[167px] h-[120px]  flex flex-col items-center rounded-md shadow-md">
+                <div className="bg-orange-navmenu w-full xl:h-20 lg:h-1/2 md:h-1/2 h-3/5 rounded-t-md flex justify-between px-5">
                   <div className="w-1/2">
-                    <p className="text-dark w-full md:text-3xl text-2xl flex justify-left items-center h-2/2">
+                    <p className="text-dark w-full xl:text-3xl lg:text-xl md:text-base text-sm flex justify-left items-center h-max  ">
                       Cantidad de cuotas
                     </p>
-                    <p className="text-gray opacity-75 uppercase w-full md:text-md text-cm flex justify-left items-center h-1/3">
+                    <p className="text-gray opacity-75 uppercase w-full md:text-md text-xs flex justify-left items-center lg:h-1/3 md:h-1/2">
                       t.n.a: {calcularTNA(tasaInteres, rangeCuotaValue)}%
                     </p>
                   </div>
                   <input
                     type="text"
                     value={rangeCuotaValue}
-                    className="capitalize border-b-2 w-full h-4/5 text-dark md:text-3xl text-2xl flex justify-end items-center bg-transparent text-right outline-none"
+                    className="capitalize border-b-2  xl:w-full  lg:w-max  md:w-1/2 w-2/3   lg:h-4/5 md:h-3/4 h-4/5 text-dark lg:text-3xl md:text-xl text-base flex justify-end items-center bg-transparent text-right outline-none"
                     onChange={handleTextCuotaChange}
                   />
                 </div>
                 <div className=" w-2/3 flex items-center h-full flex-col justify-center">
                   <input
                     type="range"
-                    className="w-full h-5 bg-orange-navmenu appearance-none cursor-pointer rounded-full focus:outline-none focus-visible:ring text-dark focus-visible:ring-dark focus-visible:ring-opacity-50"
+                    className="w-full lg:h-5 md:h-3 h-1 bg-orange-navmenu appearance-none cursor-pointer rounded-full focus:outline-none focus-visible:ring text-dark focus-visible:ring-dark focus-visible:ring-opacity-50"
                     value={rangeCuotaValue}
                     onChange={handleRangeCuotasChange}
                     min="3" // Valor mínimo permitido
                     max="72" // Valor máximo permitido
                   />
-                  <div className="flex w-full justify-between mt-3">
+                  <div className="flex w-full justify-between mt-3 md:text-base text-xs">
                     <p>3</p>
                     <p>72</p>
                   </div>
@@ -233,13 +233,13 @@ import "awesome-notifications/dist/style.css";
               </div>
 
               <div className="bg-orange-navmenu w-3/4 py-3 flex justfy-center mx-auto rounded-md shadow-md">
-                <p className="text-dark w-1/2 md:text-3xl text-2xl flex justify-center items-center">
+                <p className="text-dark w-1/2 xl:text-3xl lg:text-xl md:text-base text-sm flex justify-center items-center">
                   Pago de la Primera Cuota
                 </p>
                 <span className="capitalize text-dark w-1/2 md:text-3xl text-2xl flex justify-center items-center">
                   <input
                     type="date"
-                    className="appearance-none  cursor-not-allowed w-2/3 px-4 py-2 outline-none focus:border-none rounded-md  shadow-sm focus:outline-none  focus:ring-orange focus:border-transparent bg-transparent"
+                    className="appearance-none  cursor-not-allowed w-2/2 md:w-2/3 l:text-3xl lg:text-xl md:text-base text-sm  px-4 py-2 outline-none focus:border-none rounded-md  shadow-sm focus:outline-none  focus:ring-orange focus:border-transparent bg-transparent"
                     value={fechaPrimerCuota}
                     onChange={handleFechaPrimerCuotaChange}
                     readOnly
@@ -249,10 +249,10 @@ import "awesome-notifications/dist/style.css";
 
               <div className="bg-[#1A1919] mx-auto  w-3/4 h-max py-[50px] flex flex-row justify-center items-center rounded-md shadow-md">
                 <div className="w-1/2 flex justify-center">
-                  <CgDanger className="w-10 h-10 text-orange-navmenu " />
+                  <CgDanger className="md:w-10 md:h-10 w-5 h-5 text-orange-navmenu " />
                 </div>
                 <div className="1/3 text-left">
-                  <p className="text-[20px]">
+                  <p className="xl:text-[20px] lg:text-[15px] md:text-[12px] text-[10px] ">
                     <strong className="text-orange-navmenu uppercase">
                       Informacion: {""}
                     </strong>
@@ -265,10 +265,10 @@ import "awesome-notifications/dist/style.css";
               </div>
 
               <div className="bg-orange-navmenu w-3/4 py-5 flex justfy-center mx-auto rounded-md shadow-md">
-                <p className="text-dark w-1/2 md:text-3xl text-2xl flex justify-center items-center">
+                <p className="text-dark w-1/2 xl:text-3xl lg:text-xl md:text-base text-sm flex justify-center items-center">
                   Motivo de Prestamo
                 </p>
-                <span className="capitalize text-dark w-1/2 md:text-3xl text-2xl flex justify-center items-center">
+                <span className="capitalize text-dark w-1/2 xl:text-3xl lg:text-xl md:text-base text-sm flex justify-center items-center">
                   <select
                    required
                     name=""
