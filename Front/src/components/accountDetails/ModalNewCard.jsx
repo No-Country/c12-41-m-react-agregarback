@@ -34,7 +34,7 @@ const ModalNewCard = ({ setShowNewCardModal, account }) => {
         <>
             <div className="h-screen w-screen fixed top-0 left-0 z-[200] flex justify-center items-center bg-[rgba(1,1,1,0.6)]">
                 <div className="w-[350px] rounded-lg bg-dark p-3 flex flex-col gap-6">
-                    <FiXCircle className="self-end text-3xl" onClick={() => setShowNewCardModal(false)} />
+                    <FiXCircle className="self-end text-3xl cursor-pointer" onClick={() => setShowNewCardModal(false)} />
                     <h3 className="font-semibold">SOLICITAR NUEVA TARJETA</h3>
                     <div className="pb-6">
 
