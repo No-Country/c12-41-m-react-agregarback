@@ -4,7 +4,7 @@ import { MdPayments } from 'react-icons/md';
 
 const Card = ({ title, description, icon }) => {
     return (
-        <div className="relative bg-dark py-6 px-6 rounded-3xl w-64 my-4 shadow-xl transition duration-300 transform hover:scale-105">
+        <div className="relative bg-dark py-6 px-6 w-60 rounded-3xl my-4 shadow-xl transition duration-300 transform hover:scale-105">
             <div className="mt-8">
                 <span className="flex items-center justify-center">
                     {icon}
@@ -81,7 +81,7 @@ const Nosotros = () => {
                     </div>
                 </section>
                 <div className="flex items-center justify-center">
-                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4">
+                    <div className="grid gap-6 grid-cols-[repeat(auto-fill,_minmax(260px,_1fr))] w-full justify-items-center">
                         <Card
                             title="Banca Móvil"
                             description="Accede a tus cuentas, haz transferencias, paga tus facturas y mucho más desde la app de AccessBank."
