@@ -37,11 +37,11 @@ const TokenModal = ({ setShowTokenModal }) => {
     }
     return (
         <>
-            <div className="h-screen w-screen fixed top-0 left-0 z-50 flex justify-center items-center bg-[rgba(1,1,1,0.6)]" >
-                <div className="w-full max-w-[350px] border-white border-2 rounded-lg bg-white p-3 text-dark flex flex-col gap-6" >
-                    <RiCloseLine className="self-end text-dark text-3xl" onClick={() => setShowTokenModal(false)} />
-                    <h3 className="font-semibold">Token de seguridad</h3>
-                    <div className="pb-6">{token}</div>
+            <div className="h-screen w-screen fixed top-0 left-0 z-50 flex justify-center items-center border-none bg-[rgba(1,1,1,0.6)]" >
+                <div className="w-full max-w-[350px] border-none border-2 rounded-lg bg-gradient-to-t from-yellow via-orange-navmenu to-[#d9ce23]  p-3 text-dark flex flex-col gap-6" >
+                    <RiCloseLine className="self-end text-[#d64c30] text-3xl" onClick={() => setShowTokenModal(false)} />
+                    <h3 className="font-bold uppercase">Token de seguridad</h3>
+                    <div className="pb-3">{token}</div>
                     <p className="pb-10">Tiempo restante: {counter}</p>
                 </div>
             </div>

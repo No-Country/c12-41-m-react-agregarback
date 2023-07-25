@@ -96,7 +96,7 @@ const Carousel = () => {
           }}
         >
           {titles.map((_, index) =>
-            <div className="mt-4 h-[90px] grid-grid-rows-[1fr_auto] h-full w-full rounded-lg p-4 flex-shrink-0" key={index}>
+            <div className="mt-4  grid-grid-rows-[1fr_auto] h-full w-full rounded-lg p-4 flex-shrink-0" key={index}>
               <h2 className="mb-5 font-sans text-2xl font-bold tracking-tight text-yellow sm:text-4xl sm:leading-none">{titles[index]}</h2>
               <p className="text-orange text-lg sm:text-2xl font-semibold bg-clip-text">{paragraphs[index]}</p>
             </div>
