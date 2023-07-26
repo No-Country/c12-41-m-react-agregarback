@@ -158,13 +158,13 @@ import "awesome-notifications/dist/style.css";
         ) : showSimutartorSolitud ? (
           <form className="border-1 relative min-h-max flex justify-center items-center duration-1000 ease-out">
             <div className="md:w-[1149px] md:h-max  bg-[#312626] bg-opacity-50 rounded-[47px] transition-all duration-[2000ms] grid grid-rows-2 gap-4 items-center ">
-              <div className="flex flex-col justify-center items-center w-2/3 m-auto ">
-                <h2 className="relative text-center xl:text-4xl lg:text-3xl md:text-2xl text-lg uppercase mt-2">
+              <div className="flex flex-col justify-center items-center xl:w-3/4 lg:w-4/5 md:w-5/6 m-auto ">
+                <h2 className="relative text-center xl:text-4xl lg:text-2xl md:text-lg text-base uppercase mt-2">
                   <span className="bg-gradient-to-r from-yellow to-orange text-transparent bg-clip-text font-bold">
                     Con el calculador podes conocer tus posibilidades
                   </span>
                 </h2>
-                <h3 className="lg:text-2xl md:text-lg text-base mt-3 w-3/4">
+                <h3 className="lg:text-2xl md:text-lg text-cm mt-3 w-3/4">
                   Calculá un préstamo a tu medida y concreta todos tus proyectos
                   fácilmente
                 </h3>
@@ -247,12 +247,12 @@ import "awesome-notifications/dist/style.css";
                 </span>
               </div>
 
-              <div className="bg-[#1A1919] mx-auto  w-3/4 h-max py-[50px] flex flex-row justify-center items-center rounded-md shadow-md">
-                <div className="w-1/2 flex justify-center">
-                  <CgDanger className="md:w-10 md:h-10 w-5 h-5 text-orange-navmenu " />
+              <div className="bg-[#1A1919] mx-auto  w-3/4 md:h-max h-4/5 py-[50px] flex lg:flex-row lg:justify-center flex-col items-center justify-center rounded-md shadow-md">
+                <div className="w-1/2 flex justify-center items-center">
+                  <CgDanger className="lg:w-10 lg:h-10 md:w-7 md:h-7 w-5 h-5 text-orange-navmenu " />
                 </div>
-                <div className="1/3 text-left">
-                  <p className="xl:text-[20px] lg:text-[15px] md:text-[12px] text-[10px] ">
+                <div className="md:w-full w-3/4  md:text-left text-center ">
+                  <p className="xl:text-[20px] lg:text-[15px] text-[12px] lg:text-left text-justify lg:px-0 px-2 ">
                     <strong className="text-orange-navmenu uppercase">
                       Informacion: {""}
                     </strong>
@@ -297,7 +297,7 @@ import "awesome-notifications/dist/style.css";
                 </span>
               </div>
               {motivoPrestamo === "" && (
-  <p className="text-red-500 text-center">
+  <p className="text-white text-center md:text-base text-xs">
     Seleccionar un <strong className="text-orange font-bold uppercase">Motivo es Obligatorio *</strong>
   </p>
 )}
