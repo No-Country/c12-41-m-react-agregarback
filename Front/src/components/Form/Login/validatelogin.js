@@ -8,9 +8,12 @@ export default function validationlogin(input) {
     const regexUsuario = /^[a-zA-Z0-9_]{6,20}$/;
     const regexPassword = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
-    if (!regexDNI.test(input.dni)) {
-        errors.dni = "Debe ingresar un numero de documento valido"
-    }
+    if (input.dni === "") {
+      } else if (!regexDNI.test(input.dni)) {
+        errors.dni = "Debe ingresar un numero de documento valido";
+      }
+   
+  
     if (!regexUsuario.test(input.usuario)) {
         errors.usuario = "Ingresa un Usuario alfanumerico"
     };

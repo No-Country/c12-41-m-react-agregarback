@@ -34,7 +34,7 @@ const ListContactTransfer = () => {
                 Transferí a un contacto de la agenda o a un nuevo destinatario
               </h3>
               <FormAndListContac
-                contacts={data.contacts}
+                contacts={data?.contacts}
                 setListOfContactsFiltered={setListOfContactsFiltered}
               />
               <ContactCard
