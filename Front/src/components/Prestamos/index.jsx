@@ -321,61 +321,61 @@ import "awesome-notifications/dist/style.css";
           </form>
         ) : (
           <div className="border-1 relative min-h-max flex justify-center items-center ease-out duration-1000">
-            <div className="md:w-[1149px] flex justify-center flex-col items-center md:h-max w-[393px] h-[367px] bg-[#312626] bg-opacity-50 rounded-[47px] transition duration-[1000ms]  ">
-              <div className="bg-[#1A1919] md:h-max md:w-3/4 justify-center rounded-md my-5 ease-out transition-all duration-1000">
+            <div className="md:w-[1149px] flex justify-center flex-col items-center md:h-max w-full h-[367px] md:bg-[#312626] bg-none bg-opacity-50 rounded-[47px] transition duration-[1000ms]  ">
+              <div className="bg-[#1A1919] md:h-max h-full lg:w-3/4 md:w-4/5  w-full justify-center rounded-md my-5 ease-out transition-all duration-1000">
                 <div className="flex justify-center w-full items-center m-auto text-left border-b-2 border-orange-navmenu">
                   <img
-                    src=" ./src/components/Icons/IconAccesBank.svg "
+                  viewBox="0 0 202 69" src="/logoab.svg"
                     alt="icon"
-                    className=" h-[150px] "
+                    className=" lg:h-[100px] md:h-[90px] mr-2 "
                   />
                   <div className="uppercase text-orange-navmenu text-left ">
-                    <p className="font-bold md:text-4xl">prestamo</p>
-                    <p className="font-thint md:text-xl opacity-50">personal</p>
+                    <p className="font-bold lg:text-4xl md:text-2xl text-lg">prestamo</p>
+                    <p className="font-thint lg:text-xl md:text-lg text-base opacity-50">personal</p>
                   </div>
 
                 </div>
 
-                <section className="w-3/4 m-auto h-max grid grid-flow-row gap-2 text-[22px] ">
-                  <div className="border-b-2 border-orange-navmenu w-full h-[53px] flex justify-start items-end  ">
+                <section className="w-3/4 m-auto h-max grid grid-flow-row lg:gap-1 gap-0 xl:text-[22px] lg:text-base  text-sm ">
+                  <div className="border-b-2 border-orange-navmenu w-full lg:h-[39px] h-[33px] flex justify-start items-end  ">
                     <p className="capitalize text-white text-left">
                     
                       datos del préstamo
                     </p>
                   </div>
-                  <div className="border-b-2 border-orange-navmenu w-full h-[53px] flex justify-between items-end  ">
+                  <div className="border-b-2 border-orange-navmenu w-full lg:h-[39px] h-[33px] flex justify-between items-end  ">
                     <p className="capitalize text-white">
                       
                       Importe neto a acreditar (1)
                     </p>
                     <p className=" text-white ">$ {rangeImporteValue.toFixed(2)}</p>
                   </div>
-                  <div className="border-b-2 border-orange-navmenu w-full h-[53px] flex justify-between items-end  ">
+                  <div className="border-b-2 border-orange-navmenu w-full lg:h-[39px] h-[33px] flex justify-between items-end  ">
                     <p className="capitalize text-white"> cuenta destino</p>
                     <p className=" text-white capitalize "> Cuenta Unica </p>
                   </div>
-                  <div className="border-b-2 border-orange-navmenu w-full h-[53px] flex justify-between items-end  ">
+                  <div className="border-b-2 border-orange-navmenu w-full lg:h-[39px] h-[33px] flex justify-between items-end  ">
                     <p className="capitalize text-white">
                       
                       cantidad de cuotas (2)
                     </p>
                     <p className=" text-white capitalize ">{rangeCuotaValue}</p>
                   </div>
-                  <div className="border-b-2 text-whit border-orange-navmenu w-full h-[53px] flex justify-between items-end  ">
+                  <div className="border-b-2 text-whit border-orange-navmenu w-full lg:h-[39px] h-[33px] flex justify-between items-end  ">
                     <p className="capitalize"> motivo del préstamo</p>
                     <p className={` capitalize ${
       motivoPrestamo ? "" : "text-orange font-bold uppercase"
     }`}
     >{motivoPrestamo ? motivoPrestamo : "Solicitud invalida"}</p>
                   </div>
-                  <div className="border-b-2 border-orange-navmenu w-full h-[53px] flex justify-between items-end  ">
+                  <div className="border-b-2 border-orange-navmenu w-full lg:h-[39px] h-[33px] flex justify-between items-end  ">
                     <p className="capitalize text-white">
                       
                       Datos de la primera cuota
                     </p>
                   </div>
-                  <div className="border-b-2 border-orange-navmenu w-full h-[53px] flex justify-between items-end  ">
-                    <p className="capitalize text-white">
+                  <div className="border-b-2 border-orange-navmenu w-full lg:h-[39px] h-[33px] flex justify-between items-end  ">
+                    <p className="capitalize text-white w-2/3 text-left">
                       
                       Importe primera cuota
                     </p>
@@ -387,19 +387,19 @@ import "awesome-notifications/dist/style.css";
                       className=" appearance-none pointer-events-none outline-none focus:border-none rounded-md  shadow-sm bg-transparent text-right"
                     />
                   </div>
-                  <div className="border-b-2 border-orange-navmenu w-full h-[53px] flex justify-between items-end   ">
+                  <div className="border-b-2 border-orange-navmenu w-full lg:h-[39px] h-[33px] flex justify-between items-end   ">
                     <p className="capitalize text-white"> Fecha de primer pago</p>
-                    <span className="flex justify-end text-right">
+                    <span className="flex justify-end text-right relative ">
                     <input
                       type="date"
-                      className="appearance-none pointer-events-none outline-none rounded-md   shadow-sm text-right bg-transparent  w-[146] "
+                      className="appearance-none pointer-events-none outline-none rounded-md absolute xl:top-[-26px] lg:top-[-22px] xl:right-[-24px] lg:right-[-22px] md:top-[-18px] md:right-[-18px] top-[-17px] right-[-18px] shadow-sm text-right bg-transparent  w-[146] "
                       value={fechaPrimerCuota}
                       onChange={handleFechaPrimerCuotaChange}
                       readOnly
                     />
                     </span>
                   </div>
-                  <div className="border-b-2 border-orange-navmenu w-full h-[53px] mt-2 flex justify-between items-end  ">
+                  <div className="border-b-2 border-orange-navmenu w-full lg:h-[39px] h-[33px] mt-2 flex justify-between items-end  ">
                     <p className="capitalize text-white w-1/2 text-left">
                       
                       Capital e intereses compesatorios del periodo
@@ -407,41 +407,41 @@ import "awesome-notifications/dist/style.css";
                     <p className=" text-white capitalize "> $ {interesCompe}</p>
                       
                   </div>
-                  <div className="border-b-2 border-orange-navmenu w-full h-[53px] flex justify-between items-end  ">
+                  <div className="border-b-2 border-orange-navmenu w-full lg:h-[39px] h-[33px] flex justify-between items-end  ">
                     <p className="uppercase text-white"> iva</p>
                     <p className=" text-white capitalize ">$ {interesCompeIva}</p>
                   </div>
-                  <div className="border-b-2 border-orange-navmenu w-full h-[53px] flex justify-between items-end  ">
+                  <div className="border-b-2 border-orange-navmenu w-full lg:h-[39px] h-[33px] flex justify-between items-end  ">
                     <p className="capitalize text-white"> Otros Impuestos (3)</p>
                     <p className=" text-white capitalize ">$ {InteresIbbYSellos}</p>
                   </div>
-                  <div className="border-b-2 border-orange-navmenu w-full h-[53px] flex justify-between items-end  ">
+                  <div className="border-b-2 border-orange-navmenu w-full lg:h-[39px] h-[33px] flex justify-between items-end  ">
                     <p className="capitalize text-white"> Tasas</p>
                   </div>
-                  <div className="border-b-2 border-orange-navmenu w-full h-[53px] flex justify-between items-end  ">
+                  <div className="border-b-2 border-orange-navmenu w-full lg:h-[39px] h-[33px] flex justify-between items-end  ">
                     <p className="uppercase text-white"> Tipo de tasa</p>
                     <p className=" text-white capitalize ">Fija</p>
                   </div>
 
-                  <div className="border-b-2 border-orange-navmenu w-full h-[53px] flex justify-between items-end  ">
+                  <div className="border-b-2 border-orange-navmenu w-full lg:h-[39px] h-[33px] flex justify-between items-end  ">
                     <p className="capitalize text-white">
                       
                       tasa nominal anual (T.N.A)
                     </p>
                     <p className=" text-white capitalize "> {calcularTNA(tasaInteres, rangeCuotaValue)}%</p>
                   </div>
-                  <div className="border-b-2 border-orange-navmenu w-full h-[53px] flex justify-between items-end  ">
+                  <div className="border-b-2 border-orange-navmenu w-full lg:h-[39px] h-[33px] flex justify-between items-end  ">
                     <p className="capitalize text-white">
                       
                       tasa efectiva anual (T.E.A)
                     </p>
                     <p className=" text-white capitalize "> {tea.toFixed(2)} %</p>
                   </div>
-                  <div className="w-full bg-[#322F2F] rounded-md h-full flex justify-center items-center my-1 p-2">
+                  <div className="w-full bg-[#322F2F] rounded-md h-full flex md:justify-center items-center flex-col md:flex-row my-2 p-2">
                     <div className="h-full w-1/4 flex items-center justify-center">
-                      <CgDanger className="text-orange-navmenu h-12 w-12  " />
+                      <CgDanger className="text-orange-navmenu lg:h-12 lg:w-12  md:h-8 md:w-8 h-7 w-8 " />
                     </div>
-                    <div className="w-fit h-fit text-[15px] text-left">
+                    <div className="w-fit h-fit lg:text-[13px] md:text-[9px]   text-[10px]  text-left ">
                       <span className="text-orange-navmenu font-bold">
                         Resumen de términos y condiciones.
                       </span>
@@ -471,15 +471,15 @@ import "awesome-notifications/dist/style.css";
                     </div>
                   </div>
 
-                  <div className="my-3 flex justify-evenly w-full items-center  ">
+                  <div className="my-4 flex justify-evenly w-full items-center  ">
                     <button
-                      className="border-4 border-orange-navmenu duration-[1000ms] bg-transparent text-orange-navmenu md:text-[24px] text-cm md:py-2 md:px-6 px-4 py-1 rounded-full hover:bg-orange-navmenu hover:text-dark"
+                      className="border-4 border-orange-navmenu duration-[1000ms] bg-transparent text-orange-navmenu lg:text-[18px] md:text-cm text-xs md:py-2 md:px-6 px-4 py-1 rounded-full hover:bg-orange-navmenu hover:text-dark"
                       onClick={handleButtonSoliClick}
                     >
                       Cancelar
                     </button>
                     <button
-                      className="border-4 border-orange-navmenu duration-[1000ms] capitalize bg-orange-navmenu text-dark md:text-[24px] text-cm md:py-2 md:px-10 px-4 py-1 rounded-full hover:bg-transparent hover:text-orange"
+                      className="border-4 border-orange-navmenu duration-[1000ms] capitalize bg-orange-navmenu text-dark lg:text-[18px] md:text-cm text-xs md:py-2 md:px-8 px-4 py-1 rounded-full hover:bg-transparent hover:text-orange"
                       onClick={() => {
     handleButtonClick();
     handleSuccesNotificacion();
