@@ -39,8 +39,8 @@ const BankProducts = () => {
           </div>
         </div>
       </section>
-      <div className="flex items-center justify-center">
-        <div className="grid w-full gap-6 grid-cols-[repeat(auto-fill,_minmax(280px,_1fr))]">
+      <div className="flex items-center lg:justify-center justify-evenly  w-full">
+        <div className="grid xl:w-full w-3/4 xl:gap-6 lg:gap-10  xl:grid-cols-4 lg:grid-cols-2 justify-center items-center xl:grid-rows-2 lg:grid-rows-3  md:grid-cols-1  md:grid-rows-4 duration-1000 transition-all ease-in-out">
           <Card
             title="Cajas de Ahorro"
             description="Maneja tus finanzas con total
@@ -95,7 +95,7 @@ const BankProducts = () => {
           <Card
             title="Depósitos"
             description="Recibe depósitos de dinero en efectivo o cheques electrónicos. Gozan de una disponibilidad inmediata."
-            icon={<FaMoneyCheckAlt size={50} color="orange" />}
+            icon={<FaMoneyCheckAlt size={50} color="yellow" />}
           />
         </div>
       </div>

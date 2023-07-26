@@ -177,7 +177,7 @@ const ModalForNewTransfer = ({
             infoForTransfer={infoForTransfer}
             errors={errors?.validationValue}
           />
-          <button className="w-full mx-2 max-w-[250px] bg-orange text-white hover:bg-dark hover:text-yellow rounded-md shadow-xl py-3 my-5">
+          <button className="w-full mx-2 place-self-center max-w-[250px] bg-orange text-white hover:bg-dark hover:text-yellow rounded-md shadow-xl py-3 my-5">
             Realizar transferencia
           </button>
         </form>

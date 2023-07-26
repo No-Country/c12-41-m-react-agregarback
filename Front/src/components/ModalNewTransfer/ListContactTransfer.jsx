@@ -9,7 +9,7 @@ import ModalContact from "./ModalContact";
 const ListContactTransfer = () => {
   const dispatch = useDispatch();
   const userStatus = useSelector(getStatus);
-  const [listOfContactsFiltered, setListOfContactsFiltered] = useState()
+  const [listOfContactsFiltered, setListOfContactsFiltered] = useState();
   const [open, setOpen] = useState(false);
 
   const userId = sessionStorage.userId;
@@ -23,16 +23,18 @@ const ListContactTransfer = () => {
 
   return (
     <div className="mb-10">
-      <div className="rounded-lg bg-gray h-full">
+      <div className="rounded-lg bg-gray">
         <div className="bg-dark h-full grid mx-auto max-w-[650px] shadow-lg rounded-lg overflow-hidden">
           <div className="sm:flex sm:items-center px-2 py-4">
             <div className="flex-grow">
-              <h2 className="uppercase font-bold px-2 py-3 ">Contactos</h2>
-              <h3 className="font-normal px-1 py-3">
+              <h2 className="uppercase text-yellow text-2xl font-bold px-2 py-3 ">
+                Contactos
+              </h2>
+              <h3 className="font-normal px-1 py-3 h-[80px]">
                 Transferí a un contacto de la agenda o a un nuevo destinatario
               </h3>
               <FormAndListContac
-                contacts={data.contacts}
+                contacts={data?.contacts}
                 setListOfContactsFiltered={setListOfContactsFiltered}
               />
               <ContactCard

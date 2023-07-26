@@ -1,18 +1,76 @@
-input[type=range]::-webkit-slider-thumb{
+/* Estilos base para WebKit (Chrome, Safari) */
+input[type=range]::-webkit-slider-thumb {
     width: 35px;
     height: 35px;
     background-color: #1A1A1A;
     border-radius: 100%;
     -webkit-appearance: none;
-    border:none;
+    border: none;
     position: relative;
     border: 10px #FEC00F solid;
 }
 
-input[type=range]::-moz-range-thumb{
+/* Estilos base para Mozilla (Firefox) */
+input[type=range]::-moz-range-thumb {
     width: 40px;
     height: 40px;
     background-color: orange;
     border-radius: 100%;
-    border:none;
+    border: none;
+}
+
+/* Reglas adicionales para tamaños de pantalla específicos */
+
+/* Para pantallas pequeñas */
+@media screen and (max-width: 500px) {
+    input[type=range]::-webkit-slider-thumb {
+        width: 10px;
+        height: 10px;
+        border-width: 2px;
+    }
+
+    input[type=range]::-moz-range-thumb {
+        width: 30px;
+        height: 30px;
+    }
+}
+@media screen and (max-width: 768px) {
+    input[type=range]::-webkit-slider-thumb {
+        width: 25px;
+        height: 25px;
+        border-width: 6px;
+    }
+
+    input[type=range]::-moz-range-thumb {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+/* Para pantallas medianas */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    input[type=range]::-webkit-slider-thumb {
+        width: 30px;
+        height: 30px;
+        border-width: 8px;
+    }
+
+    input[type=range]::-moz-range-thumb {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+/* Para pantallas grandes */
+@media screen and (min-width: 1024px) {
+    input[type=range]::-webkit-slider-thumb {
+        width: 30px;
+        height: 30px;
+        border-width: 8px;
+    }
+
+    input[type=range]::-moz-range-thumb {
+        width: 55px;
+        height: 55px;
+    }
 }

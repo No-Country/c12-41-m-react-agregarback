@@ -1,9 +1,8 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink } from "react-router-dom";
 
 const Home = () => {
   return (
     <div>
-
       <div className="relative flex flex-col-reverse py-16 lg:pt-0 lg:flex-col lg:pb-0 bg-dark">
         <div className="inset-y-0 top-0 right-0 z-0 w-full max-w-xl px-4 mx-auto md:px-0 lg:pr-0 lg:mb-0 lg:mx-0 lg:w-7/12 lg:max-w-full lg:absolute xl:px-0">
           <svg
@@ -19,30 +18,19 @@ const Home = () => {
             alt=""
           />
         </div>
-        <div className="relative flex flex-col items-start w-full max-w-xl px-4 mx-auto md:px-0 lg:px-8 lg:max-w-screen-xl">
-          <div className="mb-16 lg:my-40 lg:max-w-lg lg:pr-5">
-            <h2 className="mb-5 font-sans text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none">
-              Accesibilidad y{" "}
-              <br className="hidden md:block" />
-              cuidado de su dinero{' '}
-
+        <div className="relative flex flex-col items-start lg:w-full  max-w-xl px-4 mx-auto md:px-0 lg:px-8 lg:max-w-screen-xl">
+          <div className="mb-16 lg:my-40 lg:max-w-lg lg:pr-5 ">
+            <h2 className="mb-5 font-sans text-3xl  font-bold tracking-tight text-white sm:text-4xl sm:leading-none ">
+              <span className="bg-gradient-to-r from-yellow to-orange text-transparent bg-clip-text">
+                Accesibilidad y <br className="hidden md:block" />
+                cuidado de su dinero{" "}
+              </span>
             </h2>
-
-
-            <div className="flex items-center">
-              <NavLink to="/signup" className="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-orange hover:bg-yellow hover:text-dark focus:shadow-outline focus:outline-none">
-                Crear cuenta
-              </NavLink>
-              <NavLink to="/login" className="bg-transparent inline-flex justify-center font-medium text-yellow  hover:bg-white hover:text-dark hover: rounded shadow hover:shadow-lg  h-12 items-center  px-6 border border-yellow hover:border-white">
-                Iniciar sesión
-              </NavLink>
-            </div>
           </div>
         </div>
       </div>
-
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
