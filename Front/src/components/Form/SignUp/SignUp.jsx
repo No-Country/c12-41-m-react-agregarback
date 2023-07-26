@@ -63,11 +63,18 @@ function SignUp() {
             <div className="bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
                 <div className="relative py-3 max-w-4xl  sm:mx-auto">
                     <div className="absolute inset-0 bg-gradient-to-r from-orange to-yellow shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"></div>
-                    
-                        <div className="relative px-4 py-10 bg-gray shadow-lg  sm:rounded-3xl sm:p-20">
-                            <form onSubmit={handleRegisterSubmit}
-                                className="grid grid-cols-2   gap-1">
-                                <div className="w-full max-w-xs p-10">
+
+                    <div className="relative px-4 py-10 bg-gray shadow-lg  sm:rounded-3xl sm:p-20">
+                        <div className='flex items-center justify-center'>
+                            <img
+                                src="https://res.cloudinary.com/academia/image/upload/v1688654002/logo-accessBank_pg8pec.png"
+                                className="h-[75px] mr-3"
+                                alt="AccessBank Logo"
+                            />
+                        </div>
+                        <form onSubmit={handleRegisterSubmit}
+                            className="grid grid-cols-2   gap-1">
+                            <div className="w-full max-w-xs p-10">
                                 <div className="relative">
                                     <input
                                         className="peer placeholder-transparent h-10 w-full border-b-2 border-yellow  bg-gray text-white focus:outline-none focus:border-yellow"
@@ -81,8 +88,8 @@ function SignUp() {
                                     <p className="error  text-yellow font-bold h-12">{errors.name}</p>
                                     <label className="absolute mb-2 left-0 -top-3.5 font-bold text-white peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Nombre Completo</label>
                                 </div>
-                                </div>
-                                <div className="w-full max-w-xs p-10">
+                            </div>
+                            <div className="w-full max-w-xs p-10">
                                 <div className="relative">
                                     <input
                                         className="peer placeholder-transparent h-10 w-full border-b-2 border-yellow  bg-gray text-white focus:outline-none focus:border-yellow"
@@ -96,10 +103,10 @@ function SignUp() {
                                     <p className="error  text-yellow font-bold h-12">{errors.email}</p>
                                     <label className="absolute mb-2 left-0 -top-3.5 font-bold text-white peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Email</label>
                                 </div>
-                                </div>
-                                <div className="w-full max-w-xs p-10">
-                                    <div className="relative">
-                                    
+                            </div>
+                            <div className="w-full max-w-xs p-10">
+                                <div className="relative">
+
                                     <input
                                         className="peer placeholder-transparent h-10 w-full border-b-2 border-yellow  bg-gray text-white focus:outline-none focus:border-yellow"
                                         placeholder="Contraseña"
@@ -112,9 +119,9 @@ function SignUp() {
                                     <p className="error  text-yellow font-bold h-12">{errors.password}</p>
                                     <label for="pass" className="absolute mb-2 left-0 -top-3.5 font-bold text-white peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Contraseña</label>
                                 </div>
-                                </div>
-                                <div className="w-full max-w-xs p-10">
-                                    <div className="relative">
+                            </div>
+                            <div className="w-full max-w-xs p-10">
+                                <div className="relative">
                                     <input
                                         className="peer placeholder-transparent h-10 w-full border-b-2 border-yellow  bg-gray text-white focus:outline-none focus:border-yellow"
                                         type="date"
@@ -122,12 +129,12 @@ function SignUp() {
                                         value={userRegister.date_of_birth}
                                         onChange={handleRegisterInputChange}
                                     />
-                                <label className="absolute mb-2 left-0 -top-3.5 font-bold text-white  text-base peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Fecha de Nacimiento</label>
+                                    <label className="absolute mb-2 left-0 -top-3.5 font-bold text-white  text-base peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Fecha de Nacimiento</label>
                                 </div>
-                                </div>
-                                <div className="w-full max-w-xs p-10">
-                                    <div className="relative">
-                                    
+                            </div>
+                            <div className="w-full max-w-xs p-10">
+                                <div className="relative">
+
                                     <input
                                         className="peer placeholder-transparent h-10 w-full border-b-2 border-yellow  bg-gray text-white focus:outline-none focus:border-yellow"
                                         placeholder="Numero de documento"
@@ -139,10 +146,10 @@ function SignUp() {
                                     />
                                     <label className="absolute mb-2 left-0 -top-3.5 font-bold text-white  peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Número de Documento</label>
                                 </div>
-                                </div>
-                                <div className="w-full max-w-xs p-10">
-                                    <div className="relative">
-                                    
+                            </div>
+                            <div className="w-full max-w-xs p-10">
+                                <div className="relative">
+
                                     <input
                                         className="peer placeholder-transparent h-10 w-full border-b-2 border-yellow  bg-gray text-white focus:outline-none focus:border-yellow"
                                         placeholder="Dirección"
@@ -153,10 +160,10 @@ function SignUp() {
                                         id="addressUser"
                                     />
                                     <label className="absolute mb-2 left-0 -top-3.5 font-bold text-white peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Dirección</label>
-                                    </div>
                                 </div>
-                                <div className="w-full max-w-xs p-10">
-                                    <div className="relative">
+                            </div>
+                            <div className="w-full max-w-xs p-10">
+                                <div className="relative">
                                     <input
                                         className="peer placeholder-transparent h-10 w-full border-b-2 border-yellow  bg-gray text-white focus:outline-none focus:border-yellow"
                                         placeholder="Nombre de Usuario"
@@ -169,10 +176,10 @@ function SignUp() {
                                     <p className="error  text-yellow font-bold h-12">{errors.username}</p>
                                     <label for="user" className="absolute left-0 -top-3.5 font-bold text-white  peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Nombre de Usuario</label>
                                 </div>
-                                </div>
-                                <div className="w-full max-w-xs p-10">
-                                    <div className="relative">
-                                    
+                            </div>
+                            <div className="w-full max-w-xs p-10">
+                                <div className="relative">
+
                                     <input
                                         className="peer placeholder-transparent h-10 w-full border-b-2 border-yellow  bg-gray text-white focus:outline-none focus:border-yellow"
                                         placeholder="Número de Teléfono"
@@ -185,20 +192,20 @@ function SignUp() {
                                     <p className="error  text-yellow font-bold h-12">{errors.phone_number}</p>
                                     <label className="absolute left-0 -top-3.5 font-bold text-white  peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Número de Teléfono</label>
                                 </div>
-                                </div>
-                                <div
-                                    className="flex justify-center items-center">
-                                    <button onChange={handleRegisterSubmit}
-                                        className="bg-gradient-to-r from-orange to-yellow hover:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                                        type="submit">Registrar</button>
-                                </div>
-                            </form>
-                        </div>
+                            </div>
+                            <div
+                                className="flex justify-center items-center">
+                                <button onChange={handleRegisterSubmit}
+                                    className="bg-gradient-to-r from-orange to-yellow hover:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                                    type="submit">Registrar</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
-                </div>
-            
-        
+            </div>
+        </div>
+
+
 
     );
 }
