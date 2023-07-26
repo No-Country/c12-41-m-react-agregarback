@@ -53,7 +53,7 @@ const Carousel = () => {
               className="grid-grid-rows-[1fr_auto] w-full rounded-lg p-4 flex-shrink-0"
             >
               <img
-                className="max-h-[550px] w-full justify-center object-cover rounded-lg"
+                className="max-h-[420px] w-full justify-center object-cover rounded-lg"
                 src={image}
                 alt={`Slide ${index + 1}`}
               />
@@ -63,13 +63,13 @@ const Carousel = () => {
         </div>
         <button
           onClick={handlePrev}
-          className="absolute top-1/2 left-5 z-10 bg-white text-gray p-3 rounded-full shadow-md transform -translate-y-1/2"
+          className="absolute top-1/2 left-5 z-10 bg-dark text-yellow p-3 rounded-full shadow-md transform -translate-y-1/2"
         >
           <FaArrowLeft className="h-4 aspect-square sm:h-6 sm:w-6" />
         </button>
         <button
           onClick={handleNext}
-          className="absolute top-1/2 right-5 z-10 bg-white text-gray p-3 rounded-full shadow-md transform -translate-y-1/2"
+          className="absolute top-1/2 right-5 z-10 bg-dark text-yellow p-3 rounded-full shadow-md transform -translate-y-1/2"
         >
           <FaArrowRight className="h-4 aspect-square sm:h-6 sm:w-6" />
         </button>
@@ -96,7 +96,7 @@ const Carousel = () => {
           }}
         >
           {titles.map((_, index) =>
-            <div className="mt-4  grid-grid-rows-[1fr_auto] h-full w-full rounded-lg p-4 flex-shrink-0" key={index}>
+            <div className=" grid-grid-rows-[1fr_auto] h-full w-full rounded-lg px-4 flex-shrink-0" key={index}>
               <h2 className="mb-5 font-sans text-2xl font-bold tracking-tight text-yellow sm:text-4xl sm:leading-none">{titles[index]}</h2>
               <p className="text-orange text-lg sm:text-2xl font-semibold bg-clip-text">{paragraphs[index]}</p>
             </div>
