@@ -9,7 +9,7 @@ const Dolar = () => {
                 <FaMoneyBillTransfer size={50} className="text-dark" />
             </span>
             <h2 className="text-xl font-semibold mb-2">Cotizacion del Dolar</h2>
-            <p className="text-gray-500 mb-4">
+            <p className="p-3 opacity-50 text-sm">
                 En Acces Bank podes acceder a la mejor y mas accesible cotizacion las 24hs!
             </p>
             <DolarModal data={DolarModal} />

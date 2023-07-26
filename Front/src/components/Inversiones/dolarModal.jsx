@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from "axios"
 import { Bar } from "react-chartjs-2"
+import { FiXCircle } from "react-icons/fi";
 import ChartDolarOficial from './ChartDolarOficial'
 const DolarModal = () => {
     //PEDIDOS A LA API DE DOLAR
@@ -82,11 +83,10 @@ const DolarModal = () => {
 
 
             {showModal && (
-                <div className='z-[1000] h-screen w-screen fixed top-0 left-0  flex justify-center items-center bg-[rgba(1,1,1,0.6)]'>
+                <div className="z-[1000] h-screen w-screen fixed top-0 left-0 flex justify-center items-center bg-[rgba(1,1,1,0.6)]">
                     <div className="fixed inset-0 flex justify-center items-center bg-gray-800 bg-opacity-50">
-                        <div className="bg-gray p-6 rounded-lg border-2 border-orange">
-                            <h2 className="text-xl font-semibold mb-4">Cotizaciones:</h2>
-
+                        <div className="bg-gray p-4 rounded-lg border-2 border-orange max-w-md">
+                        <FiXCircle className="self-end text-3xl" onClick={() => setShowModal(false)} />
                             <div className='flex justify-center'>
 
                                 <div className="block p-5">
