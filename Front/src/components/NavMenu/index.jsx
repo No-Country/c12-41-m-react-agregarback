@@ -9,6 +9,11 @@ const NavMenu = () => {
     const [showTokenModal, setShowTokenModal] = useState(false)
     const [isActive, seTIsActive] = useState(false)
 
+    const handleLogout = () => {
+        sessionStorage.clear();
+        navigate("/");
+      };
+
 
     return (
         <div className={`text-2xl min-w-[240px] rounded-lg z-50 transtion-[translate] duration-500 bg-orange-navmenu pt-5 pb-5
@@ -19,7 +24,7 @@ const NavMenu = () => {
             <NavLink className={({ isActive }) => isActive ? navLinkCommonClasses + " bg-orange-navmenu-active" : navLinkCommonClasses} to="/loans">Préstamos</NavLink>
             <div className='p-3'></div>
             <NavLink className={({ isActive }) => isActive ? navLinkCommonClasses + " bg-orange-navmenu-active" : navLinkCommonClasses} to="/contact">Contactanos</NavLink>
-            <NavLink className={({ isActive }) => isActive ? navLinkCommonClasses + " bg-orange-navmenu-active" : navLinkCommonClasses} to="/">Cerrar sesión</NavLink>
+            <NavLink onClick={handleLogout} className={({ isActive }) => isActive ? navLinkCommonClasses + " bg-orange-navmenu-active" : navLinkCommonClasses} to="/">Cerrar sesión</NavLink>
             <div className={isActive ? navLinkCommonClasses + " bg-orange-navmenu-active" : navLinkCommonClasses} onClick={(e) => setShowTokenModal(true)}><button >Consultar token</button></div>
             {showTokenModal && (<TokenModal setShowTokenModal={setShowTokenModal} />
             )}

@@ -94,7 +94,7 @@ function SignUp() {
                   </p>
                   <label
                     htmlFor="nameUser"
-                    className="absolute mb-2 left-0 font-bold text-white peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:bottom-10 transition-all peer-focus:bottom-[100%] peer-focus:text-gray-600 peer-focus:text-base"
+                    className="absolute mb-2 left-0 -top-3.5 font-bold text-white peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base"
                   >
                     Nombre Completo
                   </label>
@@ -175,7 +175,7 @@ function SignUp() {
                   />
                   <label
                     htmlFor="dniUser"
-                    className="absolute mb-2 left-0 font-bold text-white  peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:bottom-0 transition-all peer-focus:bottom-[100%] peer-focus:text-gray-600 peer-focus:text-base"
+                    className="absolute mb-2 left-0 -top-3.5 font-bold text-white peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base"
                   >
                     Número de Documento
                   </label>
@@ -203,7 +203,7 @@ function SignUp() {
               <div className="w-full max-w-xs py-10">
                 <div className="relative">
                   <input
-                    className="peer placeholder-transparent h-10 w-full border-b-2 border-yellow  bg-gray text-white focus:outline-none focus:border-yellow"
+                    className="peer placeholder-transparent h-10 w-full border-b-2 border-yellow  bg-gray text-white focus:outline-none focus:border-yellow focus:placeholder-opacity-100"
                     placeholder="Nombre de Usuario"
                     type="text"
                     name="username"
@@ -216,7 +216,7 @@ function SignUp() {
                   </p>
                   <label
                     htmlFor="user"
-                    className="absolute left-0 font-bold text-white  peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:bottom-12 transition-all peer-focus:bottom-[100%] peer-focus:text-gray-600 peer-focus:text-base"
+                    className="absolute mb-2 left-0 -top-3.5 font-bold text-white peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base"
                   >
                     Nombre de Usuario
                   </label>
@@ -238,7 +238,7 @@ function SignUp() {
                   </p>
                   <label
                     htmlFor="cel"
-                    className="absolute left-0  font-bold text-white  peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:bottom-12 transition-all peer-focus:bottom-[100%] peer-focus:text-gray-600 peer-focus:text-base"
+                    className="absolute mb-2 left-0 -top-3.5 font-bold text-white peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base"
                   >
                     Número de Teléfono
                   </label>
