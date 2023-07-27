@@ -13,7 +13,7 @@ const UltimosMovimientos = ({ account }) => {
     
   return (
     <section className="z-20">
-      <section className="bg-orange-navmenu w-full h-full rounded-[20px] px-3 py-3 flex flex-col gap-10">
+      <section className="bg-orange-navmenu w-full rounded-[20px] px-3 py-3 flex flex-col gap-10 h-[100vh] shadow-xl shadow-dark/30 overflow-y-scroll">
         <h3 className="text-dark font-bold tracking-wide text-3xl text-left px-4 py-3">
           Últimos Movimientos
         </h3>

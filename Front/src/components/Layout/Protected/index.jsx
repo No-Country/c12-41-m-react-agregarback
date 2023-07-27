@@ -1,7 +1,6 @@
 import { Outlet } from "react-router-dom";
-import NavMenu from "../../NavMenu";
-// import Sidenav from '../../Sidenav/Sidenav'
 import Footer from "../../Footer/Footer";
+import NavMenu from "../../NavMenu";
 import SideNavLanding from "../../SideNavLanding/SideNavLanding";
 
 const ProtectedLayout = () => {
