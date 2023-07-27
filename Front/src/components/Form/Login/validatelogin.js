@@ -13,11 +13,12 @@ export default function validationlogin(input) {
         errors.dni = "Debe ingresar un numero de documento valido";
       }
    
-  
-    if (!regexUsuario.test(input.usuario)) {
+      if (input.usuario=== ""){
+      }else if (!regexUsuario.test(input.usuario)) {
         errors.usuario = "Ingresa un Usuario alfanumerico"
-    };
-    if (!regexPassword.test(input.password)) {
+    }
+    if (input.password=== ""){
+    }else if (!regexPassword.test(input.password)) {
         errors.password = "Ingrese una contraseña valida"
     }
 

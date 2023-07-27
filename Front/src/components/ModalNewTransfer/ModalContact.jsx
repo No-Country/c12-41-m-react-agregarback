@@ -5,8 +5,10 @@ import { useForm} from '../../utils/hooks/useForm.js'
 import { Authorization, backEnd } from "../../utils/axiosBackEnd";
 
 import AWN from "awesome-notifications"
+import { useNavigate } from 'react-router-dom';
 
-const ModalContact = function ({ setOpen } ) {
+const ModalContact = function ({ setOpen, handleAddContact } ) {
+    const navigate = useNavigate()
     const [selectedOption, setSelectedOption] = useState('accountNumber')
     const notifier = new AWN();
     
@@ -58,7 +60,7 @@ const ModalContact = function ({ setOpen } ) {
           )
           .then((res) => {
             notifier.success('Se agrego correctamente')
-            console.log(res.data);
+            handleAddContact()
             setOpen(false)
           })
           .catch((err) => {
@@ -94,6 +96,7 @@ const ModalContact = function ({ setOpen } ) {
                         <input autoComplete="off" className="peer placeholder-transparent h-10 w-full border-b-2 border-yellow  bg-gray text-white focus:outline-none focus:border-yellow" placeholder="Nombre de Contacto" required=""
                             type="text"
                             name="contactName"
+                            id="contactName"
                             value={contactName}
                             onChange={handleInputChange}
                         />

@@ -18,9 +18,9 @@ const InversionesContent = () => {
     return isLoaded ? (
        
             <section className="grid lg:grid-cols-2 overflow-hidden p-3 pt-16 gap-4">
-                <PlazoFijo />
+                {/* <PlazoFijo /> */}
                 <SuperFondos />
-                <Dolar />
+                {/* <Dolar /> */}
             </section>
     ) : (
         <div className="flex flex-row justify-center items-center h-screen">

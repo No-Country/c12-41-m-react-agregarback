@@ -84,8 +84,8 @@ function Login() {
                         alt="AccessBank Logo"
                         />
                     </div>
-                        <div className="w-full max-w-md sm:max-w-lg mx-auto">
-                            <form onSubmit={handleSubmit} className="max-w-full">
+                        <div className="w-full max-w-md sm:w-96 mx-auto">
+                            <form onSubmit={handleSubmit}>
                                 <div className="max-w-lg p-7">
                                     <div className="relative">
                                         <input id="dni" autoComplete="off" className="peer placeholder-transparent h-10 w-full border-b-2 border-yellow  bg-gray text-white focus:outline-none focus:border-yellow" placeholder="Numero de documento"

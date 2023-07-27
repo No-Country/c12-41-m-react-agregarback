@@ -8,7 +8,7 @@ const InputForModal = ({label , type , name , handleChangeTransferInfo , infoFor
         className="bg-transparent outline-none border-b-2 border-yellow text-white uppercase grow"
         type={type}
         name={name}
-        onChange={(e) => handleChangeTransferInfo(e.target.value, name)}
+        onChange={(e) => handleChangeTransferInfo(e.target.value.toLowerCase(), name)}
         id={name}
         value={infoForTransfer[name]}
       />

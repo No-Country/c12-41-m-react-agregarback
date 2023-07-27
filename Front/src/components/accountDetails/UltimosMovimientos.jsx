@@ -2,19 +2,15 @@ import { formatearSaldoDelUsuario } from "../../utils/formatSaldo";
 import {FaMoneyBillTransfer} from 'react-icons/fa6'
 
 const UltimosMovimientos = ({ account }) => {
-  const { transfers } = account;
+  const  transfers  = [...account.transfers].reverse();
 
   const formatDate =(dateTransfer)=>{
       const opciones = { year: 'numeric', month: 'numeric', day: 'numeric' };
       const dateFormat = new Date(dateTransfer).toLocaleDateString(undefined, opciones);
-      console.log(dateFormat)
       return dateFormat;
   }
 
-  
-  
-  
-  
+    
   return (
     <section className="z-20">
       <section className="bg-orange-navmenu w-full h-full rounded-[20px] px-3 py-3 flex flex-col gap-10">
@@ -27,15 +23,15 @@ const UltimosMovimientos = ({ account }) => {
              
               <div
                 key={transfer.id}
-                className="w-full bg-gray rounded-xl sm:rounded-full px-3 sm:text-sm"
+                className="w-full bg-gray rounded-xl sm:rounded-full px-3 py-4 sm:text-base"
               >
                 <span className="col-span-2 font-bold text-base">{formatDate(transfer.createdAt)}</span>
                 <div className="grid grid-cols-[60px,_1fr] grid-flow-col gap-3 overflow-hidden">
-                  <div className=" text-orange py-6 px-3 sm:text-sm flex justify-center items-center"> <FaMoneyBillTransfer size={40} /></div>
+                  <div className=" text-orange  flex justify-center items-center"> <FaMoneyBillTransfer size={40} /></div>
                  <div className="grid grid-rows-3">
-                  <div className=" grid sm:grid-cols-2"><label className="bg-gradient-to-r from-yellow to-orange text-transparent bg-clip-text font-bold">Origen:</label> <span>{transfer.senderAccount}</span></div>
-                  <div className=" grid sm:grid-cols-2"><label className="bg-gradient-to-r from-yellow to-orange text-transparent bg-clip-text font-bold">Destino:</label> <span>{transfer.validationValue}</span></div>
-                  <div className="grid sm:grid-cols-2"><label className="bg-gradient-to-r from-yellow to-orange text-transparent bg-clip-text font-bold">Monto:</label><span>${formatearSaldoDelUsuario(transfer.amount)}</span></div>
+                  <div className=" grid sm:grid-cols-2"><label className="bg-gradient-to-r from-yellow to-orange text-transparent bg-clip-text font-bold">Origen:</label> <span className="sm:text-left">{transfer.senderAccount}</span></div>
+                  <div className=" grid sm:grid-cols-2"><label className="bg-gradient-to-r from-yellow to-orange text-transparent bg-clip-text font-bold">Destino:</label> <span className="sm:text-left">{transfer.validationValue}</span></div>
+                  <div className="grid sm:grid-cols-2"><label className="bg-gradient-to-r from-yellow to-orange text-transparent bg-clip-text font-bold">Monto:</label><span className="sm:text-left">${formatearSaldoDelUsuario(transfer.amount)}</span></div>
                 </div>
                 </div>
               </div>
