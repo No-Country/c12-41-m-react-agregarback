@@ -66,14 +66,13 @@ function SignUp() {
     //     console.error(error.response.data);
     // }
   };
-
   return (
     <div className="bg-dark py-6 flex flex-col justify-center sm:py-12">
         <div className="bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
             <div className="relative py-3 max-w-4xl  sm:mx-auto">
-                <div className="absolute inset-0 bg-gradient-to-r from-orange to-yellow shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-orange to-yellow shadow-lg transform -skew-y-0 sm:skew-y-0 md:-rotate-6 rotate-0 sm:rounded-3xl duration-700 transition-all"></div>
 
-                <div className="relative px-4 py-10 bg-gray shadow-lg  sm:rounded-3xl sm:p-20">
+                <div className="relative px-4 py-10 bg-gray shadow-lg  sm:rounded-3xl sm:p-20 duration-1000 transition-all">
                     <div className='flex items-center justify-center '>
                         <img
                             src="https://res.cloudinary.com/academia/image/upload/v1688654002/logo-accessBank_pg8pec.png"
@@ -82,11 +81,11 @@ function SignUp() {
                         />
                     </div>
                     <form onSubmit={handleRegisterSubmit}
-                        className="grid grid-cols-1 md:grid-cols-2 gap-1">
-                        <div className="w-full max-w-xs p-10">
-                            <div className="relative">
+                        className="sm:grid flex flex-col items-center sm:items-start  sm:justify-start justify-center  sm:grid-cols-2 sm:gap-1 ">
+                        <div className="w-full max-w-xs sm:p-10 mt-5 sm:mt-0 ">
+                            <div className="relative ">
                                 <input
-                                    className="peer placeholder-transparent h-10 w-full border-b-2 border-yellow  bg-gray text-white focus:outline-none focus:border-yellow"
+                                    className="peer  placeholder-transparent h-10 w-full border-b-2 border-yellow  bg-gray text-white focus:outline-none focus:border-yellow"
                                     placeholder="Nombre Completo"
                                     type="text"
                                     name="name"
@@ -98,7 +97,7 @@ function SignUp() {
                                 <label className="absolute mb-2 left-0 -top-3.5 font-bold text-white peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Nombre Completo</label>
                             </div>
                         </div>
-                        <div className="w-full max-w-xs p-10">
+                        <div className="w-full max-w-xs sm:p-10 mt-5  sm:mt-0">
                             <div className="relative">
                                 <input
                                     className="peer placeholder-transparent h-10 w-full border-b-2 border-yellow  bg-gray text-white focus:outline-none focus:border-yellow"
@@ -113,7 +112,7 @@ function SignUp() {
                                 <label className="absolute mb-2 left-0 -top-3.5 font-bold text-white peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Email</label>
                             </div>
                         </div>
-                        <div className="w-full max-w-xs p-10">
+                        <div className="w-full max-w-xs sm:p-10 mt-5  sm:mt-0">
                             <div className="relative">
 
                                 <input
@@ -129,7 +128,7 @@ function SignUp() {
                                 <label for="pass" className="absolute mb-2 left-0 -top-3.5 font-bold text-white peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Contraseña</label>
                             </div>
                         </div>
-                        <div className="w-full max-w-xs p-10">
+                        <div className="w-full max-w-xs sm:p-10 mt-5  sm:mt-0">
                             <div className="relative">
                                 <input
                                     className="peer placeholder-transparent h-10 w-full border-b-2 border-yellow  bg-gray text-white focus:outline-none focus:border-yellow"
@@ -139,9 +138,11 @@ function SignUp() {
                                     onChange={handleRegisterInputChange}
                                 />
                                 <label className="absolute mb-2 left-0 -top-3.5 font-bold text-white  text-base peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Fecha de Nacimiento</label>
+                                <p className="error  text-yellow font-bold h-12"></p>
+                            
                             </div>
                         </div>
-                        <div className="w-full max-w-xs p-10">
+                        <div className="w-full max-w-xs sm:p-10  mt-5  sm:mt-0">
                             <div className="relative">
 
                                 <input
@@ -154,9 +155,11 @@ function SignUp() {
                                     id="dniUser"
                                 />
                                 <label className="absolute mb-2 left-0 -top-3.5 font-bold text-white  peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">N° de Documento</label>
-                            </div>
+                                <p className="error  text-yellow font-bold h-12"></p>
+                          
+                           </div>
                         </div>
-                        <div className="w-full max-w-xs p-10">
+                        <div className="w-full max-w-xs sm:p-10  mt-5  sm:mt-0">
                             <div className="relative">
 
                                 <input
@@ -168,10 +171,12 @@ function SignUp() {
                                     onChange={handleRegisterInputChange}
                                     id="addressUser"
                                 />
+                                <p className="error  text-yellow font-bold h-12"></p>
+
                                 <label className="absolute mb-2 left-0 -top-3.5 font-bold text-white peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Dirección</label>
                             </div>
                         </div>
-                        <div className="w-full max-w-xs p-10">
+                        <div className="w-full max-w-xs sm:p-10  mt-5  sm:mt-0">
                             <div className="relative">
                                 <input
                                     className="peer placeholder-transparent h-10 w-full border-b-2 border-yellow  bg-gray text-white focus:outline-none focus:border-yellow"
@@ -186,7 +191,7 @@ function SignUp() {
                                 <label for="user" className="absolute left-0 -top-3.5 font-bold text-white  peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Nombre de Usuario</label>
                             </div>
                         </div>
-                        <div className="w-full max-w-xs p-10">
+                        <div className="w-full max-w-xs sm:p-10 mt-5 sm:mt-0">
                             <div className="relative">
 
                                 <input
