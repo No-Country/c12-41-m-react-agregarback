@@ -76,7 +76,7 @@ function Login() {
                     <div
                         className="absolute inset-0 bg-gradient-to-r from-orange to-yellow shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl">
                     </div>
-                    <div className="relative px-4 py-10 bg-gray shadow-lg  sm:rounded-3xl sm:p-20">
+                    <div className="relative px-4 py-10 bg-gray shadow-lg h-[780px]  sm:rounded-3xl sm:p-20">
                     <div className='flex items-center justify-center'>
                     <img
                         src="https://res.cloudinary.com/academia/image/upload/v1688654002/logo-accessBank_pg8pec.png"
@@ -84,8 +84,8 @@ function Login() {
                         alt="AccessBank Logo"
                         />
                     </div>
-                        <div className="w-full max-w-md sm:w-96 mx-auto">
-                            <form onSubmit={handleSubmit}>
+                        <div className="w-full max-w-md sm:w-96 mx-auto  h-5/6">
+                            <form onSubmit={handleSubmit} className="flex flex-col justify-evenly h-full  ">
                                 <div className="max-w-lg p-7">
                                     <div className="relative">
                                         <input id="dni" autoComplete="off" className="peer placeholder-transparent h-10 w-full border-b-2 border-yellow  bg-gray text-white focus:outline-none focus:border-yellow" placeholder="Numero de documento"
@@ -95,7 +95,6 @@ function Login() {
                                             onChange={handleInputChange}
                                             onWheel={(e) => e.target.blur()}
                                         />
-                                        <p className="error text-yellow font-bold h-12">{errors.dni}</p>
                                         <label htmlFor="dni" className="absolute left-0 -top-3.5 font-bold text-white   peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Numero de documento</label>
                                     </div>
                                 </div>
@@ -110,7 +109,6 @@ function Login() {
                                             value={loginData.username}
                                             onChange={handleInputChange}
                                         />
-                                        <p className="error text-yellow font-bold h-12">{errors.usuario}</p>
                                         <label htmlFor="username" className="absolute left-0 -top-3.5 font-bold text-white   peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Usuario</label>
                                     </div>
                                 </div>
@@ -125,7 +123,6 @@ function Login() {
                                             value={loginData.password}
                                             onChange={handleInputChange}
                                         />
-                                        <p className="error text-yellow font-bold h-12">{errors.password}</p>
                                         <label htmlFor="password" className="absolute left-0 -top-3.5 font-bold text-white   peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Contraseña</label>
 
                                     </div>
@@ -135,7 +132,7 @@ function Login() {
                                         className="mt-6 font-bold py-2 px-4 rounded-xl marker:rounded focus:outline-none focus:shadow-outline bg-transparent text-yellow  hover:text-dark shadow hover:shadow-lg  border border-yellow  hover:bg-white ">Iniciar sesion</button>
                                     <NavLink to="/signup">
                                         <button type="submit"
-                                            className=" mt-6 bg-gradient-to-r from-orange to-yellow text-dark font-bold px-4 py-2 rounded-xl  focus:outline-none focus:shadow-outline">Registrarse</button>
+                                            className=" mt-6 bg-gradient-to-r from-orange to-yellow text-dark font-bold px-[23px] py-2 rounded-xl  focus:outline-none focus:shadow-outline">Registrarse</button>
                                     </NavLink>
                                 </div>
 
