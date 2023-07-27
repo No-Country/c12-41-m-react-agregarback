@@ -10,7 +10,7 @@ const BoxContactFooter = () => {
             <nav className="mb-10 list-none">
                 <ul>
               <li className="mt-3">
-                <Link className={navLinksEstilo}>
+                <Link className={navLinksEstilo} >
                   clientes@accessbank.com
                 </Link>
               </li>
@@ -25,7 +25,7 @@ const BoxContactFooter = () => {
                 </Link>
               </li>
               <li className="mt-3">
-              <Link className={navLinksEstilo}>
+              <Link className={navLinksEstilo} target="_blank" to={"./preguntasfrecuentes"}>
                   Preguntas Frecuentes
                 </Link>
               </li>
