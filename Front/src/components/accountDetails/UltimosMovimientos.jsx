@@ -14,7 +14,7 @@ const UltimosMovimientos = ({ account }) => {
   return (
     <section className="z-20">
       <section className="bg-orange-navmenu w-full h-full rounded-[20px] px-3 py-3 flex flex-col gap-10">
-        <h3 className="text-dark font-bold tracking-wide text-3xl text-left">
+        <h3 className="text-dark font-bold tracking-wide text-3xl text-left px-4 py-3">
           Últimos Movimientos
         </h3>
         {transfers.length > 0 ?
