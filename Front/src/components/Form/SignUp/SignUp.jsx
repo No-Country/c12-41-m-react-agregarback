@@ -65,7 +65,7 @@ function SignUp() {
                     <div className="absolute inset-0 bg-gradient-to-r from-orange to-yellow shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"></div>
 
                     <div className="relative px-4 py-10 bg-gray shadow-lg  sm:rounded-3xl sm:p-20">
-                        <div className='flex items-center justify-center'>
+                        <div className='flex items-center justify-center '>
                             <img
                                 src="https://res.cloudinary.com/academia/image/upload/v1688654002/logo-accessBank_pg8pec.png"
                                 className="h-[75px] mr-3"
@@ -73,7 +73,7 @@ function SignUp() {
                             />
                         </div>
                         <form onSubmit={handleRegisterSubmit}
-                            className="grid grid-cols-2   gap-1">
+                            className="grid grid-cols-1 md:grid-cols-2 gap-1">
                             <div className="w-full max-w-xs p-10">
                                 <div className="relative">
                                     <input
@@ -137,14 +137,14 @@ function SignUp() {
 
                                     <input
                                         className="peer placeholder-transparent h-10 w-full border-b-2 border-yellow  bg-gray text-white focus:outline-none focus:border-yellow"
-                                        placeholder="Numero de documento"
+                                        placeholder="Numero de Documento"
                                         type="number"
                                         name="dni"
                                         value={userRegister.dni}
                                         onChange={handleRegisterInputChange}
                                         id="dniUser"
                                     />
-                                    <label className="absolute mb-2 left-0 -top-3.5 font-bold text-white  peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">Número de Documento</label>
+                                    <label className="absolute mb-2 left-0 -top-3.5 font-bold text-white  peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-base">N° de Documento</label>
                                 </div>
                             </div>
                             <div className="w-full max-w-xs p-10">
@@ -196,10 +196,11 @@ function SignUp() {
                             <div
                                 className="flex justify-center items-center">
                                 <button onChange={handleRegisterSubmit}
-                                    className="bg-gradient-to-r from-orange to-yellow hover:text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                                    className="bg-gradient-to-r from-orange to-yellow text-dark font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                                     type="submit">Registrar</button>
                             </div>
                         </form>
+                        
                     </div>
                 </div>
             </div>

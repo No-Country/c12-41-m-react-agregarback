@@ -12,7 +12,7 @@ export default function validatesignup(input) {
     const regexName = /^[a-zA-ZÀ-ÿ-]+(\s[a-zA-ZÀ-ÿ-]+)*$/;
     const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const regexPassword = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
- 
+
     const regexAdress = /^[a-zA-Z0-9\s\.,#-]+$/;
     //const regexPhone = /^\d{10}$/;
 
@@ -28,29 +28,35 @@ export default function validatesignup(input) {
     //    "phone_number":123114125
     //}
 
-
-    if (!regexDNI.test(input.dni)) {
+    if (input.dni === "") {
+    } else if (!regexDNI.test(input.dni)) {
         errors.dni = "Debe ingresar un numero de documento valido"
     }
-    if (!regexUsuario.test(input.usuario)) {
+    if (input.usuario === "") {
+    } else if (!regexUsuario.test(input.usuario)) {
         errors.usuario = "Ingresa un Usuario alfanumerico"
     };
-    if (!regexName.test(input.name)) {
+    if (input.name === "") {
+    } else if (!regexName.test(input.name)) {
         errors.name = "Ingresa un Nombre y Apellido"
     };
-    if (!regexEmail.test(input.email)) {
+    if (input.email === "") {
+    } else if (!regexEmail.test(input.email)) {
         errors.email = "Ingrese un correo valido"
     }
-    if (!regexPassword.test(input.password)) {
+    if (input.password === "") {
+    } else if (!regexPassword.test(input.password)) {
         errors.password = "Ingrese una contraseña valida"
     }
-    if (!regexAdress.test(input.adress)) {
+    if (input.adress === "") {
+    } else if (!regexAdress.test(input.adress)) {
         errors.adress = "Ingrese una direccion valida";
     }
-    if (!regexUsuario.test(input.username)) {
-        errors.username = "Ingrese un nombre de usuario valido";
+        if (input.username === "") {
+        } else if (!regexUsuario.test(input.username)) {
+            errors.username = "Ingrese un nombre de usuario valido";
+        }
+        return errors;
     }
- 
-
-    return errors;
-}
+        
+    
