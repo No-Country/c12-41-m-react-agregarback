@@ -10,7 +10,7 @@ const BoxTL = () => {
             <nav className="mb-10 list-none">
                 <ul>
               <li className="mt-3">
-                <Link to="https://www.linkedin.com/in/yessicarm/" className={navLinksEstilo}>
+                <Link to="https://www.linkedin.com/in/yessicarm/" target="_blank" className={navLinksEstilo}>
                   Yessica Rodriguez
                 </Link>
               </li>

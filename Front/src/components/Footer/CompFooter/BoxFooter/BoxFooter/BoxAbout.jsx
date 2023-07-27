@@ -10,17 +10,17 @@ const AboutBox = () => {
         <nav className="mb-10 ">
             <ul className="">
           <li className="mt-3">
-            <Link to="https://www.aba-argentina.com/wp-content/uploads/CodigoPracticasBancarias.pdf" className={navLinksEstilo}>
+            <Link to="https://www.aba-argentina.com/wp-content/uploads/CodigoPracticasBancarias.pdf" className={navLinksEstilo} target="_blank">
               Aviso Legal
             </Link>
           </li>
           <li className="mt-3">
-            <Link to="https://www.argentina.gob.ar/aaip/datospersonales" className={navLinksEstilo}>
+            <Link to="https://www.argentina.gob.ar/aaip/datospersonales" className={navLinksEstilo} target="_blank">
               Datos Personales
             </Link>
           </li>
           <li className="mt-3">
-            <Link to="https://www.argentina.gob.ar/economia/comercio/defensadelconsumidor" className={navLinksEstilo}>
+            <Link to="https://www.argentina.gob.ar/economia/comercio/defensadelconsumidor" className={navLinksEstilo} target="_blank">
               Defensa al Consumidor
             </Link>
           </li>
