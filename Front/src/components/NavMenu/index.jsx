@@ -19,7 +19,7 @@ const NavMenu = () => {
             <NavLink className={({ isActive }) => isActive ? navLinkCommonClasses + " bg-orange-navmenu-active" : navLinkCommonClasses} to="/loans">Préstamos</NavLink>
             <div className='p-3'></div>
             <NavLink className={({ isActive }) => isActive ? navLinkCommonClasses + " bg-orange-navmenu-active" : navLinkCommonClasses} to="/contact">Contactanos</NavLink>
-            <NavLink className={({ isActive }) => isActive ? navLinkCommonClasses + " bg-orange-navmenu-active" : navLinkCommonClasses} to="/home">Cerrar sesión</NavLink>
+            <NavLink className={({ isActive }) => isActive ? navLinkCommonClasses + " bg-orange-navmenu-active" : navLinkCommonClasses} to="/">Cerrar sesión</NavLink>
             <div className={isActive ? navLinkCommonClasses + " bg-orange-navmenu-active" : navLinkCommonClasses} onClick={(e) => setShowTokenModal(true)}><button >Consultar token</button></div>
             {showTokenModal && (<TokenModal setShowTokenModal={setShowTokenModal} />
             )}

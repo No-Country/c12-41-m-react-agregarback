@@ -1,11 +1,11 @@
 import { useState } from "react";
+import { AiOutlineUserAdd } from "react-icons/ai";
+import { BiLogIn } from "react-icons/bi";
+import { FiLogOut } from "react-icons/fi";
 import { IconContext } from "react-icons/lib";
-import { PiNotePencilBold, PiUserGearLight } from "react-icons/pi";
+import { PiUserGearLight } from "react-icons/pi";
 import { NavLink, useNavigate } from "react-router-dom";
 import SideNavLandingLink from "./SideNavLandingLink";
-import { FiLogOut } from "react-icons/fi";
-import { BiLogIn } from "react-icons/bi";
-import { AiOutlinePlusCircle, AiOutlineUserAdd } from "react-icons/ai";
 const SideNavLanding = () => {
   const [navLanding, setNavLanding] = useState(false);
   const navigate = useNavigate();
@@ -71,7 +71,7 @@ const SideNavLanding = () => {
             className="flex items-center  justify-center flex-wrap "
           >
             <img
-              src="https://res.cloudinary.com/academia/image/upload/v1688654002/logo-accessBank_pg8pec.png"
+              src="/home/accessbankLogo.webp"
               className="h-[70px] mr-3"
               alt="AccessBank Logo"
             />

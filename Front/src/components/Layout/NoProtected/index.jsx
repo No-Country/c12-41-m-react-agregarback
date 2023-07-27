@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom'
-import SideNavLanding from '../../SideNavLanding/SideNavLanding'
 import Footer from '../../Footer/Footer'
+import SideNavLanding from '../../SideNavLanding/SideNavLanding'
 
 const NoProtectedLayout = () => {
     return (
