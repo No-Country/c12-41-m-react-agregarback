@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { Bar } from "react-chartjs-2";
-import ChartDolarOficial from "./ChartDolarOficial";
+import React, { useState, useEffect } from 'react'
+import axios from "axios"
+import { Bar } from "react-chartjs-2"
+import ChartDolarOficial from './ChartDolarOficial'
 import { FiXCircle } from "react-icons/fi";
 const DolarModal = () => {
   //PEDIDOS A LA API DE DOLAR
@@ -36,22 +36,26 @@ const DolarModal = () => {
     }
   }, [showModal]);
 
-  useEffect(() => {
-    const fetchDolarData = async () => {
-      try {
-        const response = await axios.get(
-          "https://dolar-api-argentina.vercel.app/v1/dolares/oficial"
-        );
-        setDolarOficialData(response.data);
-      } catch (error) {
-        console.error("Error fetching dolar data:", error);
-      }
-    };
+
+
+
+
+
+    useEffect(() => {
+        const fetchDolarData = async () => {
+            try {
+                const response = await axios.get('https://dolar-api-argentina.vercel.app/v1/dolares/oficial');
+                setDolarOficialData(response.data);
+            } catch (error) {
+                console.error('Error fetching dolar data:', error);
+            }
+        };
 
     if (showModal) {
       fetchDolarData();
     }
   }, [showModal]);
+
 
   useEffect(() => {
     const fetchDolarBolsaData = async () => {

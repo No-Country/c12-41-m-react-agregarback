@@ -130,12 +130,12 @@ const SideNavLanding = () => {
                   <LogoutButton />
                   <NavLink
                     to="/profile"
-                    className="ease-in duration-500 border-2 border-transparent hover:border-orange hover:opacity-70 rounded-full p-1"
+                    className="ease-in duration-500 border-2 border-transparent hover:border-yellow  hover:bg-orange-navmenu   rounded-full p-1"
                   >
                     <IconContext.Provider
                       value={{ style: { fontSize: "2rem" } }}
                     >
-                      <PiUserGearLight className="text-orange-navmenu" />
+                      <PiUserGearLight className="text-yellow hover:text-dark duration-700 " />
                     </IconContext.Provider>
                   </NavLink>
                 </>

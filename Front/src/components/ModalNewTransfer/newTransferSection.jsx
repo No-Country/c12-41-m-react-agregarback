@@ -4,13 +4,11 @@ import ContactCard from "./ContactCard";
 import FormAndListContac from "./FormAndListContac";
 import ModalForNewTransfer from "./ModalForNewTransfer";
 
-const Transfer = () => {
+const Transfer = ({ data, error }) => {
   const [currentContact, setCurrentContact] = useState();
   const [isModalActive, setIsModalActive] = useState(false);
   const [listOfContactsFiltered, setListOfContactsFiltered] = useState();
 
-  const userId = sessionStorage.userId;
-  const { data, error } = useFetch(`users_contacs/${userId}`);
 
   return (
     <div className="mb-10">

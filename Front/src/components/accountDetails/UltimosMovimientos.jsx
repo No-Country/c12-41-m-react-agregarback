@@ -2,19 +2,15 @@ import { formatearSaldoDelUsuario } from "../../utils/formatSaldo";
 import {FaMoneyBillTransfer} from 'react-icons/fa6'
 
 const UltimosMovimientos = ({ account }) => {
-  const { transfers } = account;
+  const  transfers  = [...account.transfers].reverse();
 
   const formatDate =(dateTransfer)=>{
       const opciones = { year: 'numeric', month: 'numeric', day: 'numeric' };
       const dateFormat = new Date(dateTransfer).toLocaleDateString(undefined, opciones);
-      console.log(dateFormat)
       return dateFormat;
   }
 
-  
-  
-  
-  
+    
   return (
     <section className="z-20">
       <section className="bg-orange-navmenu w-full h-full rounded-[20px] px-3 py-3 flex flex-col gap-10">
