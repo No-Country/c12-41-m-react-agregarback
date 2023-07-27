@@ -4,7 +4,7 @@ import {  FaMoneyBillTransfer,  FaMoneyBillTrendUp, FaHandHoldingDollar  } from 
 const Feature = () => {
   return (
 <div className="flex items-center justify-center">
-    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3">  
+    <div className="grid grid-cols-1 gap-6 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-3">  
         <div className="relative bg-dark py-6 px-6 rounded-3xl w-64 my-4 shadow-xl">
             <div className="mt-8">
             <span className='flex items-center justify-center  ' >

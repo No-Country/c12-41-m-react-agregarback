@@ -23,14 +23,30 @@ const SelectComp = ({ onSelectedOptionChange, onIdentificationChange }) => {
 
   const handleIdentificationChange = (e) => {
     const value = e.target.value;
+    let sanitizedValue;
+
+    if (selectedOption === "DNI") {
+      // Permitir solo números para DNI
+      sanitizedValue = value.replace(/[^\d]/g, "");
+    } else if (selectedOption === "Pasaporte") {
+      // Permitir solo letras y números para Pasaporte
+      sanitizedValue = value.replace(/[^A-Za-z0-9]/g, "");
+    } else if (selectedOption === "CUIL" || selectedOption === "CUIT") {
+      // Permitir solo números y guiones para CUIL y CUIT
+      sanitizedValue = value.replace(/[^\d-]/g, "");
+    } else {
+      // Por defecto, permitir cualquier caracter
+      sanitizedValue = value;
+    }
+
     const regex = regexMap[selectedOption] || /^.*$/;
 
     // Agregar automáticamente el prefijo "20-" para CUIL y "30-" para CUIT
-    let formattedValue = value;
-    if (selectedOption === "CUIL" && value.length < 3) {
-      formattedValue = `20-${value}`;
-    } else if (selectedOption === "CUIT" && value.length < 3) {
-      formattedValue = `30-${value}`;
+    let formattedValue = sanitizedValue;
+    if (selectedOption === "CUIL" && sanitizedValue.length < 3) {
+      formattedValue = `20-${sanitizedValue}`;
+    } else if (selectedOption === "CUIT" && sanitizedValue.length < 3) {
+      formattedValue = `30-${sanitizedValue}`;
     }
 
     // Agregar automáticamente el sufijo "-9" si el valor tiene el formato correcto
@@ -40,10 +56,9 @@ const SelectComp = ({ onSelectedOptionChange, onIdentificationChange }) => {
       }
     }
 
-    const sanitizedValue = formattedValue.replace(/[^A-Za-z0-9-]/g, "");
-    setIdentification(sanitizedValue);
-    handleValidation(sanitizedValue);
-    onIdentificationChange(sanitizedValue);
+    setIdentification(formattedValue);
+    handleValidation(formattedValue);
+    onIdentificationChange(formattedValue);
   };
 
 
@@ -138,8 +153,6 @@ const SelectComp = ({ onSelectedOptionChange, onIdentificationChange }) => {
             title={inputTitle}
             autoComplete="off"
           />
-
-
         </div>
       </div>
     </>
