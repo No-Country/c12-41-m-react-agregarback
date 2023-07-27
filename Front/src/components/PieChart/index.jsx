@@ -32,6 +32,7 @@ function PieChart({ chartData }) {
         options={{
           responsive: true,
           plugins: {
+          
             title: {
               display: true,
               text: "Cotizacion Anual Dolar",

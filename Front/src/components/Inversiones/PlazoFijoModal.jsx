@@ -1,16 +1,35 @@
 import React, { useState } from "react";
-import { FiXCircle } from "react-icons/fi";
+import { FiXCircle } from "react-icons/fi"
+import AWN from "awesome-notifications";
 
-const PlazoFijoModal = ({ data }) => {
+const PlazoFijoModal = ({ agregarOperacion }) => {
+  const notifier = new AWN();
   const [showModal, setShowModal] = useState(false);
   const [capital, setCapital] = useState("");
-  const [plazoDias, setPlazoDias] = useState("");
+  const [plazoDias, setPlazoDias] = useState(30);
   const [tnaResult, setTnaResult] = useState("");
   const [inversionTotal, setInversionTotal] = useState("")
+
 
   const toggleModal = () => {
     setShowModal(!showModal);
   };
+  const handleRealizarPlazoFijo = () => {
+    // Aquí se debería hacer la lógica para guardar la operación en la base de datos u otro almacenamiento.
+    // Por ahora, solo vamos a simular una operación con valores estáticos.
+    const nuevaOperacion = {
+      tipo: "Plazo fijo",
+      monto: `$ ${capital}`,
+      estado: "Pendiente", // Podrías cambiar el estado según lo necesites
+      plazo: `${plazoDias} días`,
+      tasa: `${tnaResult}%`
+    };
+
+    agregarOperacion(nuevaOperacion);
+    toggleModal(false);
+    notifier.tip("Operacion pendiente, en las proximas 24hs evaluaremos y nos contactaremos con usted para realizar la inversion!");
+  };
+
 
   const handleCapitalChange = (e) => {
     setCapital(e.target.value);
@@ -28,11 +47,11 @@ const PlazoFijoModal = ({ data }) => {
     const tasaNominialAnual =
       ((1 + tasaInteresDecimal / periodosEnAnio) ** periodosEnAnio - 1) * 100;
     const tna = tasaNominialAnual * cuotas;
-  
+
     const initialCapital = parseFloat(capital);
     const totalInterest = initialCapital * ((1 + tasaInteresDecimal / periodosEnAnio) ** (periodosEnAnio * (cuotas / 12)));
     const totalCapital = initialCapital + totalInterest;
-  
+
     setTnaResult(tna.toFixed(2));
     setInversionTotal(totalCapital.toFixed(2)); // Updated the state variable for total capital
   };
@@ -95,16 +114,16 @@ const PlazoFijoModal = ({ data }) => {
                   Calcular TNA
                 </button>
                 <div>
-                  {tnaResult && <p className="text-gray-500 mb-4">TNA: {tnaResult}%</p>}
+                  <p className="text-gray-500 mb-4">TNA: {tnaResult}%</p>
                   {inversionTotal && <p className="text-gray-500 mb-4">Total Final: ${inversionTotal}</p>}
 
                 </div>
               </div>
               <button
                 className="w-[50%] p-3 self-center font-medium text-white transition duration-200 rounded shadow-md bg-orange hover:bg-yellow hover:text-dark focus:shadow-outline focus:outline-none"
-                onClick={toggleModal}
+                onClick={handleRealizarPlazoFijo}
               >
-                Cerrar
+                Realizar el plazo fijo
               </button>
             </div>
           </div>
