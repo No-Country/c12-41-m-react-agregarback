@@ -13,17 +13,17 @@ const RedesFooter = () => {
         </h2>
         <div className="mt-4 ">
           <span className="flex items-center tex mt-2 sm:ml-auto sm:mt-0 xl:justify-start justify-center ">
-            <Link to="https://www.facebook.com/" className="text-gray cursor-pointer hover:text-[#4267B2]">
+            <Link to="https://www.facebook.com/" target="_blank" className="text-gray cursor-pointer hover:text-[#4267B2]">
               <FacebookIcon/>
             </Link>
-            <Link to="https://twitter.com/i/flow/login?redirect_after_login=%2F" className="ml-3 text-gray cursor-pointer hover:text-[#1DA1F2]">
+            <Link to="https://twitter.com/i/flow/login?redirect_after_login=%2F" target="_blank" className="ml-3 text-gray cursor-pointer hover:text-[#1DA1F2]">
             <TwiiterIcon />
 
             </Link>
-            <Link to="https://www.instagram.com/" className="ml-3 text-gray cursor-pointer hover:text-[#E1306C]">
+            <Link to="https://www.instagram.com/" target="_blank" className="ml-3 text-gray cursor-pointer hover:text-[#E1306C]">
               <InstagramIcon/>
             </Link>
-            <Link to="https://www.linkedin.com/" className="ml-3 text-gray cursor-pointer hover:text-[#0077b5]">
+            <Link to="https://www.linkedin.com/" target="_blank" className="ml-3 text-gray cursor-pointer hover:text-[#0077b5]">
               <LinkedinIcon/>
             </Link>
           </span>

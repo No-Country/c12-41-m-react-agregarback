@@ -4,7 +4,7 @@ export default function validationlogin(input) {
 
     //regex login
 
-    const regexDNI = / [0 - 9]{ 1, 3}\.?[0 - 9]{ 3, 3 } \.?[0 - 9]{ 3, 3 } /;
+    const regexDNI = /^\d{0,8}$/;
     const regexUsuario = /^[a-zA-Z0-9_]{6,20}$/;
     const regexPassword = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 

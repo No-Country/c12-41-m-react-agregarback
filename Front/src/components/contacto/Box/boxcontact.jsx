@@ -6,6 +6,7 @@ import SelectComp from "./Inputs/select";
 import NameAndSurname from "./Inputs/NameSurname";
 import NumberTel from "./Inputs/NumberTel";
 import CorreoInput from "./Inputs/Email";
+import AWN from "awesome-notifications";
 
 const Boxcontact = ({ submitEndpoint }) => {
   const formRef = useRef(null);
@@ -80,12 +81,13 @@ const Boxcontact = ({ submitEndpoint }) => {
         .then((response) => response.json())
         .then((data) => {
           console.log("Respuesta del endpoint:", data);
+          handleSuccesNotificacion(); // Llamamos a la función de notificación de éxito aquí después de recibir una respuesta exitosa del servidor.
         })
         .catch((error) => {
           console.error("Error al enviar los datos:", error);
         });
 
-      setFormError(""); // Limpiar cualquier mensaje de error previo del formulario
+      setFormError("");
     } else {
       setFormError("Por favor complete todos los campos obligatorios.");
     }
@@ -106,9 +108,10 @@ const Boxcontact = ({ submitEndpoint }) => {
     console.log("Name:", name);
     console.log("Surname:", surname);
   };
-  const handleIdentificationChange = (value) =>{
-   handleInputChange("identifiacion", value);
-  }
+
+  const handleIdentificationChange = (value) => {
+    handleInputChange("identifiacion", value);
+  };
 
   const handleEmailChange = (email) => {
     handleInputChange("emailValue", email);
@@ -119,16 +122,22 @@ const Boxcontact = ({ submitEndpoint }) => {
     handleInputChange("comment", comment);
   };
 
-  useEffect(() => {
-    if (submitted) {
-      // Ocultar el mensaje "Enviado correctamente" después de 5 segundos
-      const timer = setTimeout(() => {
-        setSubmitted(false);
-      }, 5000);
+  const handleSuccesNotificacion = () => {
+    const notify = new AWN();
+    notify.success(
+      `¡Hemos enviado tu formulario de ayuda! Pronto nos pondremos en contacto contigo a través del correo electrónico proporcionado. Ten en cuenta que si es un día no hábil o feriado, te responderemos en el día hábil más próximo. ¡Gracias por contactarnos!`,
+      {
+        position: "bottom-left",
+        duration: 5000, // Duración de la notificación en milisegundos
+        classNames: ["bg-orange", "text-white", "p-4", "rounded"],
+      }
+    );
 
-      return () => clearTimeout(timer);
-    }
-  }, [submitted]);
+    // Recargar después de 5 segundos (igual al tiempo de duración de la notificación)
+    setTimeout(() => {
+      window.location.reload();
+    }, 5000);
+  };
 
   useEffect(() => {
     if (!submitted) {
@@ -163,7 +172,6 @@ const Boxcontact = ({ submitEndpoint }) => {
           <SelectComp
             onSelectedOptionChange={handleSelectedOptionChange}
             onIdentificationChange={handleIdentificationChange}
-
           />
 
           <NameAndSurname
@@ -199,18 +207,12 @@ const Boxcontact = ({ submitEndpoint }) => {
             type="submit"
             className="w-40 h-10 flex md:absolute md:bottom-4 md:right-4 m-auto justify-center items-center rounded-full bg-orange text-dark font-bold focus:bg-dark focus:ease-in ease-out transition duration-500 focus:text-white"
             disabled={!isFormValid}
+            onClick={handleSuccesNotificacion}
           >
             Enviar
           </button>
         </div>
       </form>
-
-      {submitted && (
-        <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center w-64 h-12 bg-green text-white text-xl font-bold rounded-full shadow-lg">
-          <TickIcon className="w-5 h-5 mr-2 fill-current text-orange" />
-          Enviado Correctame
-        </div>
-      )}
     </div>
   );
 };
