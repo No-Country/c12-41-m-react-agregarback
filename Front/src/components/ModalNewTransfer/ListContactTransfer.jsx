@@ -1,25 +1,12 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getStatus } from "../../redux/userSlice";
-import useFetch from "../../utils/useFetch";
 import ContactCard from "./ContactCard";
 import FormAndListContac from "./FormAndListContac";
 import ModalContact from "./ModalContact";
 
-const ListContactTransfer = () => {
-  const dispatch = useDispatch();
-  const userStatus = useSelector(getStatus);
+const ListContactTransfer = ({ data, handleRefetchContacts, error }) => {
   const [listOfContactsFiltered, setListOfContactsFiltered] = useState();
   const [open, setOpen] = useState(false);
 
-  const userId = sessionStorage.userId;
-  const { data, error } = useFetch(`users_contacs/${userId}`);
-
-  // useEffect(() => {
-  //   if (userStatus === "idle") {
-  //     // dispatch(getAllContact());
-  //   }
-  // }, [userStatus]);
 
   return (
     <div className="mb-10">
@@ -52,7 +39,12 @@ const ListContactTransfer = () => {
               >
                 Nuevo Contacto
               </button>
-              {open && <ModalContact setOpen={setOpen} />}
+              {open && (
+                <ModalContact
+                  setOpen={setOpen}
+                  handleAddContact={handleRefetchContacts}
+                />
+              )}
             </div>
           </div>
         </div>
