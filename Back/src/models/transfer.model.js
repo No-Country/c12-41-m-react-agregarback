@@ -8,19 +8,31 @@ const TransferModel = db.define("transfers", {
     allowNull: false,
     type: DataTypes.INTEGER,
   },
-  amount: {
-    type: DataTypes.FLOAT,
+  userId: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+  accountId: {
+    type: DataTypes.INTEGER,
     allowNull: false,
   },
   senderAccount: {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
-  receiverAccount: {
-    type: DataTypes.INTEGER,
+  amount: {
+    type: DataTypes.FLOAT,
     allowNull: false,
   },
-  accountId: {
+  validation: {
+    allowNull: false,
+    type: DataTypes.ENUM("accountNumber", "cbu", "cvu", "alias"),
+  },
+  validationValue: {
+    allowNull: false,
+    type: DataTypes.STRING,
+  },
+  contactId: {
     type: DataTypes.INTEGER,
     allowNull: false,
   },

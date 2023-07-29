@@ -4,13 +4,14 @@ import catchAsync from "../utils/catchAsync.js";
 const contactServices = new ContactService();
 
 export const newContact = catchAsync(async (req, res, next) => {
-  const { validation, validationValue, contactId } = req.body;
+  const { validation, validationValue, contactId, contactName } = req.body;
   const { userId } = req.params;
   const contact = await contactServices.createNewContact({
     userId,
     validation,
     validationValue,
     contactId,
+    contactName,
     next,
   });
 
@@ -22,5 +23,11 @@ export const newContact = catchAsync(async (req, res, next) => {
 });
 
 export const findAll = catchAsync(async (req, res, next) => {
-  return res.json(/* valor a retornar */);
+  const { userId } = req.params;
+  const contacts = await contactServices.getAllContacts({ userId, next });
+  return res.status(200).json({
+    status: "success",
+    message: "all contact",
+    contacts
+  });
 });

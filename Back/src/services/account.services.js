@@ -1,5 +1,6 @@
 import AccountModel from "../models/account.model.js";
 import TransferModel from "../models/transfer.model.js";
+import CardModel from "../models/card.model.js"
 import AppError from "../utils/AppError.js";
 import {
   generateAlias,
@@ -87,6 +88,25 @@ class AccountServices {
   async updateAmountAccount({ account, amount, next }) {
     try {
       account.update({ amount });
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+  async getAllAcountsById({ userId, next }) {
+    try {
+      await this.userServices.findUserById({ id: userId, next });
+      const accounts = await AccountModel.findAll({
+        where: { userId },
+        include: [
+          {
+            model: CardModel
+          },
+          {
+            model: TransferModel,
+          }
+        ]
+      });
+      return accounts;
     } catch (error) {
       throw new Error(error);
     }

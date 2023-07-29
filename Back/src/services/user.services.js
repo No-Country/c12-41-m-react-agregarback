@@ -32,11 +32,12 @@ class UserServices {
     }
   }
 
-  async loginUser({ username, password, next }) {
+  async loginUser({ username, password, next, dni }) {
     try {
       const user = await UserModel.findOne({
         where: {
           username,
+          dni,
           status: "active",
         },
       });
@@ -67,6 +68,35 @@ class UserServices {
       }
 
       return user;
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
+  async updateOneUser({ userNewData, next, sessionUser }) {
+    try {
+      console.log(userNewData);
+      const updatedUser = await sessionUser.update(userNewData);
+      return updatedUser;
+    } catch (error) {
+      throw new Error(error);
+    }
+  }
+
+  async changePasswordOfUser({ password, user, newPassword , next }) {
+    try {
+      if (!(await bcrypt.compare(password, user.password))) {
+        throw next(new AppError("password incorrect", 401));
+      }
+      const salt = await bcrypt.genSalt(12);
+      const newSecretPassword = await bcrypt.hash(newPassword, salt);
+      console.log(password, newPassword);
+
+      const userWithPasswordUpdated = await user.update({
+        password: newSecretPassword,
+      });
+
+      return userWithPasswordUpdated;
     } catch (error) {
       throw new Error(error);
     }

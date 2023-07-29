@@ -71,32 +71,31 @@ export const validDeleteAccount = [
   validateFields,
 ];
 
-const atLeastOneField = (value, { req }) => {
-  const { cbu, cvu, alias } = req.body;
-  const attirbute = cbu || cvu || alias;
-  return !!attirbute;
-};
+// const atLeastOneField = (value, { req }) => {
+//   const { cbu, cvu, alias } = req.body;
+//   const attirbute = cbu || cvu || alias;
+//   return !!attirbute;
+// };
 
-// Middleware de validación
-export const validTransferOptional = [
-  body("cbu").optional(),
-  body("cvu").optional(),
-  body("alias").optional(),
-  body()
-    .custom(atLeastOneField)
-    .withMessage("At least one of cbu, cvu, alias field is required"),
-  validateFields,
-];
+// // Middleware de validación
+// export const validTransferOptional = [
+//   body("cbu").optional(),
+//   body("cvu").optional(),
+//   body("alias").optional(),
+//   body()
+//     .custom(atLeastOneField)
+//     .withMessage("At least one of cbu, cvu, alias field is required"),
+//   validateFields,
+// ];
 
 export const validTransferRequire = [
+  body("accountId")
+    .notEmpty()
+    .isInt()
+    .withMessage("accountId es obligatior y debe ser un entero"),
   body("senderAccount")
     .notEmpty()
     .withMessage("sender account is require")
-    .isLength({ min: 9, max: 9 })
-    .withMessage("account number has to have 9 numbers"),
-  body("recieverAccount")
-    .notEmpty()
-    .withMessage("reciever account is require")
     .isLength({ min: 9, max: 9 })
     .withMessage("account number has to have 9 numbers"),
   body("amount")
@@ -104,6 +103,11 @@ export const validTransferRequire = [
     .withMessage("amoun is require")
     .isFloat()
     .withMessage("amoun has to be a number"),
+  body("validation")
+    .notEmpty()
+    .withMessage("validation is require")
+    .isIn(["accountNumber", "cbu", "cvu", "alias"]),
+  body("validationValue").notEmpty().withMessage("validation value is require"),
   validateFields,
 ];
 
@@ -116,11 +120,7 @@ export const validCreateContact = [
       "validation has to be one of accountNumber, cbu, cvu or alias"
     ),
   body("validationValue").notEmpty().withMessage("validationValue is require"),
-  body("contactId")
-    .notEmpty()
-    .withMessage("contactId is require")
-    .isInt()
-    .withMessage("contactId has to be a number"),
+  body("contactName").notEmpty().withMessage("contact is require"),
   validateFields,
 ];
 
@@ -137,5 +137,31 @@ export const validCreateCard = [
     .withMessage("category is require")
     .isIn(["credito", "debito"])
     .withMessage("validation has to be one of credito debito"),
+  validateFields,
+];
+
+const notFalsiValues = (body) => {
+  for (const key in body) {
+    console.log(body[key]);
+    if (
+      body[key] == true ||
+      body[key] == false ||
+      body[key] == undefined ||
+      body[key] == null
+    ) {
+      return false;
+    }
+  }
+  return true;
+};
+
+export const validUpdateInfoUser = [
+  body().custom(notFalsiValues).withMessage("el valor asiganado no es valido"),
+  validateFields,
+];
+
+export const validChangePassword = [
+  body("oldPassword").notEmpty().withMessage("oldPassword is require"),
+  body("newPassword").notEmpty().withMessage("newPassword is require"),
   validateFields,
 ];
